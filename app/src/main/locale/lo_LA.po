@@ -1,0 +1,2030 @@
+# None translations for PROJECT.
+# Copyright (C) 2015 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2015.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2015-12-31 14:50+0000\n"
+"PO-Revision-Date: 2015-12-31 14:50+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: lo_LA <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 1.0.dev0\n"
+
+msgctxt "app_name"
+msgid "Alarmist"
+msgstr ""
+
+msgctxt "download"
+msgid "Download watchapp"
+msgstr ""
+
+msgctxt "download_full"
+msgid "Go to the Pebble app store"
+msgstr ""
+
+msgctxt "pref_key_peb_appstore"
+msgid "appstor"
+msgstr ""
+
+msgctxt "pref_key_show_icon"
+msgid "hide_settings"
+msgstr ""
+
+msgctxt "pref_key_don"
+msgid "donate_plz"
+msgstr ""
+
+msgctxt "show_app_drawer"
+msgid "Alarmist icon is shown in your Android app drawer"
+msgstr ""
+
+msgctxt "hide_app_drawer"
+msgid "Alarmist icon is hidden from the Android app drawer"
+msgstr ""
+
+#. Label shown on launcher icon
+#. Label for the this application displayed on-screen when this application
+#. must be represented to the user.
+msgctxt "app_label"
+msgid "Clock"
+msgstr "ໂມງ"
+
+#. Title for AlarmClock activity
+#. Label for the Alarms activity displayed on-screen when that activity must
+#. be represented to the user.
+msgctxt "alarm_list_title"
+msgid "Alarms"
+msgstr "ໂມງປຸກ"
+
+#. Menu item on Alarm Clock screen: Add alarm
+msgctxt "add_alarm"
+msgid "Add alarm"
+msgstr "ເພີ່ມໂມງປຸກ"
+
+#. Menu item on Alarm Clock screen: Desk clock
+msgctxt "menu_desk_clock"
+msgid "Desk clock"
+msgstr "Desk Clock"
+
+#. Menu item on Alarm Clock screen: Edit alarm
+msgctxt "menu_edit_alarm"
+msgid "Edit alarm"
+msgstr "ແກ້ໄຂໂມງປຸກ"
+
+#. Context Menu Item on Alarm Settings screen: Delete alarm
+msgctxt "delete_alarm"
+msgid "Delete alarm"
+msgstr "ລຶບໂມງປຸກ"
+
+#. Context Menu Item on Alarm Settings screen: Enable alarm
+msgctxt "enable_alarm"
+msgid "Turn alarm on"
+msgstr "ເປີດໂມງປຸກ"
+
+#. Context Menu Item on Alarm Settings screen: Disable alarm
+msgctxt "disable_alarm"
+msgid "Turn alarm off"
+msgstr "ປິດໂມງປຸກ"
+
+#. Delete alarm confirmation dialog message.
+msgctxt "delete_alarm_confirm"
+msgid "Delete this alarm?"
+msgstr "ລຶບໂມງປຸກນີ້?"
+
+#. Menu item on Alarm Clock screen: Show clock
+msgctxt "show_clock"
+msgid "Show clock"
+msgstr "ສະແດງໂມງ"
+
+#. Menu item on Alarm Clock screen: Hide clock
+msgctxt "hide_clock"
+msgid "Hide clock"
+msgstr "ເຊື່ອງໂມງ"
+
+#. Setting label on Set alarm screen: Label
+msgctxt "label"
+msgid "Label"
+msgstr "ປ້າຍກຳກັບ"
+
+#. Default label to display for an alarm
+msgctxt "default_label"
+msgid "Alarm"
+msgstr "ໂມງປຸກ"
+
+#. Preference category on Alarm Settings screen: Set alarm
+#. Also label for the old Alarms dialog activity displayed on-screen when that
+#. activity must be represented to the user.
+msgctxt "set_alarm"
+msgid "Set alarm"
+msgstr "ຕັ້ງໂມງປຸກ"
+
+#. Setting labels on Set alarm screen: Vibration on or off
+msgctxt "alarm_vibrate"
+msgid "Vibrate"
+msgstr "ສັ່ນເຕືອນ"
+
+#. Setting labels on Set alarm screen: Repeat
+msgctxt "alarm_repeat"
+msgid "Repeat"
+msgstr "ປຸກຊ້ຳ"
+
+#. Setting labels on Set alarm screen: Select alarm ringtone
+msgctxt "alert"
+msgid "Alarm Ringtone"
+msgstr "ສຽງໂມງປຸກ"
+
+#. Title of default ringtone played when a timer expires.
+msgctxt "default_timer_ringtone_title"
+msgid "Timer Expired"
+msgstr "ເຄື່ອງ​ຈັບ​ເວ​ລາ​ໝົດ​ອາ​ຍຸ​ແລ້ວ"
+
+#. Title of silent ringtone played when a timer expires.
+msgctxt "silent_timer_ringtone_title"
+msgid "Silent"
+msgstr "ປິດສຽງ"
+
+#. Label on expanded alarm edit view.
+msgctxt "ringtone"
+msgid "Ringtone"
+msgstr "ສຽງໂມງປຸກ"
+
+#. Setting labels on Set alarm screen: Set time
+msgctxt "time"
+msgid "Time"
+msgstr "ເວລາ"
+
+#. Label shown when user is setting up non-repeating alarm for tomorrow [CHAR
+#. LIMIT=15]
+msgctxt "alarm_tomorrow"
+msgid "Tomorrow"
+msgstr "ມື້ອື່ນ"
+
+#. Label shown when user is setting up non-repeating alarm for later today
+#. [CHAR LIMIT=15]
+msgctxt "alarm_today"
+msgid "Today"
+msgstr "ມື້ນີ້"
+
+#. The text shown above the clock when alarm is alerting [CHAR LIMIT=10]
+msgctxt "alarm_alert_wake_up"
+msgid "Wake up!"
+msgstr "ຕື່ນ!"
+
+#. The text shown as an option to dismiss an alerting alarm [CHAR LIMIT=5]
+msgctxt "alarm_alert_off_action_text"
+msgid "Off"
+msgstr "ປິດ"
+
+#. Button labels on the alarm dialog: Dismiss
+msgctxt "alarm_alert_dismiss_text"
+msgid "Dismiss"
+msgstr "ປິດ"
+
+#. Button labels on the pre-dismiss alarm notifications: Dismiss now
+msgctxt "alarm_alert_dismiss_now_text"
+msgid "Dismiss Now"
+msgstr "ປິດໄວ້ກ່ອນຕອນນີ້"
+
+#. Alarm Alert screen: this message is shown after an alarm rung
+#. unattended for a number of minutes.  It tells the user that          the
+#. alarm has been silenced.
+msgctxt "alarm_missed_title"
+msgid "Missed alarm"
+msgstr "ໂມງປຸກທີ່ພາດ"
+
+#, c-format
+msgctxt "alarm_missed_text"
+msgid ""
+"<xliff:g id=\"alarm_time\">%s</xliff:g> - <xliff:g "
+"id=\"alarm_label\">%s</xliff:g>"
+msgstr ""
+"<xliff:g id=\"ALARM_TIME\">%s</xliff:g> - <xliff:g "
+"id=\"ALARM_LABEL\">%s</xliff:g>"
+
+#. The text shown after user snoozed an alerting alarm. The text will be shown
+#. together with the number of minutes in two separate lines. For example:
+#. Snoozed              10 min          [CHAR LIMIT=10]
+msgctxt "alarm_alert_snoozed_text"
+msgid "Snoozed"
+msgstr "​ເລື່ອນ​ແລ້ວ"
+
+#. The text shown after user dismissed an alerting alarm [CHAR LIMIT=15]
+msgctxt "alarm_alert_off_text"
+msgid "Alarm off"
+msgstr "​ປິດ​ໂມງ​ປຸກ"
+
+#. Button labels on the alarm dialog: Snooze
+msgctxt "alarm_alert_snooze_text"
+msgid "Snooze"
+msgstr "ປິດສຽງເຕືອນຊົ່ວຄາວ"
+
+#. Text to appear inside a notification while an alarm is snoozing.
+#, c-format
+msgctxt "alarm_alert_snooze_until"
+msgid "Snoozing until <xliff:g id=\"time\">%s</xliff:g>"
+msgstr "ປິດສຽງເຕືອນຊົ່ວຄາວຈົນກວ່າຈະຮອດ <xliff:g id=\"TIME\">%s</xliff:g>"
+
+#. Text to appear in the notification title while an alarm is about to go off.
+msgctxt "alarm_alert_predismiss_title"
+msgid "Upcoming alarm"
+msgstr "ໂມງປຸກຖັດໄປ"
+
+#. Text to appear in when trying to view a missed alarm that has been deleted
+msgctxt "missed_alarm_has_been_deleted"
+msgid "Your missed alarm has been deleted"
+msgstr "ການຕັ້ງໂມງປຸກທີ່ພາດໄປນັ້ນຖືກລຶບແລ້ວ"
+
+#. Timer notification: how long from now until timer goes off.
+msgctxt "timer_notifications:0"
+msgid "Less than a minute remaining"
+msgstr "ເຫຼືອໜ້ອຍກວ່າ 1 ນາທີ"
+
+#. Timer notification: how long from now until timer goes off.
+#, c-format
+msgctxt "timer_notifications:1"
+msgid "<xliff:g id=\"HOURS\" example=\"2 hours\">%1$s</xliff:g> remaining"
+msgstr "ຍັງເຫຼືອ <xliff:g id=\"HOURS\">%1$s</xliff:g>"
+
+#. Timer notification: how long from now until timer goes off.
+#, c-format
+msgctxt "timer_notifications:2"
+msgid "<xliff:g id=\"MINUTES\" example=\"2 minutes\">%2$s</xliff:g> remaining"
+msgstr "ຍັງເຫຼືອ <xliff:g id=\"MINUTES\">%2$s</xliff:g>"
+
+#. Timer notification: how long from now until timer goes off.
+#, c-format
+msgctxt "timer_notifications:3"
+msgid ""
+"<xliff:g id=\"HOURS\" example=\"2 hours\">%1$s</xliff:g> <xliff:g "
+"id=\"MINUTES\" example=\"2 minutes\">%2$s</xliff:g> remaining"
+msgstr ""
+"ຍັງເຫຼືອ <xliff:g id=\"HOURS\">%1$s</xliff:g> <xliff:g "
+"id=\"MINUTES\">%2$s</xliff:g>"
+
+#. Alarm confirmation toast: Describes how long from now until          alarm
+#. fires
+msgctxt "alarm_set:0"
+msgid "Alarm set for less than 1 minute from now."
+msgstr "ໂມງປຸກຖືກຕັ້ງໄວ້ໜ້ອຍກວ່າ 1 ນາທີຫ່າງຈາກຕອນນີ້."
+
+#. Alarm confirmation toast: Describes how long from now until          alarm
+#. fires
+#, c-format
+msgctxt "alarm_set:1"
+msgid ""
+"Alarm set for <xliff:g id=\"DAYS\" example=\"2 days\">%1$s</xliff:g> from"
+" now."
+msgstr "ໂມງປຸກຕັ້ງໄວ້ <xliff:g id=\"DAYS\">%1$s</xliff:g> ຈາກຕອນນີ້."
+
+#. Alarm confirmation toast: Describes how long from now until          alarm
+#. fires
+#, c-format
+msgctxt "alarm_set:2"
+msgid ""
+"Alarm set for <xliff:g id=\"HOURS\" example=\"2 hours\">%2$s</xliff:g> "
+"from now."
+msgstr "ໂມງປຸກຖືກຕັ້ງໄວ້ <xliff:g id=\"HOURS\">%2$s</xliff:g> ຈາກຕອນນີ້."
+
+#. Alarm confirmation toast: Describes how long from now until          alarm
+#. fires
+#, c-format
+msgctxt "alarm_set:3"
+msgid ""
+"Alarm set for <xliff:g id=\"DAYS\" example=\"2 days\">%1$s</xliff:g> and "
+"<xliff:g id=\"HOURS\" example=\"2 hours\">%2$s</xliff:g> from now."
+msgstr ""
+"ໂມງປຸກຖືກຕັ້ງໄວ້ <xliff:g id=\"DAYS\">%1$s</xliff:g> ແລະ <xliff:g "
+"id=\"HOURS\">%2$s</xliff:g> ຈາກຕອນນີ້."
+
+#. Alarm confirmation toast: Describes how long from now until          alarm
+#. fires
+#, c-format
+msgctxt "alarm_set:4"
+msgid ""
+"Alarm set for <xliff:g id=\"MINUTES\" example=\"2 "
+"minutes\">%3$s</xliff:g> from now."
+msgstr "ໂມງປຸກຖືກຕັ້ງໄວ້ <xliff:g id=\"MINUTES\">%3$s</xliff:g> ຈາກຕອນນີ້."
+
+#. Alarm confirmation toast: Describes how long from now until          alarm
+#. fires
+#, c-format
+msgctxt "alarm_set:5"
+msgid ""
+"Alarm set for <xliff:g id=\"DAYS\" example=\"2 days\">%1$s</xliff:g> and "
+"<xliff:g id=\"MINUTES\" example=\"2 minutes\">%3$s</xliff:g> from now."
+msgstr ""
+"ໂມງປຸກຖືກຕັ້ງໄວ້ <xliff:g id=\"DAYS\">%1$s</xliff:g> ແລະ <xliff:g "
+"id=\"MINUTES\">%3$s</xliff:g> ຈາກຕອນນີ້."
+
+#. Alarm confirmation toast: Describes how long from now until          alarm
+#. fires
+#, c-format
+msgctxt "alarm_set:6"
+msgid ""
+"Alarm set for <xliff:g id=\"HOURS\" example=\"2 hours\">%2$s</xliff:g> "
+"and <xliff:g id=\"MINUTES\" example=\"2 minutes\">%3$s</xliff:g> from "
+"now."
+msgstr ""
+"ໂມງປຸກຖືກຕັ້ງໄວ້ <xliff:g id=\"HOURS\">%2$s</xliff:g> ແລະ <xliff:g "
+"id=\"MINUTES\">%3$s</xliff:g> ຈາກຕອນນີ້."
+
+#. Alarm confirmation toast: Describes how long from now until          alarm
+#. fires
+#, c-format
+msgctxt "alarm_set:7"
+msgid ""
+"Alarm set for <xliff:g id=\"DAYS\" example=\"2 days\">%1$s</xliff:g>, "
+"<xliff:g id=\"HOURS\" example=\"2 hours\">%2$s</xliff:g>, and <xliff:g "
+"id=\"MINUTES\" example=\"2 minutes\">%3$s</xliff:g> from now."
+msgstr ""
+"ໂມງປຸກຖືກຕັ້ງໄວ້ <xliff:g id=\"DAYS\">%1$s</xliff:g>, <xliff:g "
+"id=\"HOURS\">%2$s</xliff:g>, ແລະ <xliff:g id=\"MINUTES\">%3$s</xliff:g> "
+"ຈາກຕອນນີ້."
+
+#. Repeat options that appear under an alarm on main Alarm Clock
+#. screen to identify repetition schedule: special case for when          the
+#. alarm is set to repeat every day
+msgctxt "every_day"
+msgid "Every day"
+msgstr "ທຸກໆມື້"
+
+#. Repeat options that appear under an alarm on main Alarm Clock
+#. screen to identify repetition schedule: concatenate days with          this
+#. character, i.e. "Mon, Tue, Wed"
+msgctxt "day_concat"
+msgid ", "
+msgstr ", "
+
+#. Appears at the top of the Clock Picker screen: Tell user to          select
+#. a clock to display
+msgctxt "clock_instructions"
+msgid "Choose a clock"
+msgstr "ເລືອກໂມງ"
+
+#. Label for analog clock gadget displayed on-screen when that gadget is
+#. represented to the user.
+msgctxt "analog_gadget"
+msgid "Analog clock"
+msgstr "ໂມງເຂັມ"
+
+#. Help activity name
+msgctxt "help"
+msgid "help"
+msgstr "ຊ່ວຍເຫຼືອ"
+
+#. Settings activity name
+#. Label for the Settings activity displayed on-screen when that activity must
+#. be represented to the user.
+msgctxt "settings"
+msgid "Settings"
+msgstr "ຕັ້ງຄ່າ"
+
+#. Setting title for changing the snooze duration.
+msgctxt "snooze_duration_title"
+msgid "Snooze length"
+msgstr "ຄວາມຍາວການປິດສຽງເຕືອນຊົ່ວຄາວ"
+
+#. Setting title for changing the crescendo duration.
+msgctxt "crescendo_duration_title"
+msgid "Gradually increase volume"
+msgstr "ຄ່ອຍໆ​ເພີ່ມ​ລະດັບສຽງ"
+
+#. Summary value for changing the crescendo duration to 0.
+msgctxt "no_crescendo_duration"
+msgid "Off"
+msgstr "ປິດ"
+
+#. Summary value for changing the crescendo duration.
+#, c-format
+msgctxt "crescendo_duration"
+msgid "<xliff:g id=\"number\" example=\"7\">%s</xliff:g> seconds"
+msgstr "<xliff:g id=\"NUMBER\">%s</xliff:g> ວິນາທີ"
+
+#. Setting label when changing the crescendo duration.
+msgctxt "crescendo_picker_label"
+msgid "seconds"
+msgstr "ວິນາທີ"
+
+#. Auto silence preference title
+msgctxt "auto_silence_title"
+msgid "Silence after"
+msgstr "ປິດສຽງຫຼັງຈາກ"
+
+#. Auto silence summary when turned off
+msgctxt "auto_silence_never"
+msgid "Never"
+msgstr "ບໍ່ໃຊ້"
+
+#. Entries listed in the ListPreference when invoking the auto silence
+#. preference.
+msgctxt "auto_silence_entries:0"
+msgid "1 minute"
+msgstr "1 ນາທີ"
+
+#. Entries listed in the ListPreference when invoking the auto silence
+#. preference.
+msgctxt "auto_silence_entries:1"
+msgid "5 minutes"
+msgstr "5 ນາທີ"
+
+#. Entries listed in the ListPreference when invoking the auto silence
+#. preference.
+msgctxt "auto_silence_entries:2"
+msgid "10 minutes"
+msgstr "10 ນາທີ"
+
+#. Entries listed in the ListPreference when invoking the auto silence
+#. preference.
+msgctxt "auto_silence_entries:3"
+msgid "15 minutes"
+msgstr "15 ນາທີ"
+
+#. Entries listed in the ListPreference when invoking the auto silence
+#. preference.
+msgctxt "auto_silence_entries:4"
+msgid "20 minutes"
+msgstr "20 ນາທີ"
+
+#. Entries listed in the ListPreference when invoking the auto silence
+#. preference.
+msgctxt "auto_silence_entries:5"
+msgid "25 minutes"
+msgstr "25 ນາທີ"
+
+#. Entries listed in the ListPreference when invoking the auto silence
+#. preference.
+msgctxt "auto_silence_entries:6"
+msgid "Never"
+msgstr "ບໍ່ໃຊ້"
+
+#. Week start day preference title.
+msgctxt "week_start_title"
+msgid "Start week on"
+msgstr "ເລີ່ມ​ຕົ້ນ​ອາ​ທິດ"
+
+#. Entries listed in ListPreference for start day.
+msgctxt "week_start_entries:0"
+msgid "Saturday"
+msgstr "ວັນເສົາ"
+
+#. Entries listed in ListPreference for start day.
+msgctxt "week_start_entries:1"
+msgid "Sunday"
+msgstr "ວັນອາທິດ"
+
+#. Entries listed in ListPreference for start day.
+msgctxt "week_start_entries:2"
+msgid "Monday"
+msgstr "ວັນຈັນ"
+
+#. Done button when editing an alarm.
+msgctxt "done"
+msgid "Done"
+msgstr "ແລ້ວໆ"
+
+#. Revert button when editing an alarm.
+msgctxt "revert"
+msgid "Revert"
+msgstr "ປ່ຽນກັບ"
+
+#. Delete button when editing an alarm.
+msgctxt "delete"
+msgid "Delete"
+msgstr "ລຶບ"
+
+#. Setting title for changing the alarm volume.
+msgctxt "alarm_volume_title"
+msgid "Alarm volume"
+msgstr "ລະດັບສຽງໂມງປຸກ"
+
+#. Title for the silent ringtone.
+msgctxt "silent_ringtone_title"
+msgid "Silent"
+msgstr "ປິດສຽງ"
+
+#. Title for ringtones that cannot be located by uri.
+msgctxt "unknown_ringtone_title"
+msgid "Unknown"
+msgstr "​ບໍ່​ຮູ້​ຈັກ"
+
+#. Text to display in the small text of the notification
+msgctxt "alarm_notify_text"
+msgid "Snooze or dismiss alarm."
+msgstr "ປິດສຽງເຕືອນຊົ່ວຄາວ ຫຼືປິດໂມງປຸກ."
+
+#. Text to display in the notification ticker and label
+#, c-format
+msgctxt "alarm_notify_snooze_label"
+msgid "<xliff:g id=\"label\">%s</xliff:g> (snoozed)"
+msgstr "<xliff:g id=\"LABEL\">%s</xliff:g> (ຖືກປິດສຽງເຕືອນຊົ່ວຄາວ)"
+
+#. Text to display in the notification when the alarm has been snoozed
+#, c-format
+msgctxt "alarm_notify_snooze_text"
+msgid "Alarm set for <xliff:g id=\"time\">%s</xliff:g>. Touch to cancel."
+msgstr "ໂມງປຸກຖືກຕັ້ງໄວ້ທີ່ <xliff:g id=\"TIME\">%s</xliff:g>. ແຕະເພື່ອຍົກເລີກ."
+
+#. Title of the setting to change hardware button behavior. This string
+#. should be changed for each piece of hardware. [CHAR LIMIT=20]
+msgctxt "volume_button_setting_title"
+msgid "Volume buttons"
+msgstr "ປຸ່ມປັບລະດັບສຽງ"
+
+#. Dialog title of the volume and power setting.
+msgctxt "volume_button_dialog_title"
+msgid "Button effect"
+msgstr "ການເຮັດວຽກຂອງປຸ່ມ"
+
+#. Entries listed in the setting for the side-button action.
+msgctxt "volume_button_setting_entries:0"
+msgid "Snooze"
+msgstr "ປິດສຽງເຕືອນຊົ່ວຄາວ"
+
+#. Entries listed in the setting for the side-button action.
+msgctxt "volume_button_setting_entries:1"
+msgid "Dismiss"
+msgstr "ປິດ"
+
+#. Entries listed in the setting for the side-button action.
+msgctxt "volume_button_setting_entries:2"
+msgid "Do nothing"
+msgstr "ບໍ່ເຮັດຫຍັງ"
+
+#. Title of the ringtone setting.
+msgctxt "default_ringtone_setting_title"
+msgid "Set default ringtone"
+msgstr "ຕັ້ງສຽງຣິງໂທນເລີ່ມຕົ້ນ"
+
+msgctxt "alarm_button_description"
+msgid "Alarms"
+msgstr "ໂມງປຸກ"
+
+msgctxt "gallery_button_description"
+msgid "Gallery"
+msgstr "ຄັງຮູບພາບ"
+
+msgctxt "music_button_description"
+msgid "Music"
+msgstr "ດົນຕີ"
+
+msgctxt "nightmode_button_description"
+msgid "Dim"
+msgstr "ຜ່ອນແສງ"
+
+msgctxt "home_button_description"
+msgid "Launcher"
+msgstr "ໂປຣແກຣມເອີ້ນໃຊ້ວຽກ"
+
+msgctxt "desk_clock_button_description"
+msgid "Clock display"
+msgstr "ໂມງທີ່ສະແດງ"
+
+#. Accessibility labels for alarm buttons
+msgctxt "label_description"
+msgid "Label"
+msgstr "ປ້າຍກຳກັບ"
+
+msgctxt "ringtone_description"
+msgid "Ringtone"
+msgstr "ສຽງໂມງປຸກ"
+
+#. What to show the user if the weather widget exists but fails to
+#. respond. This is a sign of an error; if the weather widget is not
+#. present on the device, we show nothing at all.
+msgctxt "weather_fetch_failure"
+msgid "Weather information isn't available right now."
+msgstr "ຂໍ້ມູນສະພາບອາກາດບໍ່ສາມາດໃຊ້ໄດ້ໃນເວລານີ້."
+
+#. A description for the DeskClock alarm sound playback service.
+#. [CHAR LIMIT=NONE]
+msgctxt "alarm_klaxon_service_desc"
+msgid "Sound playback service for alarms set in Clock."
+msgstr "ບໍລິການຫຼິ້ນສຽງສຳລັບການປຸກ ທີ່ຕັ້ງໄວ້ໃນໂປຣແກຣມໂມງ."
+
+#. String displayed as the alert summary while loading the alert name from
+#. the media player. [CHAR LIMIT=NONE]
+msgctxt "loading_ringtone"
+msgid "Loading ringtone…"
+msgstr "ກຳລັງໂຫລດສຽງປຸກ..."
+
+#. A description for the DeskClock timer sound playback service.
+#. [CHAR LIMIT=NONE]
+msgctxt "timer_ring_service_desc"
+msgid "Sound playback service for timers set in Clock."
+msgstr "ບໍລິການຫຼິ້ນສຽງສຳລັບໂມງນັບຖອຍຫຼັງ ທີ່ຕັ້ງຢູ່ໃນໂປຣແກຣມໂມງ."
+
+#. Label on the main screen control used to set alarm [CHAR LIMIT=30]
+msgctxt "control_set_alarm"
+msgid "Set alarm"
+msgstr "ຕັ້ງໂມງປຸກ"
+
+#. ActionBar strings
+#. Describes the purpose of the tab button which which switches the activity
+#. to the Alarm page
+msgctxt "menu_alarm"
+msgid "Alarm"
+msgstr "ໂມງປຸກ"
+
+#. Describes the purpose of the tab button which which switches the activity
+#. to the Timer page
+msgctxt "menu_timer"
+msgid "Timer"
+msgstr "ໂມງນັບຖອຍຫຼັງ"
+
+#. Describes the purpose of the tab button which which switches the activity
+#. to the Clock page
+msgctxt "menu_clock"
+msgid "Clock"
+msgstr "ໂມງ"
+
+#. Describes the purpose of the tab button which which switches the activity
+#. to the Stopwatch page
+msgctxt "menu_stopwatch"
+msgid "Stopwatch"
+msgstr "ຈັບເວລາ"
+
+#. Clock view buttons strings
+#. Describes the purpose of the button to start the activity to
+#. add/edit/delete alarms
+msgctxt "button_alarms"
+msgid "Add alarm"
+msgstr "ເພີ່ມໂມງປຸກ"
+
+#. Describes the purpose of the button which provides a list of cities for the
+#. world clock settings
+msgctxt "button_cities"
+msgid "Cities"
+msgstr "ເມືອງ"
+
+#. Describes the purpose of the button which pops up a menu of setting choices
+msgctxt "button_menu"
+msgid "More options"
+msgstr "ທາງເລືອກເພີ່ມເຕີມ"
+
+#. Menu item on most screens to get to more settings
+msgctxt "menu_item_settings"
+msgid "Settings"
+msgstr "ຕັ້ງຄ່າ"
+
+#. Menu item on most screens to get to the help information
+msgctxt "menu_item_help"
+msgid "Help"
+msgstr "ຊ່ວຍເຫຼືອ"
+
+#. Menu item on clock screen to enter night mode.
+msgctxt "menu_item_night_mode"
+msgid "Night mode"
+msgstr "ໂໝດກາງຄືນ"
+
+#. Menu item on Cities screen to sort by GMT offset
+msgctxt "menu_item_sort_by_gmt_offset"
+msgid "Sort by time"
+msgstr "ຮຽງຕາມເວລາ"
+
+#. Menu item on Cities screen to sort by alphabetical order
+msgctxt "menu_item_sort_by_name"
+msgid "Sort by name"
+msgstr "ຮຽງຕາມຊື່"
+
+#. Label for selected cities in Cities list view
+msgctxt "selected_cities_label"
+msgid "Selected Cities"
+msgstr "ເມືອງທີ່ເລືອກແລ້ວ"
+
+#. Stopwatch and Timer shared strings
+#. Describes the purpose of the button to resume running a stopwatch or timer.
+#. [CHAR LIMIT=15]
+msgctxt "sw_resume_button"
+msgid "Resume"
+msgstr "ສືບຕໍ່"
+
+#. Describes the purpose of the button             for stopwatch:
+#. return stopwatch to zero and remove the lap times.             for timer:
+#. return timer to originally set duration.         [CHAR LIMIT=15]
+msgctxt "sw_reset_button"
+msgid "Reset"
+msgstr "ນັບໃໝ່"
+
+#. Stopwatch strings
+#. Describes the purpose of the button to begin running a stopwatch
+msgctxt "sw_start_button"
+msgid "Start"
+msgstr "ເລີ່ມ"
+
+#. Describes the purpose of the button to pause a stopwatch.
+msgctxt "sw_stop_button"
+msgid "Stop"
+msgstr "ຢຸດ"
+
+#. Describes the purpose of the button to record current the stopwatch value
+#. into the4 collection of lap times.
+msgctxt "sw_lap_button"
+msgid "Lap"
+msgstr "ຮອບ"
+
+#. Describes the purpose of the button to share the stopwatch value.
+#. Also used as title for chooser when sharing stopwatch results.
+msgctxt "sw_share_button"
+msgid "Share"
+msgstr "ແບ່ງປັນ"
+
+#. Abbreviation for temporal hours [CHAR LIMIT=1]
+msgctxt "hours_label"
+msgid "h"
+msgstr "ຊ"
+
+#. Abbreviation for temporal minutes [CHAR LIMIT=1]
+msgctxt "minutes_label"
+msgid "m"
+msgstr "ນ"
+
+#. Abbreviation for temporal seconds [CHAR LIMIT=1]
+msgctxt "seconds_label"
+msgid "s"
+msgstr "ວິ"
+
+#. Accessibility strings
+msgctxt "hours_label_description"
+msgid "hours"
+msgstr "ຊົ່ວໂມງ"
+
+msgctxt "minutes_label_description"
+msgid "minutes"
+msgstr "ນາທີ"
+
+msgctxt "seconds_label_description"
+msgid "seconds"
+msgstr "ວິນາທີ"
+
+msgctxt "zero"
+msgid "0"
+msgstr "0"
+
+#. Stopwatch share strings
+#. Sentence within the message created to share the total time recorded within
+#. the stopwatch
+#, c-format
+msgctxt "sw_share_main"
+msgid "My time is <xliff:g id=\"time\">%s</xliff:g>"
+msgstr "ເວລາຂອງຂ້ອຍແມ່ນ <xliff:g id=\"TIME\">%s</xliff:g>"
+
+#. Header within the message created to share a list of lap times (a new line
+#. is appended to this)
+msgctxt "sw_share_laps"
+msgid "Lap times:"
+msgstr "ເວລາຮອບ:"
+
+#. Label to enumerate the number of laps in the notification the user has
+#. counted
+#, c-format
+msgctxt "sw_notification_lap_number"
+msgid "Lap <xliff:g id=\"number\">%d</xliff:g>"
+msgstr "ຮອບ <xliff:g id=\"NUMBER\">%d</xliff:g>"
+
+#. Label to enumerate the number of laps the user has counted
+#, c-format
+msgctxt "sw_lap_number_set:0"
+msgid "# <xliff:g id=\"number\">%d</xliff:g>"
+msgstr "# <xliff:g id=\"NUMBER\">%d</xliff:g>"
+
+#. Label to enumerate the number of laps the user has counted
+#, c-format
+msgctxt "sw_lap_number_set:1"
+msgid "# <xliff:g id=\"number\">%02d</xliff:g>"
+msgstr "# <xliff:g id=\"NUMBER\">%02d</xliff:g>"
+
+#. timer strings
+#. Describes the purpose of the button to add a new timer
+msgctxt "timer_add_timer"
+msgid "Add Timer"
+msgstr "ເພີ່ມໂມງນັບຖອຍຫຼັງ"
+
+#. Describes the purpose of the button to begin or continue running a timer
+msgctxt "timer_start"
+msgid "Start"
+msgstr "ເລີ່ມ"
+
+#. Describes the purpose of the button to delete a timer.
+msgctxt "timer_delete"
+msgid "Delete"
+msgstr "ລຶບ"
+
+#. Talkback description for deleting a number.
+#, c-format
+msgctxt "timer_descriptive_delete"
+msgid "Delete <xliff:g id=\"number_string\">%s</xliff:g>"
+msgstr "ລຶບ <xliff:g id=\"NUMBER_STRING\">%s</xliff:g>"
+
+#. Describes the purpose of the button increase the remaining time on a timer
+#. by one minute.
+msgctxt "timer_plus_one"
+msgid "Add 1 Minute"
+msgstr "ເພີ່ມ 1 ນາທີ"
+
+#. Like "timer_plus_one", but with 'minute' abbreviated for the notification.
+msgctxt "timer_plus_1_min"
+msgid "Add 1 min"
+msgstr "ເພີ່ມ 1 ນາທີ"
+
+#. Describes the purpose of the button to stop the timer.
+msgctxt "timer_stop"
+msgid "Stop"
+msgstr "ຢຸດ"
+
+#. Describes the purpose of the button to stop all currently firing timers.
+#. [CHAR LIMIT=25]
+msgctxt "timer_stop_all"
+msgid "Stop all timers"
+msgstr "ຢຸດ​ທຸກ​ເວ​ລາ"
+
+#. Describes the purpose of the button to stop and delete the timer.
+msgctxt "timer_done"
+msgid "Done"
+msgstr "ແລ້ວໆ"
+
+#. Describes the purpose of the button to return the timer to it's original
+#. starting value.
+msgctxt "timer_reset"
+msgid "Reset"
+msgstr "ນັບໃໝ່"
+
+#. Describes the purpose of the button to discard the current dialog values.
+#. Will also close the dialog if other time's exist
+msgctxt "timer_cancel"
+msgid "Cancel"
+msgstr "ຍົກເລີກ"
+
+#. Notification content shown when a timer has completed and has no more time
+#. remaining
+msgctxt "timer_times_up"
+msgid "Time's up"
+msgstr "ໝົດເວລາ"
+
+#. Notification content shown when multiple timers have completed and
+#. have no more time         remaining. Arg is the number of timers. [CHAR
+#. LIMIT=25]
+#, c-format
+msgctxt "timer_multi_times_up"
+msgid "<xliff:g id=\"NUM_TIMERS\" example=\"2\">%d</xliff:g> timers expired"
+msgstr "<xliff:g id=\"NUM_TIMERS\">%d</xliff:g> ​ໂມງ​ຈັບ​ເວ​ລາ​ໝົດ​ອາ​ຍຸ​ແລ້ວ"
+
+#. Label associated with a notification for a Timer
+msgctxt "timer_notification_label"
+msgid "Timer"
+msgstr "ໂມງນັບຖອຍຫລັງ"
+
+#. Toast content shown when user attempts to create a new timer when there are
+#. already 4 timers
+msgctxt "timers_max_count_reached"
+msgid "4 timers maximum"
+msgstr "ໂຕ​ຈັບ​ເວ​ລາ​ສູງ​ສຸດ 4 ອັນ"
+
+#. Describes the purpose of the notification button to pause the timer. [CHAR
+#. LIMIT=15]
+msgctxt "timer_pause"
+msgid "Pause"
+msgstr "ຢຸດຊົ່ວຄາວ"
+
+#. Describes the purpose of the notification button to reset all running
+#. timers. [CHAR LIMIT=31]
+msgctxt "timer_reset_all"
+msgid "Reset all timers"
+msgstr "ຕັ້ງ​ເຄື່ອງ​ຈັບ​ເວ​ລາ​ທັງ​ໝົດ​ໃໝ່"
+
+#. Jocular content that user may append when sharing the lap times
+msgctxt "sw_share_strings:0"
+msgid "You're quite the speed demon."
+msgstr "ທ່ານໄວປານຜີພຸ້ນນໍ້."
+
+#. Jocular content that user may append when sharing the lap times
+msgctxt "sw_share_strings:1"
+msgid "Enjoy the fruits of your labor."
+msgstr "ຂໍໃຫ້ມີຄວາມສຸກກັບໝາກຜົນຈາກເຫື່ອແຮງຂອງທ່ານ."
+
+#. Jocular content that user may append when sharing the lap times
+msgctxt "sw_share_strings:2"
+msgid "Androids are known to be fast, but not as fast as you!"
+msgstr "Android ເປັນທີ່ຮູ້ຈັກໃນເລື່ອງຄວາມໄວ, ແຕ່ກໍຍັງບໍ່ໄວຊ່ຳເຈົ້າ!"
+
+#. Jocular content that user may append when sharing the lap times
+msgctxt "sw_share_strings:3"
+msgid "Phew."
+msgstr "ເຫີ່."
+
+#. Jocular content that user may append when sharing the lap times
+msgctxt "sw_share_strings:4"
+msgid "L33t times."
+msgstr "ເວລາຂັ້ນເທບ."
+
+#. Jocular content that user may append when sharing the lap times
+msgctxt "sw_share_strings:5"
+msgid "Such prodigious velocity."
+msgstr "ຊ່າງເປັນຄວາມໄວອັນມະຫາສານ."
+
+#. Jocular content that user may append when sharing the lap times
+msgctxt "sw_share_strings:6"
+msgid "Let's do the time warp again."
+msgstr "ມາເດີນທາງຂ້າມເວລາກັນອີກບາດນຶ່ງເທາະ."
+
+#. Jocular content that user may append when sharing the lap times
+msgctxt "sw_share_strings:7"
+msgid "Just a jump to the left."
+msgstr "ພຽງແຕ່ໂດດໄປທາງຊ້າຍ."
+
+#. Jocular content that user may append when sharing the lap times
+msgctxt "sw_share_strings:8"
+msgid "You have a palette for haste."
+msgstr "ທ່ານມີຖາດສີສຳລັບຄວາມໄວ."
+
+#. Jocular content that user may append when sharing the lap times
+msgctxt "sw_share_strings:9"
+msgid "Photonic velocity."
+msgstr "ຄວາມໄວໂຟໂຕນິກ."
+
+#. Title with the clock on the main page displaying the user's regular
+#. timezone (shows when automatic_home_clock enabled)
+msgctxt "home_label"
+msgid "Home"
+msgstr "ຫນ້າທໍາອິດ"
+
+#. Label for the Cities activity displayed on-screen when that activity must
+#. be represented to the user.
+msgctxt "cities_activity_title"
+msgid "Cities"
+msgstr "ເມືອງ"
+
+#. Settings strings
+#. Header in the preferences settings for the section pertaining to clocks on
+#. the main fragment
+msgctxt "clock_settings"
+msgid "Clock"
+msgstr "ໂມງ"
+
+#. Header for a Clock Dream Setting referring to choosing analog or digital
+#. style
+msgctxt "clock_style"
+msgid "Style"
+msgstr "ຮູບແບບ"
+
+#. Title for preference to change date & time
+msgctxt "open_date_settings"
+msgid "Change Date & time"
+msgstr "ປ່ຽນ​ແປງວັນ​ທີ ແລະ ເວ​ລາ"
+
+#. Entries listed in the ListPreference when invoking the clock style
+#. preference.
+msgctxt "clock_style_entries:0"
+msgid "Analog"
+msgstr "ໂມງເຂັມ"
+
+#. Entries listed in the ListPreference when invoking the clock style
+#. preference.
+msgctxt "clock_style_entries:1"
+msgid "Digital"
+msgstr "ດິຈິຕອນ"
+
+#. Title for an option that will automtically show a clock representing the
+#. user's regular timezone on the main fragment whenever the user leaves their
+#. regular timezone
+msgctxt "automatic_home_clock"
+msgid "Automatic home clock"
+msgstr "ສະແດງໂມງທ້ອງຖິ່ນອັດຕະໂນມັດ"
+
+#. Describes the functionality provided by the automatic_home_clock option
+msgctxt "automatic_home_clock_summary"
+msgid ""
+"While traveling in an area where the time is different, add a clock for "
+"home"
+msgstr ""
+"ໃນລະຫວ່າງການເດີນທາງ ໃນຂົງເຂດທີ່ເຂດເວລາແຕກຕ່າງກັນ, "
+"ໃຫ້ເພີ່ມໂມງທ້ອງຖິ່ນຂອງທ່ານ"
+
+#. Title in the preferences change the time zone for the user's home
+msgctxt "home_time_zone"
+msgid "Home time zone"
+msgstr "ເຂດເວລາໂມງທ້ອງຖິ່ນ"
+
+#. Title in a list dialog box to pick a time zone for the user's home
+msgctxt "home_time_zone_title"
+msgid "Home time zone"
+msgstr "ເຂດເວລາໂມງທ້ອງຖິ່ນ"
+
+#. Textual content of the button to discard the current dialog values and
+#. close the dialog
+msgctxt "time_picker_cancel"
+msgid "Cancel"
+msgstr "ຍົກເລີກ"
+
+#. Textual content of the button to update an alarm with the current dialog
+#. values
+msgctxt "time_picker_set"
+msgid "OK"
+msgstr "ຕົກລົງ"
+
+msgctxt "time_picker_time_seperator"
+msgid ":"
+msgstr ":"
+
+#. place holder for am/pm label when it is not set
+msgctxt "time_picker_ampm_label"
+msgid "--"
+msgstr "--"
+
+#. add 00 as minutes to the time when pressing this button
+msgctxt "time_picker_00_label"
+msgid ":00"
+msgstr ":00"
+
+#. add 30 as minutes to the time when pressing this button
+msgctxt "time_picker_30_label"
+msgid ":30"
+msgstr ":30"
+
+#. Choices for timezones, must be kept in sync with timezone_values. CHAR
+#. LIMIT=25]
+msgctxt "timezone_labels:0"
+msgid "Marshall Islands"
+msgstr "ໝູ່ເກາະມາແຊວ"
+
+#. Choices for timezones, must be kept in sync with timezone_values. CHAR
+#. LIMIT=25]
+msgctxt "timezone_labels:1"
+msgid "Midway Island"
+msgstr "ເກາະມິດເວ"
+
+#. Choices for timezones, must be kept in sync with timezone_values. CHAR
+#. LIMIT=25]
+msgctxt "timezone_labels:2"
+msgid "Hawaii"
+msgstr "ຮາວາຍ"
+
+#. Choices for timezones, must be kept in sync with timezone_values. CHAR
+#. LIMIT=25]
+msgctxt "timezone_labels:3"
+msgid "Alaska"
+msgstr "ອາລັສກາ"
+
+#. Choices for timezones, must be kept in sync with timezone_values. CHAR
+#. LIMIT=25]
+msgctxt "timezone_labels:4"
+msgid "Pacific Time"
+msgstr "ເວລາແປຊິຟິກ"
+
+#. Choices for timezones, must be kept in sync with timezone_values. CHAR
+#. LIMIT=25]
+msgctxt "timezone_labels:5"
+msgid "Tijuana"
+msgstr "ທິຮວນນາ"
+
+#. Choices for timezones, must be kept in sync with timezone_values. CHAR
+#. LIMIT=25]
+msgctxt "timezone_labels:6"
+msgid "Arizona"
+msgstr "ອາຣິໂຊນາ"
+
+#. Choices for timezones, must be kept in sync with timezone_values. CHAR
+#. LIMIT=25]
+msgctxt "timezone_labels:7"
+msgid "Chihuahua"
+msgstr "ຊິຮົວຮົວ"
+
+#. Choices for timezones, must be kept in sync with timezone_values. CHAR
+#. LIMIT=25]
+msgctxt "timezone_labels:8"
+msgid "Mountain Time"
+msgstr "ເວລາເມົາເທນ"
+
+#. Choices for timezones, must be kept in sync with timezone_values. CHAR
+#. LIMIT=25]
+msgctxt "timezone_labels:9"
+msgid "Central America"
+msgstr "ອາເມລິກາກາງ"
+
+#. Choices for timezones, must be kept in sync with timezone_values. CHAR
+#. LIMIT=25]
+msgctxt "timezone_labels:10"
+msgid "Central Time"
+msgstr "ເວລາກາງ"
+
+#. Choices for timezones, must be kept in sync with timezone_values. CHAR
+#. LIMIT=25]
+msgctxt "timezone_labels:11"
+msgid "Mexico City"
+msgstr "ເມັກຊິໂກ ຊິຕີ"
+
+#. Choices for timezones, must be kept in sync with timezone_values. CHAR
+#. LIMIT=25]
+msgctxt "timezone_labels:12"
+msgid "Saskatchewan"
+msgstr "ຊາເກັດເຊວານ"
+
+#. Choices for timezones, must be kept in sync with timezone_values. CHAR
+#. LIMIT=25]
+msgctxt "timezone_labels:13"
+msgid "Bogota"
+msgstr "ໂບໂກຕາ"
+
+#. Choices for timezones, must be kept in sync with timezone_values. CHAR
+#. LIMIT=25]
+msgctxt "timezone_labels:14"
+msgid "Eastern Time"
+msgstr "ເວລາຕາເວັນອອກ"
+
+#. Choices for timezones, must be kept in sync with timezone_values. CHAR
+#. LIMIT=25]
+msgctxt "timezone_labels:15"
+msgid "Venezuela"
+msgstr "ເວເນຊູເອລາ"
+
+#. Choices for timezones, must be kept in sync with timezone_values. CHAR
+#. LIMIT=25]
+msgctxt "timezone_labels:16"
+msgid "Atlantic Time (Barbados)"
+msgstr "ເວລາແອັດແລນຕິກ (ບາບາໂດສ)"
+
+#. Choices for timezones, must be kept in sync with timezone_values. CHAR
+#. LIMIT=25]
+msgctxt "timezone_labels:17"
+msgid "Atlantic Time (Canada)"
+msgstr "ເວລາແອັດແລນຕິກ (ການາດາ)"
+
+#. Choices for timezones, must be kept in sync with timezone_values. CHAR
+#. LIMIT=25]
+msgctxt "timezone_labels:18"
+msgid "Manaus"
+msgstr "ມາເນົາສ໌"
+
+#. Choices for timezones, must be kept in sync with timezone_values. CHAR
+#. LIMIT=25]
+msgctxt "timezone_labels:19"
+msgid "Santiago"
+msgstr "ຊານຕິເອໂກ"
+
+#. Choices for timezones, must be kept in sync with timezone_values. CHAR
+#. LIMIT=25]
+msgctxt "timezone_labels:20"
+msgid "Newfoundland"
+msgstr "ນິວຟາວແລນ"
+
+#. Choices for timezones, must be kept in sync with timezone_values. CHAR
+#. LIMIT=25]
+msgctxt "timezone_labels:21"
+msgid "Brasilia"
+msgstr "ບຣາຊິເລຍ"
+
+#. Choices for timezones, must be kept in sync with timezone_values. CHAR
+#. LIMIT=25]
+msgctxt "timezone_labels:22"
+msgid "Buenos Aires"
+msgstr "ບົວໂນສ ໄອເຣສ"
+
+#. Choices for timezones, must be kept in sync with timezone_values. CHAR
+#. LIMIT=25]
+msgctxt "timezone_labels:23"
+msgid "Greenland"
+msgstr "ກຣີນແລນ"
+
+#. Choices for timezones, must be kept in sync with timezone_values. CHAR
+#. LIMIT=25]
+msgctxt "timezone_labels:24"
+msgid "Montevideo"
+msgstr "ມອນເທວິດີໂອ"
+
+#. Choices for timezones, must be kept in sync with timezone_values. CHAR
+#. LIMIT=25]
+msgctxt "timezone_labels:25"
+msgid "Mid-Atlantic"
+msgstr "ແອັດແລນຕິກກາງ"
+
+#. Choices for timezones, must be kept in sync with timezone_values. CHAR
+#. LIMIT=25]
+msgctxt "timezone_labels:26"
+msgid "Azores"
+msgstr "ອະໂຊເຣສ"
+
+#. Choices for timezones, must be kept in sync with timezone_values. CHAR
+#. LIMIT=25]
+msgctxt "timezone_labels:27"
+msgid "Cape Verde Islands"
+msgstr "ຫມູ່ເກາະເຄບເວີດ"
+
+#. Choices for timezones, must be kept in sync with timezone_values. CHAR
+#. LIMIT=25]
+msgctxt "timezone_labels:28"
+msgid "Casablanca"
+msgstr "ຄາຊາບລັງກາ"
+
+#. Choices for timezones, must be kept in sync with timezone_values. CHAR
+#. LIMIT=25]
+msgctxt "timezone_labels:29"
+msgid "London, Dublin"
+msgstr "ລອນດອນ, ດັບບລິນ"
+
+#. Choices for timezones, must be kept in sync with timezone_values. CHAR
+#. LIMIT=25]
+msgctxt "timezone_labels:30"
+msgid "Amsterdam, Berlin"
+msgstr "ອຳສະເຕີດຳ, ເບີລິນ"
+
+#. Choices for timezones, must be kept in sync with timezone_values. CHAR
+#. LIMIT=25]
+msgctxt "timezone_labels:31"
+msgid "Belgrade"
+msgstr "ເບວເກຣດ"
+
+#. Choices for timezones, must be kept in sync with timezone_values. CHAR
+#. LIMIT=25]
+msgctxt "timezone_labels:32"
+msgid "Brussels"
+msgstr "ບຣັສເຊວ"
+
+#. Choices for timezones, must be kept in sync with timezone_values. CHAR
+#. LIMIT=25]
+msgctxt "timezone_labels:33"
+msgid "Sarajevo"
+msgstr "ຊາຣາເຮໂວ"
+
+#. Choices for timezones, must be kept in sync with timezone_values. CHAR
+#. LIMIT=25]
+msgctxt "timezone_labels:34"
+msgid "Windhoek"
+msgstr "ວິນຮູກຄ"
+
+#. Choices for timezones, must be kept in sync with timezone_values. CHAR
+#. LIMIT=25]
+msgctxt "timezone_labels:35"
+msgid "W. Africa Time"
+msgstr "ເວລາອາຟຣິກາ"
+
+#. Choices for timezones, must be kept in sync with timezone_values. CHAR
+#. LIMIT=25]
+msgctxt "timezone_labels:36"
+msgid "Amman, Jordan"
+msgstr "ແອັມມານ, ຈໍແດນ"
+
+#. Choices for timezones, must be kept in sync with timezone_values. CHAR
+#. LIMIT=25]
+msgctxt "timezone_labels:37"
+msgid "Athens, Istanbul"
+msgstr "ເອເທນ, ອິສຕັນບູ"
+
+#. Choices for timezones, must be kept in sync with timezone_values. CHAR
+#. LIMIT=25]
+msgctxt "timezone_labels:38"
+msgid "Beirut, Lebanon"
+msgstr "ເບຣຸດ, ເລບານອນ"
+
+#. Choices for timezones, must be kept in sync with timezone_values. CHAR
+#. LIMIT=25]
+msgctxt "timezone_labels:39"
+msgid "Cairo"
+msgstr "ໄຄໂຣ"
+
+#. Choices for timezones, must be kept in sync with timezone_values. CHAR
+#. LIMIT=25]
+msgctxt "timezone_labels:40"
+msgid "Helsinki"
+msgstr "ເຮວຊິງກິ"
+
+#. Choices for timezones, must be kept in sync with timezone_values. CHAR
+#. LIMIT=25]
+msgctxt "timezone_labels:41"
+msgid "Jerusalem"
+msgstr "ເຈີຣູຊາເລມ"
+
+#. Choices for timezones, must be kept in sync with timezone_values. CHAR
+#. LIMIT=25]
+msgctxt "timezone_labels:42"
+msgid "Minsk"
+msgstr "ມິນສກ໌"
+
+#. Choices for timezones, must be kept in sync with timezone_values. CHAR
+#. LIMIT=25]
+msgctxt "timezone_labels:43"
+msgid "Harare"
+msgstr "ຮາຣາເຣ"
+
+#. Choices for timezones, must be kept in sync with timezone_values. CHAR
+#. LIMIT=25]
+msgctxt "timezone_labels:44"
+msgid "Baghdad"
+msgstr "ແບັກແດດ"
+
+#. Choices for timezones, must be kept in sync with timezone_values. CHAR
+#. LIMIT=25]
+msgctxt "timezone_labels:45"
+msgid "Moscow"
+msgstr "ມອສໂຄ"
+
+#. Choices for timezones, must be kept in sync with timezone_values. CHAR
+#. LIMIT=25]
+msgctxt "timezone_labels:46"
+msgid "Kuwait"
+msgstr "ຄູເວດ"
+
+#. Choices for timezones, must be kept in sync with timezone_values. CHAR
+#. LIMIT=25]
+msgctxt "timezone_labels:47"
+msgid "Nairobi"
+msgstr "ໄນໂຣບີ"
+
+#. Choices for timezones, must be kept in sync with timezone_values. CHAR
+#. LIMIT=25]
+msgctxt "timezone_labels:48"
+msgid "Tehran"
+msgstr "ເຕຣານ"
+
+#. Choices for timezones, must be kept in sync with timezone_values. CHAR
+#. LIMIT=25]
+msgctxt "timezone_labels:49"
+msgid "Baku"
+msgstr "ບາຄຸ"
+
+#. Choices for timezones, must be kept in sync with timezone_values. CHAR
+#. LIMIT=25]
+msgctxt "timezone_labels:50"
+msgid "Tbilisi"
+msgstr "ທິບິລິຊີ"
+
+#. Choices for timezones, must be kept in sync with timezone_values. CHAR
+#. LIMIT=25]
+msgctxt "timezone_labels:51"
+msgid "Yerevan"
+msgstr "ເຢເຣວານ"
+
+#. Choices for timezones, must be kept in sync with timezone_values. CHAR
+#. LIMIT=25]
+msgctxt "timezone_labels:52"
+msgid "Dubai"
+msgstr "ດູໄບ"
+
+#. Choices for timezones, must be kept in sync with timezone_values. CHAR
+#. LIMIT=25]
+msgctxt "timezone_labels:53"
+msgid "Kabul"
+msgstr "ຄາບູ"
+
+#. Choices for timezones, must be kept in sync with timezone_values. CHAR
+#. LIMIT=25]
+msgctxt "timezone_labels:54"
+msgid "Islamabad, Karachi"
+msgstr "ອິສລາມາບັດ, ກາຣາຈິ"
+
+#. Choices for timezones, must be kept in sync with timezone_values. CHAR
+#. LIMIT=25]
+msgctxt "timezone_labels:55"
+msgid "Ural'sk"
+msgstr "ຢູໂຣເຊກ"
+
+#. Choices for timezones, must be kept in sync with timezone_values. CHAR
+#. LIMIT=25]
+msgctxt "timezone_labels:56"
+msgid "Yekaterinburg"
+msgstr "ເຢກັດເທຣິນເບີກ"
+
+#. Choices for timezones, must be kept in sync with timezone_values. CHAR
+#. LIMIT=25]
+msgctxt "timezone_labels:57"
+msgid "Kolkata"
+msgstr "ໂຄຄາຕາ"
+
+#. Choices for timezones, must be kept in sync with timezone_values. CHAR
+#. LIMIT=25]
+msgctxt "timezone_labels:58"
+msgid "Sri Lanka"
+msgstr "ສີລັງກາ"
+
+#. Choices for timezones, must be kept in sync with timezone_values. CHAR
+#. LIMIT=25]
+msgctxt "timezone_labels:59"
+msgid "Kathmandu"
+msgstr "ຄັດມັນດູ"
+
+#. Choices for timezones, must be kept in sync with timezone_values. CHAR
+#. LIMIT=25]
+msgctxt "timezone_labels:60"
+msgid "Astana"
+msgstr "ເອັສຕານາ"
+
+#. Choices for timezones, must be kept in sync with timezone_values. CHAR
+#. LIMIT=25]
+msgctxt "timezone_labels:61"
+msgid "Yangon"
+msgstr "ຢາງກອນ"
+
+#. Choices for timezones, must be kept in sync with timezone_values. CHAR
+#. LIMIT=25]
+msgctxt "timezone_labels:62"
+msgid "Krasnoyarsk"
+msgstr "ຄຣາສໂນຢາກ"
+
+#. Choices for timezones, must be kept in sync with timezone_values. CHAR
+#. LIMIT=25]
+msgctxt "timezone_labels:63"
+msgid "Bangkok"
+msgstr "ບາງກອກ"
+
+#. Choices for timezones, must be kept in sync with timezone_values. CHAR
+#. LIMIT=25]
+msgctxt "timezone_labels:64"
+msgid "Beijing"
+msgstr "ປັກກິ່ງ"
+
+#. Choices for timezones, must be kept in sync with timezone_values. CHAR
+#. LIMIT=25]
+msgctxt "timezone_labels:65"
+msgid "Hong Kong"
+msgstr "ຮົງກົງ"
+
+#. Choices for timezones, must be kept in sync with timezone_values. CHAR
+#. LIMIT=25]
+msgctxt "timezone_labels:66"
+msgid "Irkutsk"
+msgstr "ອຽກຄຸກສ໌ຄ"
+
+#. Choices for timezones, must be kept in sync with timezone_values. CHAR
+#. LIMIT=25]
+msgctxt "timezone_labels:67"
+msgid "Kuala Lumpur"
+msgstr "ກົວລາ ລຳເປີ"
+
+#. Choices for timezones, must be kept in sync with timezone_values. CHAR
+#. LIMIT=25]
+msgctxt "timezone_labels:68"
+msgid "Perth"
+msgstr "ເພີດ"
+
+#. Choices for timezones, must be kept in sync with timezone_values. CHAR
+#. LIMIT=25]
+msgctxt "timezone_labels:69"
+msgid "Taipei"
+msgstr "ໄທເປ"
+
+#. Choices for timezones, must be kept in sync with timezone_values. CHAR
+#. LIMIT=25]
+msgctxt "timezone_labels:70"
+msgid "Seoul"
+msgstr "ໂຊ"
+
+#. Choices for timezones, must be kept in sync with timezone_values. CHAR
+#. LIMIT=25]
+msgctxt "timezone_labels:71"
+msgid "Tokyo, Osaka"
+msgstr "ໂຕກຽວ, ໂອຊາກາ"
+
+#. Choices for timezones, must be kept in sync with timezone_values. CHAR
+#. LIMIT=25]
+msgctxt "timezone_labels:72"
+msgid "Yakutsk"
+msgstr "ຢາຄຸດສ໌ຄ"
+
+#. Choices for timezones, must be kept in sync with timezone_values. CHAR
+#. LIMIT=25]
+msgctxt "timezone_labels:73"
+msgid "Adelaide"
+msgstr "ອາເດວເລດ"
+
+#. Choices for timezones, must be kept in sync with timezone_values. CHAR
+#. LIMIT=25]
+msgctxt "timezone_labels:74"
+msgid "Darwin"
+msgstr "ດາວິນ"
+
+#. Choices for timezones, must be kept in sync with timezone_values. CHAR
+#. LIMIT=25]
+msgctxt "timezone_labels:75"
+msgid "Brisbane"
+msgstr "ບຣິສເບນ"
+
+#. Choices for timezones, must be kept in sync with timezone_values. CHAR
+#. LIMIT=25]
+msgctxt "timezone_labels:76"
+msgid "Hobart"
+msgstr "ໂຮບາດ"
+
+#. Choices for timezones, must be kept in sync with timezone_values. CHAR
+#. LIMIT=25]
+msgctxt "timezone_labels:77"
+msgid "Sydney, Canberra"
+msgstr "ຊິດນີ, ແຄນເບີຣາ"
+
+#. Choices for timezones, must be kept in sync with timezone_values. CHAR
+#. LIMIT=25]
+msgctxt "timezone_labels:78"
+msgid "Vladivostok"
+msgstr "ວະລາດິໂວສໂຕກ"
+
+#. Choices for timezones, must be kept in sync with timezone_values. CHAR
+#. LIMIT=25]
+msgctxt "timezone_labels:79"
+msgid "Guam"
+msgstr "ກວມ"
+
+#. Choices for timezones, must be kept in sync with timezone_values. CHAR
+#. LIMIT=25]
+msgctxt "timezone_labels:80"
+msgid "Magadan"
+msgstr "ມາກາດານ"
+
+#. Choices for timezones, must be kept in sync with timezone_values. CHAR
+#. LIMIT=25]
+msgctxt "timezone_labels:81"
+msgid "Auckland"
+msgstr "ອັອກແລນ"
+
+#. Choices for timezones, must be kept in sync with timezone_values. CHAR
+#. LIMIT=25]
+msgctxt "timezone_labels:82"
+msgid "Fiji"
+msgstr "ຟີຈິ"
+
+#. Choices for timezones, must be kept in sync with timezone_values. CHAR
+#. LIMIT=25]
+msgctxt "timezone_labels:83"
+msgid "Tonga"
+msgstr "ທອງກາ"
+
+#. Choices for timezones, must be kept in sync with timezone_values. CHAR
+#. LIMIT=25]
+msgctxt "timezone_labels:84"
+msgid "Jakarta"
+msgstr "ຈາກາຕາ"
+
+#. Header in the preferences settings for the section pertaining to alarms
+msgctxt "alarm_settings"
+msgid "Alarms"
+msgstr "ໂມງປຸກ"
+
+#. Describes the running service for the stopwatch
+msgctxt "stopwatch_service_desc"
+msgid "Stopwatch service to run the notification."
+msgstr "ບໍລິການຂອງໂມງຈັບເວລາ ເພື່ອສະແດງໃນການແຈ້ງເຕືອນ."
+
+#. Desription for the stopped stop watch
+msgctxt "swn_stopped"
+msgid "Stopped"
+msgstr "ຢຸດແລ້ວ"
+
+#. Text instruction for dismiss alarm on alarm lock screen. The dismiss button
+#. will still          be on the right even on RTL languages so please do not
+#. reverse this during          translation.
+msgctxt "description_direction_right"
+msgid "Swipe right to dismiss"
+msgstr "​ປັດ​ໄປ​ຂວາ​ເພື່ອ​ປິດ​ໄວ້"
+
+#. Text instruction for snooze alarm on alarm lock screen. The snooze button
+#. will still          be on the left even on RTL languages so please do not
+#. reverse this during          translation.
+msgctxt "description_direction_left"
+msgid "Swipe left to snooze"
+msgstr "​ປັດ​ໄປ​ຊ້າຍ​ເພື່ອ​ເລື່ອນ​ອອກ​ໄປ​ກ່ອນ"
+
+#. Text instruction for alarm icon on alarm lock screen. The snooze button
+#. will still          be on the left even on RTL languages so please do not
+#. reverse this during          translation.
+msgctxt "description_direction_both"
+msgid "Swipe left to snooze or right to dismiss"
+msgstr "ປັດ​ໄປ​ທາງ​ຊ້າຍ​ເພື່ອ​ເລື່ອນ ຫຼື​ທາງ​ຂວາ ເພື່ອ​ປິດ​ໄວ້"
+
+#. Header in the preferences settings for the section pertaining to timers.
+msgctxt "timer_settings"
+msgid "Timers"
+msgstr "ໂມງ​ຈັບ​ເວ​ລາ"
+
+#. Description for timer ringtone setting.
+msgctxt "timer_ringtone_title"
+msgid "Timer ringtone"
+msgstr "ສຽງ​ເຕືອນໂມງ​ຈັບ​ເວ​ລາ"
+
+#. Description when timer is stopped.
+msgctxt "timer_stopped"
+msgid "Timer stopped"
+msgstr "ຢຸດນັບຖອຍຫຼັງແລ້ວ"
+
+#. Notification title when timer is paused. [CHAR LIMIT=25]
+msgctxt "timer_paused"
+msgid "Timer paused"
+msgstr "ເຄື່ອງ​ຈັບ​ເວ​ລາ​ຢຸດ​ແລ້ວ"
+
+#. Notification title when multiple timers are paused. [CHAR LIMIT = 30]
+#, c-format
+msgctxt "timers_stopped"
+msgid "<xliff:g id=\"number\" example=\"7\">%d</xliff:g> timers paused"
+msgstr "<xliff:g id=\"NUMBER\">%d</xliff:g> ເຄື່ອງ​ຈັບ​ເວ​ລາ​ຢຸດ​ແລ້ວ"
+
+#. Notification text when multiple timers are paused.
+msgctxt "all_timers_stopped_notif"
+msgid "Touch to see your timers"
+msgstr "ແຕະເພື່ອເບິ່ງໂຕຈັບເວລາຂອງທ່ານ"
+
+#. Notification title when at least one timer, of those in use, is counting
+#. down.
+#, c-format
+msgctxt "timers_in_use"
+msgid "<xliff:g id=\"number\" example=\"7\">%d</xliff:g> timers"
+msgstr "<xliff:g id=\"NUMBER\">%d</xliff:g> ໂມງນັບຖອຍຫຼັງ"
+
+#. Notification text when at least one timer, of those in use, is counting
+#. down.
+#, c-format
+msgctxt "next_timer_notif"
+msgid ""
+"Next timer: <xliff:g id=\"time_remaining\" example=\"2 minutes "
+"remaining\">%s</xliff:g>"
+msgstr "ໂມງຈັບເວລາຄັ້ງຕໍ່ໄປ: <xliff:g id=\"TIME_REMAINING\">%s</xliff:g>"
+
+#. screensaver settings strings
+#. Label for the screen saver activity displayed on-screen when that activity
+#. must be represented to the user.
+msgctxt "screensaver_settings"
+msgid "Dream settings"
+msgstr "ຕັ້ງຄ່າ Dream"
+
+#. Title for check box to pick intensity of display diminuation during dream
+#. mode
+msgctxt "night_mode_title"
+msgid "Night mode"
+msgstr "ໂໝດກາງຄືນ"
+
+#. Describes intensity of display diminuation during dream mode
+msgctxt "night_mode_summary"
+msgid "Very dim display (for dark rooms)"
+msgstr "ຜ່ອນແສງໜ້າຈໍອ່ອນໆ (ສຳລັບຫ້ອງທີ່ມືດຫຼາຍ)"
+
+#. Description of the down caret in the alarm alert screen to expand the alarm
+#. content to edit perspective. [CHAR LIMIT=NONE]
+msgctxt "expand_alarm"
+msgid "Expand alarm"
+msgstr "ຂະຫຍາຍໂມງປຸກ"
+
+#. Description of the up caret in the alarm alert screen to collapse the alarm
+#. content to summary perspective. [CHAR LIMIT=NONE]
+msgctxt "collapse_alarm"
+msgid "Collapse alarm"
+msgstr "ຫຍໍ້ແຖບໂມງປຸກ"
+
+#. Description of the button to undo change to alarm
+msgctxt "alarm_undo"
+msgid "undo"
+msgstr "ຍົກເລີກ"
+
+#. Toast content when an alarm was deleted
+msgctxt "alarm_deleted"
+msgid "Alarm deleted"
+msgstr "ໂມງປຸກຖືກລຶບແລ້ວ."
+
+#. slash between date and next alarm in the clock
+msgctxt "slash"
+msgid "/"
+msgstr "/"
+
+#. slash between date and next alarm in the clock
+#, c-format
+msgctxt "world_day_of_week_label"
+msgid " / <xliff:g id=\"label\">%s</xliff:g>"
+msgstr "/ <xliff:g id=\"LABEL\">%s</xliff:g>"
+
+#. Description of field showing the next alarm time in the clock page, for
+#. accessibility.
+#, c-format
+msgctxt "next_alarm_description"
+msgid "Next alarm: <xliff:g id=\"alarm_time\" example=\"Wed 8:00am\">%s</xliff:g>"
+msgstr "ໂມງປຸກຄັ້ງຕໍ່ໄປ: <xliff:g id=\"ALARM_TIME\">%s</xliff:g>"
+
+#. Displays the number of alarms selected from the list of alarms.
+#, c-format
+msgctxt "alarms_selected"
+msgid "<xliff:g id=\"alarms\">%d</xliff:g> selected"
+msgstr "ເລືອກ <xliff:g id=\"ALARMS\">%d</xliff:g>"
+
+#. message used by the talkback accessibility app to say that something was
+#. deleted
+msgctxt "deleted_message"
+msgid "Deleted"
+msgstr "ລຶບແລ້ວ"
+
+#. Timer deletion confirmation
+msgctxt "timer_delete_confirmation"
+msgid "Delete this timer?"
+msgstr "ລຶບໂມງນັບຖອຍຫລັງນີ້?"
+
+#. world clock deletion confirmation
+msgctxt "city_delete_confirmation"
+msgid "Remove this city?"
+msgstr "ລຶບເມືອງນີ້ອອກ?"
+
+#. Label for digital clock gadget displayed on-screen when that gadget is
+#. represented to the user.
+msgctxt "digital_gadget"
+msgid "Digital clock"
+msgstr "ໂມງດິຈິຕອນ"
+
+#. String for no alarms
+msgctxt "no_alarms"
+msgid "No Alarms"
+msgstr "ບໍ່ມີການຕັ້ງໂມງປຸກ"
+
+#. String for no alarms set [CHAR LIMIT=24]
+msgctxt "no_alarms_set"
+msgid "No alarms set"
+msgstr "​ບໍ່​ໄດ້​ຕັ້ງ​ໂມງ​ປຸກ"
+
+#. String for no enabled alarms in timeline view [CHAR LIMIT=30]
+msgctxt "no_upcoming_alarms"
+msgid "NO UPCOMING ALARMS"
+msgstr "ບໍ່ມີການຕັ້ງໂມງປຸກແລ້ວ"
+
+#. String that represents that invalid time for an alarm was specified, e.g.
+#. 23:00am      or 27:68pm.     First %d represents hour, second %d represents
+#. minutes, %s represents am/pm,     If no am/pm is passed in (e.g. the locale
+#. uses 24h time) only hour and minute are printed.     [CHAR LIMIT=NONE]
+#, c-format
+msgctxt "invalid_time"
+msgid ""
+"Invalid time <xliff:g id=\"invalid_hour\" "
+"example=\"25\">%d</xliff:g>:<xliff:g id=\"invalid_minutes\" "
+"example=\"63\">%d</xliff:g> <xliff:g id=\"invalid_ampm\" "
+"example=\"PM\">%s</xliff:g>"
+msgstr ""
+"ເວ​ລາ​ໃຊ້​ບໍ່​ໄດ້ <xliff:g id=\"INVALID_HOUR\">%d</xliff:g>:<xliff:g "
+"id=\"INVALID_MINUTES\">%d</xliff:g> <xliff:g "
+"id=\"INVALID_AMPM\">%s</xliff:g>"
+
+#. String that represents that no alarm has been specified for a requested
+#. hour:minutes.     This happens when a user sends a voice command 'dismiss my
+#. alarm at 3:00pm' but they have no     alarms specified for that time. %s
+#. represents the time of the alarm.     [CHAR LIMIT=NONE]
+#, c-format
+msgctxt "no_alarm_at"
+msgid ""
+"No alarm at <xliff:g id=\"alarm_time_hour\" "
+"example=\"14\">%d</xliff:g>:<xliff:g id=\"alarm_time_minutes\" "
+"example=\"23\">%d</xliff:g>"
+msgstr ""
+"ບໍ່​ມີ​ໂມງ​ປຸກ​ຕັ້ງ​ໄວ້​ໃນ​ເວ​ລາ <xliff:g "
+"id=\"ALARM_TIME_HOUR\">%d</xliff:g>:<xliff:g "
+"id=\"ALARM_TIME_MINUTES\">%d</xliff:g>"
+
+#. String that represents that the user doesn't have any alarms scheduled.
+#. This happens when     a user sends a voice command 'dismiss next alarm' or
+#. 'dismiss all of my alarms' but they have     no alarms scheduled in the app.
+#. [CHAR LIMIT=NONE]
+msgctxt "no_scheduled_alarms"
+msgid "No scheduled alarms"
+msgstr "ບໍ່​ມີ​ການ​ເຕືອນ​ກຳ​ນົດ​ໄວ້"
+
+#. String that represents that the user specified that they want to select an
+#. alarm to     dismiss by specifying a 'label' but they didn't specify any
+#. labels.     [CHAR LIMIT=NONE]
+msgctxt "no_label_specified"
+msgid "No label specified"
+msgstr "ບໍ່​ມີ​ປ້າຍ​ໝາຍ​ລະ​ບຸ​ໄວ້"
+
+#. String that represents that no alarm has been specified for a requested
+#. label.     This happens when a user sends a voice command 'dismiss my alarm
+#. with label pick up kids'      but they have no alarms with that label.
+#. [CHAR LIMIT=NONE]
+msgctxt "no_alarms_with_label"
+msgid "No alarms contain the label"
+msgstr "ບໍ່​ມີ​ໂມງ​ປຸກ​ຢູ່​ໃນ​ປ້າຍ​ໝາຍ"
+
+#. String that represents that the user has sent a voice command 'start a
+#. stopwatch' when     the stopwatch was already running so the command wasn't
+#. executed.     [CHAR LIMIT=NONE]
+msgctxt "stopwatch_already_running"
+msgid "Stopwatch is already running"
+msgstr "ໂມງ​ຈັບ​ເວ​ລາ​ແລ່ນ​ຢູ່​ແລ້ວ"
+
+#. String that represents that the user has sent a voice command 'stop the
+#. stopwatch' or     'lap the stopwatch' when the stopwatch wasn't running so
+#. the command wasn't executed.     [CHAR LIMIT=NONE]
+msgctxt "stopwatch_isnt_running"
+msgid "Stopwatch isn't running"
+msgstr "ໂມງ​ຈັບ​ເວ​ລາ​ບໍ່​ແລ່ນ​ຢູ່"
+
+#. String that represents that the user has sent a voice command 'reset the
+#. stopwatch' or      when the stopwatch was running so the command wasn't
+#. executed.     [CHAR LIMIT=NONE]
+msgctxt "stopwatch_cant_be_reset_because_is_running"
+msgid "Stopwatch cannot be reset because it is running"
+msgstr "ບໍ່​ສາ​ມາດ​ຕັ້ງ​ໂມງ​ຈັບ​ເວ​ລາ​ໄດ້ ເພາະ​ວ່າ​ມັນ​ກຳ​ລັງ​ແລ່ນ"
+
+#. String that represents that the user has successfully sent a voice command
+#. stopping      the stopwatch.     [CHAR LIMIT=NONE]
+msgctxt "stopwatch_stopped"
+msgid "Stopwatch stopped"
+msgstr "ໂມງ​ຈັບ​ເວ​ລາ​ຢຸດ​ແລ້ວ"
+
+#. String that represents that the user has successfully sent a voice command
+#. resetting     the stopwatch.     [CHAR LIMIT=NONE]
+msgctxt "stopwatch_reset"
+msgid "Stopwatch reset"
+msgstr "ຕັ້ງ​ໂມງ​ຈັບ​ເວ​ລາ​ຄືນ​ໃໝ່​ແລ້ວ"
+
+#. String that represents that the user has successfully sent a voice command
+#. lapping     the stopwatch.     [CHAR LIMIT=NONE]
+msgctxt "stopwatch_lapped"
+msgid "Stopwatch lapped"
+msgstr "ໂມງຈັບເວລາຮອບ​ແລ້ວ"
+
+#. String that represents that the user has successfully sent a voice command
+#. starting     the stopwatch.     [CHAR LIMIT=NONE]
+msgctxt "stopwatch_started"
+msgid "Stopwatch started"
+msgstr "​ໂມງ​ຈັບ​ເວ​ລາເລີ່ມ​ຕົ້ນ​ແລ້ວ"
+
+#. String that represents that the user has sent a voice command 'dismiss my
+#. alarm at 3pm' when     there was no alarm scheduled for that time (they
+#. might have had an alarm for 3pm on the list     but it was disabled).
+#. [CHAR LIMIT=NONE]
+msgctxt "no_alarm_scheduled_for_this_time"
+msgid "No alarm scheduled for this time"
+msgstr "ບໍ່​ມີໂມງ​ປຸກ​ກຳ​ນົດ​ເວ​ລາ​ໃຫ້ກັບ​ເວ​ລາ​ນີ້"
+
+#. String that represents that the user has dismissed an alarm through a voice
+#. action.     %s represents alarm time, e.g. 14:20     [CHAR LIMIT=NONE]
+#, c-format
+msgctxt "alarm_is_dismissed"
+msgid "<xliff:g id=\"alarm_time\" example=\"14:20\">%s</xliff:g> alarm dismissed"
+msgstr "<xliff:g id=\"ALARM_TIME\">%s</xliff:g> ໂມງ​ປຸກ​ຖືກ​ປິດ​ໄວ້​ແລ້ວ"
+
+#. String that represents that the user has dismissed an alarm through a voice
+#. action.     %s represents alarm time, e.g. 14:20     [CHAR LIMIT=NONE]
+#, c-format
+msgctxt "alarm_is_set"
+msgid "Alarm is set for <xliff:g id=\"alarm_time\" example=\"14:20\">%s</xliff:g>"
+msgstr "ໂມງ​ປຸກ​ຖືກ​ຕັ້ງ​ໃນ​ເວ​ລາ <xliff:g id=\"ALARM_TIME\">%s</xliff:g>"
+
+#. String that represents that the user attempted to send a voice action
+#. 'delete a timer'     when there were no timers available.     [CHAR
+#. LIMIT=NONE]
+msgctxt "no_timer_set"
+msgid "No timer set"
+msgstr "ບໍ່​ມີການ​ຈັບ​ເວ​ລາ​ກຳ​ນົດ​ໄວ້"
+
+#. String that represents that the user has successfully deleted a timer
+#. through a voice action.     [CHAR LIMIT=NONE]
+msgctxt "timer_deleted"
+msgid "Timer deleted"
+msgstr "ລຶບ​ເຄື່ອງ​ຈັບ​ເວ​ລາ​ແລ້ວ"
+
+#. String that represents that the user has attempted to start a timer when a
+#. timer was     already running.     [CHAR LIMIT=NONE]
+msgctxt "timer_already_running"
+msgid "Timer already running"
+msgstr "ເຄື່ອງ​ຈັບ​ເວ​ລາ​ແລ່ນ​ຢູ່​ແລ້ວ"
+
+#. String that represents that the user has attempted to start or reset a
+#. timer when      there were more than 1 timer of desired state in which case
+#. it's ambiguous      which timer the user meant.     [CHAR LIMIT=NONE]
+msgctxt "multiple_timers_available"
+msgid "Unable to complete your request, multiple timers available"
+msgstr ""
+"ບໍ່​ສາ​ມາດ​ດຳ​ເນີນ​ການ​ຂໍ​ຂອ​ງ​ທ່ານ​ໃຫ້​ສຳ​ເລັດ​ໄດ້, "
+"ມີ​ການ​ຈັບ​ເວ​ລາ​ຫຼາຍ​ອັນ​ຢູ່​ໃຫ້"
+
+#. String that represents that the user has successfully started a timer
+#. through a voice action.     [CHAR LIMIT=NONE]
+msgctxt "timer_started"
+msgid "Timer started"
+msgstr "​ເລີ່ມ​ການ​ຈັບ​ເວ​ລາ​ແລ້ວ"
+
+#. String that represents that the user has successfully created a timer
+#. through a voice action.     [CHAR LIMIT=NONE]
+msgctxt "timer_created"
+msgid "Timer created"
+msgstr "ສ້າງ​ການ​ຕັ້ງ​ເວ​ລາ​ແລ້ວ"
+
+#. String that represents that the user attempted to start a timer through a
+#. voice action     but specified invalid length.     [CHAR LIMIT=NONE]
+msgctxt "invalid_timer_length"
+msgid "Invalid timer length"
+msgstr "ຄວາມ​ຍາວ​ການ​ຕັ້ງ​ເວ​ລາ​ບໍ່​ຖື​ກ​ຕ້ອງ"
+
+#. String that represents that the user has successfully reset a timer through
+#. a voice action.     [CHAR LIMIT=NONE]
+msgctxt "timer_was_reset"
+msgid "Timer reset"
+msgstr "ການ​ຈັດ​ເວ​ລາ​ຕັ້ງ​ຄ່າ​ຄືນ​ໃໝ່​ແລ້ວ"
+
+#. String that represents that the user attempted to reset a timer through a
+#. voice action but     the timer wasn't stopped (resetting is only allowed
+#. when a timer is stopped).     [CHAR LIMIT=NONE]
+msgctxt "timer_cant_be_reset_because_its_running"
+msgid "Timer can't be reset because it's still running. Stop timer to reset."
+msgstr ""
+"ບໍ່​ສາ​ມາ​ຕັ້ງ​ຄ່າການ​ຈັບ​ເວ​ລາ​ຄືນ​ໃໝ່​ໄດ້ ເພາະ​ວ່າ​ມັນ​ກຳ​ລັງ​ແລ່ນ​ຢູ່."
+" ຢຸດການ​ຈັບ​ເວ​ລາ ເພື່ອ​ຕັ້ງ​ຄືນ​ໃໝ່."
+
+#. String that represents that the user attempted to stop a timer through a
+#. voice action but     the timer was already stopped (resetting is only
+#. allowed when a timer is stopped).     [CHAR LIMIT=NONE]
+msgctxt "timer_already_stopped"
+msgid "Timer already stopped"
+msgstr "ເຄື່ອງ​ຈັບ​ເວ​ລາ​ຢຸດ​ແລ້ວ"
+
+#. String that represents that the user attempted to add or delete a world
+#. clock through     a voice action     but they didn't specify a city so no
+#. world clock was selected.     [CHAR LIMIT=NONE]
+msgctxt "no_city_selected"
+msgid "No city selected"
+msgstr "ບໍ່​ມີ​ເມືອງ​ຖືກ​ເລືອກ​ໄວ້"
+
+#. String that represents that the user attempted to add or delete a world
+#. clock through     a voice action     but the city they specified wasn't
+#. listed in the database.     [CHAR LIMIT=NONE]
+msgctxt "the_city_you_specified_is_not_available"
+msgid "The city you specified is not available"
+msgstr "ບໍ່​ມີ​ເມືອງ​ທີ່​ທ່ານ​ລະ​ບຸນັ້ນ​ຢູ່"
+
+#. String that represents that the user attempted to add a world clock through
+#. a voice action     but the city they specified is already added to the list.
+#. [CHAR LIMIT=NONE]
+msgctxt "the_city_already_added"
+msgid "That city has already been added"
+msgstr "ເພີ່ມ​ເມືອງນັ້ນ​ໃສ່​ຮຽບ​ຮ້ອຍ​ແລ້ວ"
+
+#. String that represents that the user successfully added a world clock
+#. through a     voice action     %s represents the name of the city they
+#. added.     [CHAR LIMIT=NONE]
+#, c-format
+msgctxt "city_added"
+msgid "<xliff:g id=\"city_name\" example=\"Paris\">%s</xliff:g> added"
+msgstr "<xliff:g id=\"CITY_NAME\">%s</xliff:g> ເພີ່ມ​ໃສ່​ແລ້ວ"
+
+#. String that represents that the user successfully deleted a world clock
+#. through     a voice action     %s represents the name of the city they
+#. deleted.     [CHAR LIMIT=NONE]
+#, c-format
+msgctxt "city_deleted"
+msgid "<xliff:g id=\"city_name\" example=\"Paris\">%s</xliff:g> deleted"
+msgstr "<xliff:g id=\"CITY_NAME\">%s</xliff:g> ລຶບ​ແລ້ວ"
+
+#. String that represents that the user attempted to dismiss an alarm that is
+#. more than     24 hours away     %s represents the time of the alarm (e.g.
+#. 15:39)     [CHAR LIMIT=NONE]
+#, c-format
+msgctxt "alarm_cant_be_dismissed_still_more_than_24_hours_away"
+msgid ""
+"<xliff:g id=\"alarm_time\" example=\"14:20\">%s</xliff:g> alarm can't be "
+"dismissed yet, still more than 24 hours away"
+msgstr ""
+"<xliff:g id=\"ALARM_TIME\">%s</xliff:g> ໂມງ​ປຸກ​ບໍ່​ສາ​ມາດ​ປ່ອຍ​ໄວ້​ໄດ້, "
+"ຍັງ​ຫຼາຍ​ກ່​ວາ 24 ຊົ່ວ​ໂມງ"
+
+#. String that shows up in the action bar for the Picker Activity
+#. where a use gets to pick which alarm to dismiss    [CHAR LIMIT=NONE]
+msgctxt "dismiss_alarm"
+msgid "Dismiss alarm"
+msgstr "ບອກເລີກ​ການ​ເຕືອນ​"
+
+#. String that represents that further action is needed from the user in case
+#. their     voice command was ambiguous or there are more than 1 alarms that
+#. match their request.     The user needs to choose an alarm they want to
+#. dismiss through the UI    [CHAR LIMIT=NONE]
+msgctxt "pick_alarm_to_dismiss"
+msgid "Pick which alarm to dismiss"
+msgstr "ເລືອກວ່າ​ຈະ​ປິດ​ໂມງ​ປຸກ​ໃດ​ໄວ້"
+
+#. String that represents that the user doesn't have any alarms firing at the
+#. moment.     [CHAR LIMIT=NONE]
+msgctxt "no_firing_alarms"
+msgid "No firing alarms"
+msgstr "ບໍ່​ມີ​ສັນ​ຍານ​ເຕືອນ​ໄຟ​ໄໝ້"
+
+#. String that represents that the user has snoozed an alarm through a voice
+#. action for 10     minutes.     %s represents alarm time, e.g. 14:20
+#. [CHAR LIMIT=NONE]
+#, c-format
+msgctxt "alarm_is_snoozed"
+msgid ""
+"<xliff:g id=\"alarm_time\" example=\"14:20\">%s</xliff:g> alarm snoozed "
+"for 10 minutes"
+msgstr ""
+"<xliff:g id=\"ALARM_TIME\">%s</xliff:g> "
+"ໂມງ​ປຸກ​ຖືກ​ເລື່ອນ​ແຈ້ງ​ເຕືອນ​ໄປ​ເປັນ​ເວ​ລາ 10 ວິ​ນາ​ທີ"
+
+msgctxt "pref_key_notif_access_perm"
+msgid "pref_key_notif_access_perm"
+msgstr ""
+
+msgctxt "notif_access_summary"
+msgid "For Alamist to work, you must click here and allow Notification access"
+msgstr ""
+
+msgctxt "notif_access_title"
+msgid "Install Alarmist"
+msgstr ""
+
+msgctxt "donate"
+msgid "Donate to the developer"
+msgstr ""
+
