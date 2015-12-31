@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
     <PreferenceCategory
-        android:title="@string/app_name">
+        android:title="@string/app_name"
+        android:key="@string/pref_settings_title">
         <Preference
             android:icon="@drawable/ic_alarm_on_black_24dp"
             android:key="@string/pref_key_notif_access_perm"
@@ -12,14 +13,19 @@
             android:key="@string/pref_key_peb_appstore"
             android:summary="@string/download_full"
             android:title="@string/download" />
-        <Preference
-            android:icon="@drawable/ic_favorite_black_24dp"
-            android:key="@string/pref_key_don"
-            android:title="@string/donate" />
+        <SwitchPreference
+            android:defaultValue="false"
+            android:key="@string/pref_notif_always"
+            android:summary="@string/notify_always_summary"
+            android:title="@string/always_notify_title" />
         <SwitchPreference
             android:defaultValue="true"
             android:key="@string/pref_key_show_icon"
             android:summary="@string/show_app_drawer"
             android:title="App drawer icon" />
+        <Preference
+            android:icon="@drawable/ic_favorite_black_24dp"
+            android:key="@string/pref_key_don"
+            android:title="@string/donate" />
     </PreferenceCategory>
 </PreferenceScreen>

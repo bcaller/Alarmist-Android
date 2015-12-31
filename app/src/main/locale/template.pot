@@ -1,4 +1,4 @@
-# Italian translations for PROJECT.
+# Translations template for PROJECT.
 # Copyright (C) 2015 ORGANIZATION
 # This file is distributed under the same license as the PROJECT project.
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2015.
@@ -9,10 +9,9 @@ msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
 "POT-Creation-Date: 2015-12-31 16:27+0000\n"
-"PO-Revision-Date: 2015-12-31 14:50+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: it <LL@li.org>\n"
-"Plural-Forms: nplurals=2; plural=((n == 1) ? 0 : 1)\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -41,7 +40,7 @@ msgstr ""
 #, c-format
 msgctxt "alarm_is_dismissed"
 msgid "<xliff:g id=\"alarm_time\" example=\"14:20\">%s</xliff:g> alarm dismissed"
-msgstr "Sveglia alle <xliff:g id=\"ALARM_TIME\">%s</xliff:g> ignorata"
+msgstr ""
 
 msgctxt "notif_access_summary"
 msgid "For Alamist to work, you must click here and allow Notification access"
@@ -66,35 +65,35 @@ msgstr ""
 #. The text shown above the clock when alarm is alerting [CHAR LIMIT=10]
 msgctxt "alarm_alert_wake_up"
 msgid "Wake up!"
-msgstr "Svegliati!"
+msgstr ""
 
 #. Button labels on the alarm dialog: Dismiss
 msgctxt "alarm_alert_dismiss_text"
 msgid "Dismiss"
-msgstr "Spegni"
+msgstr ""
 
 #. Button labels on the alarm dialog: Snooze
 msgctxt "alarm_alert_snooze_text"
 msgid "Snooze"
-msgstr "Posticipa"
+msgstr ""
 
 #. Text to appear inside a notification while an alarm is snoozing.
 #, c-format
 msgctxt "alarm_alert_snooze_until"
 msgid "Snoozing until <xliff:g id=\"time\">%s</xliff:g>"
-msgstr "Ripetizione sveglia fino alle <xliff:g id=\"TIME\">%s</xliff:g>"
+msgstr ""
 
 #. Text to appear in the notification title while an alarm is about to go off.
 msgctxt "alarm_alert_predismiss_title"
 msgid "Upcoming alarm"
-msgstr "Prossima sveglia"
+msgstr ""
 
 #. Settings activity name
 #. Label for the Settings activity displayed on-screen when that activity must
 #. be represented to the user.
 msgctxt "settings"
 msgid "Settings"
-msgstr "Impostazioni"
+msgstr ""
 
 msgctxt "pref_settings_title"
 msgid "p_settitle"
@@ -119,28 +118,4 @@ msgstr ""
 msgctxt "pref_notif_always"
 msgid "p_always"
 msgstr ""
-
-#~ msgctxt "download"
-#~ msgid "Download watchapp"
-#~ msgstr ""
-
-#~ msgctxt "download_full"
-#~ msgid "Go to the Pebble app store"
-#~ msgstr ""
-
-#~ msgctxt "pref_key_peb_appstore"
-#~ msgid "appstor"
-#~ msgstr ""
-
-#~ msgctxt "pref_key_show_icon"
-#~ msgid "hide_settings"
-#~ msgstr ""
-
-#~ msgctxt "pref_key_don"
-#~ msgid "donate_plz"
-#~ msgstr ""
-
-#~ msgctxt "pref_key_notif_access_perm"
-#~ msgid "pref_key_notif_access_perm"
-#~ msgstr ""
 

@@ -9,8 +9,10 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.SharedPreferences;
 import android.os.Handler;
 import android.os.IBinder;
+import android.preference.PreferenceManager;
 import android.provider.AlarmClock;
 import android.service.notification.NotificationListenerService;
 import android.service.notification.StatusBarNotification;
@@ -63,6 +65,8 @@ public class AlarmClockWatcher extends NotificationListenerService {
     private boolean sendingLocked = false;
     private Map<Long, Alarm> alarmByTrigger = new HashMap<>(8);
     private Map<Integer, Long> sbnIdToTriggerTime = new HashMap<>(8);
+    private boolean always_notify = false;
+    private SharedPreferences sharedPreferences;
 
     private void updateAlarm(Alarm alarm) {
         if(alarm != null)
@@ -272,6 +276,14 @@ public class AlarmClockWatcher extends NotificationListenerService {
         }
     };
 
+    final SharedPreferences.OnSharedPreferenceChangeListener preferenceChangeListener = new SharedPreferences.OnSharedPreferenceChangeListener() {
+        @Override
+        public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
+            Log.d(TAG, "Pref changed: " + key);
+            always_notify = sharedPreferences.getBoolean(getString(R.string.pref_notif_always), false);
+        }
+    };
+
 
     @Override
     public void onCreate() {
@@ -281,6 +293,8 @@ public class AlarmClockWatcher extends NotificationListenerService {
         this.registerReceiver(alarmManagerReceiver, filter);
         PebbleKit.registerReceivedDataHandler(this, pebbleDataReceiver);
         PebbleKit.registerReceivedNackHandler(this, pebbleNackReceiver);
+        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        sharedPreferences.registerOnSharedPreferenceChangeListener(preferenceChangeListener);
         super.onCreate();
     }
 
@@ -302,6 +316,10 @@ public class AlarmClockWatcher extends NotificationListenerService {
         }
         try {
             unregisterReceiver(pebbleNackReceiver);
+        } catch (IllegalArgumentException ignored) {
+        }
+        try {
+            sharedPreferences.unregisterOnSharedPreferenceChangeListener(preferenceChangeListener);
         } catch (IllegalArgumentException ignored) {
         }
         super.onDestroy();
@@ -377,7 +395,7 @@ public class AlarmClockWatcher extends NotificationListenerService {
                         .extend(wearableExtender)
                         .setSmallIcon(R.drawable.stat_notify_alarm).build());
                 dismissAlarm.add(notification.actions[1].actionIntent);
-                if (isLocked()) {
+                if (always_notify || isLocked()) {
                     Log.i(TAG, "Starting Pebble app");
                     PebbleKit.startAppOnPebble(this, WATCHAPP_UUID);
                     PebbleDictionary data = new PebbleDictionary();

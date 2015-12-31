@@ -9,6 +9,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.preference.Preference;
+import android.preference.PreferenceCategory;
 import android.preference.PreferenceFragment;
 import android.preference.PreferenceManager;
 import android.preference.SwitchPreference;
@@ -80,6 +81,9 @@ public class SettingsActivity extends Activity {
             // Load the preferences from an XML resource
             addPreferencesFromResource(R.xml.settings);
 
+            PreferenceCategory prefCat=(PreferenceCategory)findPreference(getString(R.string.pref_settings_title));
+            prefCat.setTitle(getString(R.string.app_name) + " " + getString(R.string.settings));
+
             final Map<String, ?> all = PreferenceManager.getDefaultSharedPreferences(getActivity()).getAll();
             bindPreferenceSummaryToValue(findPreference(getString(R.string.pref_key_show_icon)), all);
 
@@ -98,7 +102,7 @@ public class SettingsActivity extends Activity {
             findPreference(getString(R.string.pref_key_don)).setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
                 @Override
                 public boolean onPreferenceClick(Preference preference) {
-                    Log.d("PREFS", "Donate !!! I love you :)");
+                    Log.d("PREFS", "I love you :)");
                     Intent donateIntent = new Intent(Intent.ACTION_VIEW);
                     donateIntent.setData(Uri.parse(getActivity().getString(R.string.donate_url)));
                     startActivity(donateIntent);
