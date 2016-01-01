@@ -99,17 +99,6 @@ public class SettingsActivity extends Activity {
                 }
             });
 
-            findPreference(getString(R.string.pref_key_don)).setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
-                @Override
-                public boolean onPreferenceClick(Preference preference) {
-                    Log.d("PREFS", "I love you :)");
-                    Intent donateIntent = new Intent(Intent.ACTION_VIEW);
-                    donateIntent.setData(Uri.parse(getActivity().getString(R.string.donate_url)));
-                    startActivity(donateIntent);
-                    return true;
-                }
-            });
-
             findPreference(getString(R.string.pref_key_notif_access_perm)).setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
                 @Override
                 public boolean onPreferenceClick(Preference preference) {

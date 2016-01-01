@@ -23,10 +23,8 @@
     <string name="alarm_is_dismissed"><xliff:g id="alarm_time" example="14:20">%s</xliff:g> alarm dismissed</string>
     <string name="notif_access_summary" tools:ignore="MissingTranslation">For Alamist to work, you must click here and allow Notification access</string>
     <string name="notif_access_title" tools:ignore="MissingTranslation">Install Alarmist</string>
-    <string name="donate" tools:ignore="MissingTranslation">Donate to the developer</string>
     <string name="notify_always_summary" tools:ignore="MissingTranslation">Notify on watch even when phone\'s screen is on and unlocked</string>
     <string name="always_notify_title" tools:ignore="MissingTranslation">Always Send Notifications</string>
-    <string name="donate_url" translatable="false">https://paypal.me/caller</string>
     <string name="appstore_deeplink" translatable="false">pebble://appstore/5684387eb35693ab43000032</string>
     <!-- The text shown above the clock when alarm is alerting [CHAR LIMIT=10] -->
     <string name="alarm_alert_wake_up">Wake up\u0021</string>

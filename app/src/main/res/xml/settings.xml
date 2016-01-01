@@ -23,9 +23,5 @@
             android:key="@string/pref_key_show_icon"
             android:summary="@string/show_app_drawer"
             android:title="App drawer icon" />
-        <Preference
-            android:icon="@drawable/ic_favorite_black_24dp"
-            android:key="@string/pref_key_don"
-            android:title="@string/donate" />
     </PreferenceCategory>
 </PreferenceScreen>
