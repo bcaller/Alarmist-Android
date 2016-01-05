@@ -1,10 +1,11 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="alarm_is_dismissed">"L\'alarma "<xliff:g id="ALARM_TIME">%s</xliff:g>" s\'ha ignorat"</string>
   <string name="alarm_alert_wake_up">Desperta\'t</string>
   <string name="alarm_alert_dismiss_text">Ignora</string>
   <string name="alarm_alert_snooze_text">Posposa</string>
   <string name="alarm_alert_snooze_until">"Es posposarà fins a les "<xliff:g id="TIME">%s</xliff:g></string>
   <string name="alarm_alert_predismiss_title">Pròxima alarma</string>
   <string name="settings">Configuració</string>
-  <string name="alarm_is_dismissed">"L\'alarma "<xliff:g id="ALARM_TIME">%s</xliff:g>" s\'ha ignorat"</string>
+  <string name="set_alarm">Defineix l\'alarma</string>
 </resources>

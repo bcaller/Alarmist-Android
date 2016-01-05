@@ -1,10 +1,11 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="alarm_is_dismissed">"Alarmet som var inställt på "<xliff:g id="ALARM_TIME">%s</xliff:g>" har ignorerats"</string>
   <string name="alarm_alert_wake_up">Vakna!</string>
   <string name="alarm_alert_dismiss_text">Stäng av</string>
   <string name="alarm_alert_snooze_text">Snooza</string>
   <string name="alarm_alert_snooze_until">"Viloläge till "<xliff:g id="TIME">%s</xliff:g></string>
   <string name="alarm_alert_predismiss_title">Kommande alarm</string>
   <string name="settings">Inställningar</string>
-  <string name="alarm_is_dismissed">"Alarmet som var inställt på "<xliff:g id="ALARM_TIME">%s</xliff:g>" har ignorerats"</string>
+  <string name="set_alarm">Ställ alarm</string>
 </resources>

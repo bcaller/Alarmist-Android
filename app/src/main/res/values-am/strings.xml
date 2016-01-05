@@ -1,10 +1,11 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="alarm_is_dismissed"><xliff:g id="ALARM_TIME">%s</xliff:g>" ማንቂያ ደወል ተሰናብቷል"</string>
   <string name="alarm_alert_wake_up">ይንቁ!</string>
   <string name="alarm_alert_dismiss_text">አሰናብት</string>
   <string name="alarm_alert_snooze_text">አሸልብ</string>
   <string name="alarm_alert_snooze_until">"እስከ "<xliff:g id="TIME">%s</xliff:g>" ድረስ በማሸለብ ላይ"</string>
   <string name="alarm_alert_predismiss_title">በቅርብ ጊዜ የሚሆን ማንቂያ</string>
   <string name="settings">ቅንብሮች</string>
-  <string name="alarm_is_dismissed"><xliff:g id="ALARM_TIME">%s</xliff:g>" ማንቂያ ደወል ተሰናብቷል"</string>
+  <string name="set_alarm">የማንቂያ ደወልአዘጋጅ</string>
 </resources>

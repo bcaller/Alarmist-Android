@@ -1,10 +1,11 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="alarm_is_dismissed"><xliff:g id="ALARM_TIME">%s</xliff:g>" அலாரம் விலக்கப்பட்டது"</string>
   <string name="alarm_alert_wake_up">எழவும்!</string>
   <string name="alarm_alert_dismiss_text">நிராகரி</string>
   <string name="alarm_alert_snooze_text">உறக்கநிலை</string>
   <string name="alarm_alert_snooze_until"><xliff:g id="TIME">%s</xliff:g>" வரை உறக்கநிலையில் வை"</string>
   <string name="alarm_alert_predismiss_title">அடுத்த அலாரம்</string>
   <string name="settings">அமைப்பு</string>
-  <string name="alarm_is_dismissed"><xliff:g id="ALARM_TIME">%s</xliff:g>" அலாரம் விலக்கப்பட்டது"</string>
+  <string name="set_alarm">அலாரத்தை அமை</string>
 </resources>

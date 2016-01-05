@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-12-31 16:27+0000\n"
+"POT-Creation-Date: 2016-01-05 22:14+0000\n"
 "PO-Revision-Date: 2015-12-31 14:50+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: es <LL@li.org>\n"
@@ -44,19 +44,17 @@ msgid "<xliff:g id=\"alarm_time\" example=\"14:20\">%s</xliff:g> alarm dismissed
 msgstr "Alarma de las <xliff:g id=\"ALARM_TIME\">%s</xliff:g> ignorada"
 
 msgctxt "notif_access_summary"
-msgid "For Alamist to work, you must click here and allow Notification access"
+msgid "For Alamist to work, you must first allow Notification access"
 msgstr ""
 
 msgctxt "notif_access_title"
 msgid "Install Alarmist"
 msgstr ""
 
-msgctxt "donate"
-msgid "Donate to the developer"
-msgstr ""
-
 msgctxt "notify_always_summary"
-msgid "Notify on watch even when phone's screen is on and unlocked"
+msgid ""
+"In the Pebble Android app settings, are notifications sent to Pebble even"
+" when phone's screen is on?"
 msgstr ""
 
 msgctxt "always_notify_title"
@@ -96,6 +94,13 @@ msgctxt "settings"
 msgid "Settings"
 msgstr "Ajustes"
 
+#. Settings activity name
+#. Label for the Settings activity displayed on-screen when that activity must
+#. be represented to the user.
+msgctxt "set_alarm"
+msgid "Set alarm"
+msgstr "Establecer alarma"
+
 msgctxt "pref_settings_title"
 msgid "p_settitle"
 msgstr ""
@@ -116,31 +121,60 @@ msgctxt "pref_key_don"
 msgid "p_don_plz"
 msgstr ""
 
-msgctxt "pref_notif_always"
+msgctxt "pref_key_notif_always"
 msgid "p_always"
 msgstr ""
 
-#~ msgctxt "download"
-#~ msgid "Download watchapp"
-#~ msgstr ""
+msgctxt "pref_key_test_notif"
+msgid "p_test_not"
+msgstr ""
 
-#~ msgctxt "download_full"
-#~ msgid "Go to the Pebble app store"
-#~ msgstr ""
+msgctxt "pref_key_test_open_app"
+msgid "p_test_open"
+msgstr ""
 
-#~ msgctxt "pref_key_peb_appstore"
-#~ msgid "appstor"
-#~ msgstr ""
+msgctxt "stock_alarm_nonexist"
+msgid "The stock Andoid alarm clock has not been found on your phone! Sorry."
+msgstr ""
 
-#~ msgctxt "pref_key_show_icon"
-#~ msgid "hide_settings"
-#~ msgstr ""
+msgctxt "stock_alarm_exists"
+msgid "The stock Android alarm clock exists on your system"
+msgstr ""
 
-#~ msgctxt "pref_key_don"
-#~ msgid "donate_plz"
-#~ msgstr ""
+msgctxt "notification_access_already_ok"
+msgid "You have allowed Notification access"
+msgstr ""
 
-#~ msgctxt "pref_key_notif_access_perm"
-#~ msgid "pref_key_notif_access_perm"
-#~ msgstr ""
+msgctxt "open_alarm_app"
+msgid "Try to open Android Clock"
+msgstr ""
+
+msgctxt "pref_key_test_set_alarm"
+msgid "p_test_set_al"
+msgstr ""
+
+#, c-format
+msgctxt "pref_set_test_alarm_summary"
+msgid ""
+"The alarm will be set for <xliff:g id=\"time\">%s</xliff:g>. Turn your "
+"screen off before the alarm sounds. Your Pebble should receive the alarm."
+msgstr ""
+
+msgctxt "pref_pebble_not_connected"
+msgid "Your Pebble is not connected!"
+msgstr ""
+
+msgctxt "pref_test_notif_summ"
+msgid ""
+"A Pebble notification should appear. Turn your phone screen off "
+"immediately after selecting this option."
+msgstr ""
+
+msgctxt "pref_test_notif"
+msgid "Test notifications"
+msgstr ""
+
+msgctxt "pref_troubleshooting"
+msgid "Troubleshooting & Testing"
+msgstr ""
 

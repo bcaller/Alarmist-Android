@@ -39,6 +39,9 @@
     <!-- Settings activity name -->
     <!-- Label for the Settings activity displayed on-screen when that activity must be represented to the user. -->
     <string name="settings">Settings</string>
+    <!-- Settings activity name -->
+    <!-- Label for the Settings activity displayed on-screen when that activity must be represented to the user. -->
+    <string name="set_alarm">Set alarm</string>
 
     <string name="pref_settings_title" tools:ignore="MissingTranslation">p_settitle</string>
     <string name="pref_key_peb_appstore" tools:ignore="MissingTranslation">p_appst</string>
@@ -53,10 +56,10 @@
     <string name="notification_access_already_ok" tools:ignore="MissingTranslation">You have allowed Notification access</string>
     <string name="open_alarm_app" tools:ignore="MissingTranslation">Try to open Android Clock</string>
     <string name="pref_key_test_set_alarm" tools:ignore="MissingTranslation">p_test_set_al</string>
-    <string name="pref_set_test_alarm" tools:ignore="MissingTranslation">Set test alarm</string>
     <string name="pref_set_test_alarm_summary" tools:ignore="MissingTranslation">The alarm will be set for <xliff:g id="time">%s</xliff:g>. Turn your screen off before the alarm sounds. Your Pebble should receive the alarm.</string>
     <string name="pref_pebble_not_connected" tools:ignore="MissingTranslation">Your Pebble is not connected!</string>
     <string name="pref_test_notif_summ" tools:ignore="MissingTranslation">A Pebble notification should appear. Turn your phone screen off immediately after selecting this option.</string>
     <string name="pref_test_notif" tools:ignore="MissingTranslation">Test notifications</string>
+    <string name="pref_troubleshooting" tools:ignore="MissingTranslation"><![CDATA[Troubleshooting & Testing]]></string>
 </resources>
 

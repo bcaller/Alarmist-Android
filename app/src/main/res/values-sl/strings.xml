@@ -1,10 +1,11 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="alarm_is_dismissed">"Alarm ob "<xliff:g id="ALARM_TIME">%s</xliff:g>" je opuščen"</string>
   <string name="alarm_alert_wake_up">Pokonci!</string>
   <string name="alarm_alert_dismiss_text">Opusti</string>
   <string name="alarm_alert_snooze_text">Dremež</string>
   <string name="alarm_alert_snooze_until">"Dremež do "<xliff:g id="TIME">%s</xliff:g></string>
   <string name="alarm_alert_predismiss_title">Prihodnji alarm</string>
   <string name="settings">Nastavitve</string>
-  <string name="alarm_is_dismissed">"Alarm ob "<xliff:g id="ALARM_TIME">%s</xliff:g>" je opuščen"</string>
+  <string name="set_alarm">Nastavi alarm</string>
 </resources>

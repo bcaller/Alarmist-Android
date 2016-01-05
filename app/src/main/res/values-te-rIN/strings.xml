@@ -1,10 +1,11 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="alarm_is_dismissed"><xliff:g id="ALARM_TIME">%s</xliff:g>" అలారాన్ని తీసివేసారు"</string>
   <string name="alarm_alert_wake_up">మేల్కొనండి!</string>
   <string name="alarm_alert_dismiss_text">తీసివేయి</string>
   <string name="alarm_alert_snooze_text">తాత్కాలికంగా ఆపివేయి</string>
   <string name="alarm_alert_snooze_until"><xliff:g id="TIME">%s</xliff:g>" వరకు తాత్కాలికంగా ఆపివేయబడుతోంది"</string>
   <string name="alarm_alert_predismiss_title">అలారం సమయం ఆసన్నం కాబోతోంది</string>
   <string name="settings">సెట్టింగ్‌లు</string>
-  <string name="alarm_is_dismissed"><xliff:g id="ALARM_TIME">%s</xliff:g>" అలారాన్ని తీసివేసారు"</string>
+  <string name="set_alarm">అలారం సెట్ చేయి</string>
 </resources>

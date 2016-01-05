@@ -1,10 +1,11 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="alarm_is_dismissed"><xliff:g id="ALARM_TIME">%s</xliff:g>" ໂມງ​ປຸກ​ຖືກ​ປິດ​ໄວ້​ແລ້ວ"</string>
   <string name="alarm_alert_wake_up">ຕື່ນ!</string>
   <string name="alarm_alert_dismiss_text">ປິດ</string>
   <string name="alarm_alert_snooze_text">ປິດສຽງເຕືອນຊົ່ວຄາວ</string>
   <string name="alarm_alert_snooze_until">"ປິດສຽງເຕືອນຊົ່ວຄາວຈົນກວ່າຈະຮອດ "<xliff:g id="TIME">%s</xliff:g></string>
   <string name="alarm_alert_predismiss_title">ໂມງປຸກຖັດໄປ</string>
   <string name="settings">ຕັ້ງຄ່າ</string>
-  <string name="alarm_is_dismissed"><xliff:g id="ALARM_TIME">%s</xliff:g>" ໂມງ​ປຸກ​ຖືກ​ປິດ​ໄວ້​ແລ້ວ"</string>
+  <string name="set_alarm">ຕັ້ງໂມງປຸກ</string>
 </resources>

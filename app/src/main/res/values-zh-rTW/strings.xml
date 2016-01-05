@@ -1,10 +1,11 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="alarm_is_dismissed">"已關閉 "<xliff:g id="ALARM_TIME">%s</xliff:g>" 的鬧鐘"</string>
   <string name="alarm_alert_wake_up">醒醒！</string>
   <string name="alarm_alert_dismiss_text">關閉</string>
   <string name="alarm_alert_snooze_text">貪睡</string>
   <string name="alarm_alert_snooze_until">"延後到 "<xliff:g id="TIME">%s</xliff:g></string>
   <string name="alarm_alert_predismiss_title">預定的鬧鐘</string>
   <string name="settings">設定</string>
-  <string name="alarm_is_dismissed">"已關閉 "<xliff:g id="ALARM_TIME">%s</xliff:g>" 的鬧鐘"</string>
+  <string name="set_alarm">設定鬧鐘</string>
 </resources>

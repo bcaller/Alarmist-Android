@@ -1,10 +1,11 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="alarm_is_dismissed"><xliff:g id="ALARM_TIME">%s</xliff:g>のアラームを解除しました</string>
   <string name="alarm_alert_wake_up">起きて！</string>
   <string name="alarm_alert_dismiss_text">解除</string>
   <string name="alarm_alert_snooze_text">スヌーズ</string>
   <string name="alarm_alert_snooze_until">"スヌーズ終了時刻: "<xliff:g id="TIME">%s</xliff:g></string>
   <string name="alarm_alert_predismiss_title">次のアラーム</string>
   <string name="settings">設定</string>
-  <string name="alarm_is_dismissed"><xliff:g id="ALARM_TIME">%s</xliff:g>のアラームを解除しました</string>
+  <string name="set_alarm">アラームを設定</string>
 </resources>

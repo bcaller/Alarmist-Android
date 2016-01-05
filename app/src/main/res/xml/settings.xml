@@ -24,14 +24,14 @@
             android:summary="@string/show_app_drawer"
             android:title="App drawer icon" />
     </PreferenceCategory>
-    <PreferenceCategory android:title="Troubleshooting">
+    <PreferenceCategory android:title="@string/pref_troubleshooting">
         <Preference
             android:key="@string/pref_key_test_notif"
             android:summary="@string/pref_test_notif_summ"
             android:title="@string/pref_test_notif" />
         <Preference
             android:key="@string/pref_key_test_set_alarm"
-            android:title="@string/pref_set_test_alarm" />
+            android:title="@string/set_alarm" />
         <Preference
             android:key="@string/pref_key_test_open_app"
             android:title="@string/open_alarm_app" />

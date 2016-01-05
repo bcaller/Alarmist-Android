@@ -1,10 +1,11 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="alarm_is_dismissed"><xliff:g id="ALARM_TIME">%s</xliff:g>-ზე მაღვიძარა გაუქმებულია</string>
   <string name="alarm_alert_wake_up">გაღვიძება!</string>
   <string name="alarm_alert_dismiss_text">დახურვა</string>
   <string name="alarm_alert_snooze_text">ჩაჩუმება</string>
   <string name="alarm_alert_snooze_until">"ჩაჩუმება "<xliff:g id="TIME">%s</xliff:g>-მდე</string>
   <string name="alarm_alert_predismiss_title">მომავალი მაღვიძარა</string>
   <string name="settings">პარამეტრები</string>
-  <string name="alarm_is_dismissed"><xliff:g id="ALARM_TIME">%s</xliff:g>-ზე მაღვიძარა გაუქმებულია</string>
+  <string name="set_alarm">მაღვიძარას დაყენება</string>
 </resources>

@@ -1,10 +1,11 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="alarm_is_dismissed"><xliff:g id="ALARM_TIME">%s</xliff:g>" അലാറം ഡിസ്മിസ് ചെയ്തു"</string>
   <string name="alarm_alert_wake_up">ഉണരൂ!</string>
   <string name="alarm_alert_dismiss_text">നിരസിക്കുക</string>
   <string name="alarm_alert_snooze_text">സ്‌നൂസ് ചെയ്യുക</string>
   <string name="alarm_alert_snooze_until"><xliff:g id="TIME">%s</xliff:g>" വരെ സ്‌നൂസ് ചെയ്യുന്നു"</string>
   <string name="alarm_alert_predismiss_title">വരാനിരിക്കുന്ന അലാറം</string>
   <string name="settings">ക്രമീകരണങ്ങൾ</string>
-  <string name="alarm_is_dismissed"><xliff:g id="ALARM_TIME">%s</xliff:g>" അലാറം ഡിസ്മിസ് ചെയ്തു"</string>
+  <string name="set_alarm">അലാറം സജ്ജീകരിക്കുക</string>
 </resources>

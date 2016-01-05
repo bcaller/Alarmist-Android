@@ -1,10 +1,11 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+  <string name="alarm_is_dismissed"><xliff:g id="ALARM_TIME">%s</xliff:g>" i-alamu icashisiwe"</string>
   <string name="alarm_alert_wake_up">Vuka!</string>
   <string name="alarm_alert_dismiss_text">Cashisa</string>
   <string name="alarm_alert_snooze_text">Ukusnuza</string>
   <string name="alarm_alert_snooze_until">Snuza kuze kube ngu-<xliff:g id="TIME">%s</xliff:g></string>
   <string name="alarm_alert_predismiss_title">I-Alamu ezayo</string>
   <string name="settings">Izilungiselelo</string>
-  <string name="alarm_is_dismissed"><xliff:g id="ALARM_TIME">%s</xliff:g>" i-alamu icashisiwe"</string>
+  <string name="set_alarm">Setha i-alamu</string>
 </resources>
