@@ -41,6 +41,11 @@ import static java.util.Calendar.DAY_OF_WEEK;
 //See https://android.googlesource.com/platform/packages/apps/DeskClock/+/master/src/com/android/deskclock/alarms/AlarmNotifications.java
 
 public class AlarmClockWatcher extends NotificationListenerService {
+    public static final UUID WATCHAPP_UUID = UUID.fromString("5cfa8e91-5c31-4287-9b57-e0f14ae72b34");
+    static final short RECURSION_WEEKDAYS = 2;
+    static final short RECURSION_EVERYDAY = 3;
+    static final int KEY_NEW_ALARM = 2;
+    static final String DESK_CLOCK = "com.google.android.deskclock";
     private static final String TAG = "AlarmistNLS";
     private static final int KEY_VIBRATION = 0;
     private static final byte VIBRATION_CANCEL = 0;
@@ -51,116 +56,19 @@ public class AlarmClockWatcher extends NotificationListenerService {
     private static final int KEY_RECURSION = 23;
     private static final short RECURSION_NONE = 0;
     private static final short RECURSION_WEEKLY = 1;
-    static final short RECURSION_WEEKDAYS = 2;
-    static final short RECURSION_EVERYDAY = 3;
-    static final int KEY_NEW_ALARM = 2;
-    public static final UUID WATCHAPP_UUID = UUID.fromString("5cfa8e91-5c31-4287-9b57-e0f14ae72b34");
-    static final String DESK_CLOCK = "com.google.android.deskclock";
-
+    private final FinalInt tId = new FinalInt();
+    private final PebbleKit.PebbleNackReceiver pebbleNackReceiver = new PebbleKit.PebbleNackReceiver(WATCHAPP_UUID) {
+        @Override
+        public void receiveNack(Context context, int transactionId) {
+            Log.e(TAG, "Nacked " + transactionId);
+        }
+    };
     private List<PendingIntent> dismissAlarm;
     private Alarm nextAlarm;
     private Alarm unconfirmedNotificationAlarm;
-    private final FinalInt tId = new FinalInt();
     private boolean hasRetrievedExistingNotifications = false;
     private boolean sendingLocked = false;
     private Map<Long, Alarm> alarmByTrigger = new HashMap<>(8);
-    private Map<Integer, Long> sbnIdToTriggerTime = new HashMap<>(8);
-    private boolean always_notify = false;
-    private SharedPreferences sharedPreferences;
-
-    private void updateAlarm(Alarm alarm) {
-        if(alarm != null)
-            alarmByTrigger.put(alarm.time, alarm);
-
-        AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
-        AlarmManager.AlarmClockInfo nextClock = alarmManager.getNextAlarmClock();
-        if (nextClock != null) {
-            final String creatorPackage = nextClock.getShowIntent().getCreatorPackage();
-            if (creatorPackage != null && creatorPackage.equals(DESK_CLOCK)) {
-                final long triggerTime = nextClock.getTriggerTime();
-
-                if(alarmByTrigger.containsKey(triggerTime)) {
-                    nextAlarm = alarmByTrigger.get(triggerTime);
-                } else {
-                    // triggerTime has changed
-                    // we must respect the triggerTime
-                    nextAlarm = new Alarm(triggerTime);
-                }
-            } else {
-                Log.e(TAG, "Another app is messing with the alarm clock: " + creatorPackage);
-                nextAlarm = alarm;
-            }
-        } else {
-            nextAlarm = null;
-        }
-
-        if (nextAlarm != null) {
-            Log.i(TAG, "Next alarm is now " + nextAlarm);
-        }
-        else
-            Log.i(TAG, "No next alarm");
-
-        sendAlarmUpdateToPebble(this);
-    }
-
-    public void checkAlarmManager() {
-        updateAlarm(null);
-    }
-
-    public enum AlarmState {
-        UNKNOWN,
-        UPCOMING,
-        SNOOZED,
-        RINGING
-    }
-
-    private AlarmState alarmType(Notification notification) {
-        final CharSequence title = notification.extras.getCharSequence(Notification.EXTRA_TITLE);
-        final CharSequence message = notification.extras.getCharSequence(Notification.EXTRA_TEXT);
-        if (title != null) {
-            if (title.equals(getString(R.string.alarm_alert_predismiss_title))) {
-                return AlarmState.UPCOMING;
-            } else if (notification.actions.length == 2
-                    && notification.actions[0].title.equals(getString(R.string.alarm_alert_snooze_text))
-                    && notification.actions[1].title.equals(getString(R.string.alarm_alert_dismiss_text))) {
-                return AlarmState.RINGING;
-            } else if (notification.actions.length == 1 && notification.actions[0].title.equals(getString(R.string.alarm_alert_dismiss_text))) {
-                return AlarmState.SNOOZED;
-            }
-        }
-        return AlarmState.UNKNOWN;
-    }
-
-    private Date parseDate(String formattedTime) {
-        final String skeleton = DateFormat.is24HourFormat(this) ? "EHm" : "Ehma";
-        final String pattern = DateFormat.getBestDateTimePattern(Locale.getDefault(), skeleton);
-        SimpleDateFormat format = new SimpleDateFormat(pattern, Locale.getDefault());
-        try {
-            Calendar now = Calendar.getInstance();
-            now.setTime(new Date());
-            Calendar parsedDayAndTime = Calendar.getInstance();
-            parsedDayAndTime.setTime(format.parse(formattedTime));
-            // parsing "Tue 09:23" --> Jan 06 1970, so move to the next / current Tuesday
-            if (now.get(DAY_OF_WEEK) == parsedDayAndTime.get(DAY_OF_WEEK)) {
-                parsedDayAndTime.set(Calendar.DAY_OF_YEAR, now.get(Calendar.DAY_OF_YEAR));
-                parsedDayAndTime.set(Calendar.YEAR, now.get(Calendar.YEAR));
-                if (now.getTimeInMillis() > parsedDayAndTime.getTimeInMillis()) {
-                    now.add(Calendar.DAY_OF_MONTH, 7);
-                }
-            } else {
-                now.add(Calendar.DAY_OF_MONTH, parsedDayAndTime.get(DAY_OF_WEEK) - now.get(DAY_OF_WEEK));
-            }
-            now.set(Calendar.HOUR_OF_DAY, parsedDayAndTime.get(Calendar.HOUR_OF_DAY));
-            now.set(Calendar.MINUTE, parsedDayAndTime.get(Calendar.MINUTE));
-            now.set(Calendar.SECOND, parsedDayAndTime.get(Calendar.SECOND));
-            now.set(Calendar.MILLISECOND, parsedDayAndTime.get(Calendar.MILLISECOND));
-            return now.getTime();
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
-
     private final BroadcastReceiver alarmManagerReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
@@ -168,7 +76,8 @@ public class AlarmClockWatcher extends NotificationListenerService {
             Log.i(TAG, nextAlarm == null ? "no alarm" : nextAlarm.toString());
         }
     };
-
+    private Map<Integer, Long> sbnIdToTriggerTime = new HashMap<>(8);
+    private boolean always_notify = false;
     private final PebbleKit.PebbleDataReceiver pebbleDataReceiver = new PebbleKit.PebbleDataReceiver(WATCHAPP_UUID) {
         private boolean isKeyOK(int key, PebbleDictionary data) {
             try {
@@ -252,6 +161,100 @@ public class AlarmClockWatcher extends NotificationListenerService {
             }
         }
     };
+    final SharedPreferences.OnSharedPreferenceChangeListener preferenceChangeListener = new SharedPreferences.OnSharedPreferenceChangeListener() {
+        @Override
+        public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
+            Log.d(TAG, "Pref changed: " + key);
+            always_notify = sharedPreferences.getBoolean(getString(R.string.pref_notif_always), false);
+        }
+    };
+    private SharedPreferences sharedPreferences;
+
+    private void updateAlarm(Alarm alarm) {
+        if(alarm != null)
+            alarmByTrigger.put(alarm.time, alarm);
+
+        AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);
+        AlarmManager.AlarmClockInfo nextClock = alarmManager.getNextAlarmClock();
+        if (nextClock != null) {
+            final String creatorPackage = nextClock.getShowIntent().getCreatorPackage();
+            if (creatorPackage != null && creatorPackage.equals(DESK_CLOCK)) {
+                final long triggerTime = nextClock.getTriggerTime();
+
+                if(alarmByTrigger.containsKey(triggerTime)) {
+                    nextAlarm = alarmByTrigger.get(triggerTime);
+                } else {
+                    // triggerTime has changed
+                    // we must respect the triggerTime
+                    nextAlarm = new Alarm(triggerTime);
+                }
+            } else {
+                Log.e(TAG, "Another app is messing with the alarm clock: " + creatorPackage);
+                nextAlarm = alarm;
+            }
+        } else {
+            nextAlarm = null;
+        }
+
+        if (nextAlarm != null) {
+            Log.i(TAG, "Next alarm is now " + nextAlarm);
+        }
+        else
+            Log.i(TAG, "No next alarm");
+
+        sendAlarmUpdateToPebble(this);
+    }
+
+    public void checkAlarmManager() {
+        updateAlarm(null);
+    }
+
+    private AlarmState alarmType(Notification notification) {
+        final CharSequence title = notification.extras.getCharSequence(Notification.EXTRA_TITLE);
+        final CharSequence message = notification.extras.getCharSequence(Notification.EXTRA_TEXT);
+        if (title != null) {
+            if (title.equals(getString(R.string.alarm_alert_predismiss_title))) {
+                return AlarmState.UPCOMING;
+            } else if (notification.actions.length == 2
+                    && notification.actions[0].title.equals(getString(R.string.alarm_alert_snooze_text))
+                    && notification.actions[1].title.equals(getString(R.string.alarm_alert_dismiss_text))) {
+                return AlarmState.RINGING;
+            } else if (notification.actions.length == 1 && notification.actions[0].title.equals(getString(R.string.alarm_alert_dismiss_text))) {
+                return AlarmState.SNOOZED;
+            }
+        }
+        return AlarmState.UNKNOWN;
+    }
+
+    private Date parseDate(String formattedTime) {
+        final String skeleton = DateFormat.is24HourFormat(this) ? "EHm" : "Ehma";
+        final String pattern = DateFormat.getBestDateTimePattern(Locale.getDefault(), skeleton);
+        SimpleDateFormat format = new SimpleDateFormat(pattern, Locale.getDefault());
+        try {
+            Calendar now = Calendar.getInstance();
+            now.setTime(new Date());
+            Calendar parsedDayAndTime = Calendar.getInstance();
+            parsedDayAndTime.setTime(format.parse(formattedTime));
+            // parsing "Tue 09:23" --> Jan 06 1970, so move to the next / current Tuesday
+            if (now.get(DAY_OF_WEEK) == parsedDayAndTime.get(DAY_OF_WEEK)) {
+                parsedDayAndTime.set(Calendar.DAY_OF_YEAR, now.get(Calendar.DAY_OF_YEAR));
+                parsedDayAndTime.set(Calendar.YEAR, now.get(Calendar.YEAR));
+                if (now.getTimeInMillis() > parsedDayAndTime.getTimeInMillis()) {
+                    now.add(Calendar.DAY_OF_MONTH, 7);
+                }
+            } else {
+                now.add(Calendar.DAY_OF_MONTH, parsedDayAndTime.get(DAY_OF_WEEK) - now.get(DAY_OF_WEEK));
+            }
+            now.set(Calendar.HOUR_OF_DAY, parsedDayAndTime.get(Calendar.HOUR_OF_DAY));
+            now.set(Calendar.MINUTE, parsedDayAndTime.get(Calendar.MINUTE));
+            now.set(Calendar.SECOND, parsedDayAndTime.get(Calendar.SECOND));
+            now.set(Calendar.MILLISECOND, parsedDayAndTime.get(Calendar.MILLISECOND));
+            return now.getTime();
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 
     private void sendAlarmUpdateToPebble(Context context) {
         if (!sendingLocked && PebbleKit.isWatchConnected(context)) {
@@ -268,22 +271,6 @@ public class AlarmClockWatcher extends NotificationListenerService {
             }
         }
     }
-
-    private final PebbleKit.PebbleNackReceiver pebbleNackReceiver = new PebbleKit.PebbleNackReceiver(WATCHAPP_UUID) {
-        @Override
-        public void receiveNack(Context context, int transactionId) {
-            Log.e(TAG, "Nacked " + transactionId);
-        }
-    };
-
-    final SharedPreferences.OnSharedPreferenceChangeListener preferenceChangeListener = new SharedPreferences.OnSharedPreferenceChangeListener() {
-        @Override
-        public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
-            Log.d(TAG, "Pref changed: " + key);
-            always_notify = sharedPreferences.getBoolean(getString(R.string.pref_notif_always), false);
-        }
-    };
-
 
     @Override
     public void onCreate() {
@@ -474,6 +461,13 @@ public class AlarmClockWatcher extends NotificationListenerService {
         }
         sendingLocked = false;
         sendAlarmUpdateToPebble(this);
+    }
+
+    public enum AlarmState {
+        UNKNOWN,
+        UPCOMING,
+        SNOOZED,
+        RINGING
     }
 
 }
