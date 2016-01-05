@@ -15,7 +15,7 @@
             android:title="@string/download" />
         <SwitchPreference
             android:defaultValue="false"
-            android:key="@string/pref_notif_always"
+            android:key="@string/pref_key_notif_always"
             android:summary="@string/notify_always_summary"
             android:title="@string/always_notify_title" />
         <SwitchPreference
@@ -23,5 +23,17 @@
             android:key="@string/pref_key_show_icon"
             android:summary="@string/show_app_drawer"
             android:title="App drawer icon" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="Troubleshooting">
+        <Preference
+            android:key="@string/pref_key_test_notif"
+            android:summary="@string/pref_test_notif_summ"
+            android:title="@string/pref_test_notif" />
+        <Preference
+            android:key="@string/pref_key_test_set_alarm"
+            android:title="@string/pref_set_test_alarm" />
+        <Preference
+            android:key="@string/pref_key_test_open_app"
+            android:title="@string/open_alarm_app" />
     </PreferenceCategory>
 </PreferenceScreen>

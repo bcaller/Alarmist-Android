@@ -10,6 +10,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
+import android.os.Binder;
 import android.os.Handler;
 import android.os.IBinder;
 import android.preference.PreferenceManager;
@@ -46,6 +47,7 @@ public class AlarmClockWatcher extends NotificationListenerService {
     static final short RECURSION_EVERYDAY = 3;
     static final int KEY_NEW_ALARM = 2;
     static final String DESK_CLOCK = "com.google.android.deskclock";
+    public static final String EXTRA_SETTINGS_BIND = "BINDING_FROM_SETTINGS";
     private static final String TAG = "AlarmistNLS";
     private static final int KEY_VIBRATION = 0;
     private static final byte VIBRATION_CANCEL = 0;
@@ -54,8 +56,8 @@ public class AlarmClockWatcher extends NotificationListenerService {
     private static final int KEY_HOUR = 21;
     private static final int KEY_MINUTE = 22;
     private static final int KEY_RECURSION = 23;
-    private static final short RECURSION_NONE = 0;
-    private static final short RECURSION_WEEKLY = 1;
+    static final short RECURSION_NONE = 0;
+    static final short RECURSION_WEEKLY = 1;
     private final FinalInt tId = new FinalInt();
     private final PebbleKit.PebbleNackReceiver pebbleNackReceiver = new PebbleKit.PebbleNackReceiver(WATCHAPP_UUID) {
         @Override
@@ -66,7 +68,7 @@ public class AlarmClockWatcher extends NotificationListenerService {
     private List<PendingIntent> dismissAlarm;
     private Alarm nextAlarm;
     private Alarm unconfirmedNotificationAlarm;
-    private boolean hasRetrievedExistingNotifications = false;
+    public boolean hasRetrievedExistingNotifications = false;
     private boolean sendingLocked = false;
     private Map<Long, Alarm> alarmByTrigger = new HashMap<>(8);
     private final BroadcastReceiver alarmManagerReceiver = new BroadcastReceiver() {
@@ -97,7 +99,7 @@ public class AlarmClockWatcher extends NotificationListenerService {
                 PebbleKit.sendAckToPebble(context, transactionId);
                 checkAlarmManager();
                 if (nextAlarm != null) {
-                    sendAlarmUpdateToPebble(context);
+                    sendUpcomingAlarmUpdateToPebble(context);
                 }
             } else if (isKeyOK(Alarm.KEY_CAN_DISMISS, data)) {
                 PebbleKit.sendAckToPebble(context, transactionId);
@@ -116,56 +118,61 @@ public class AlarmClockWatcher extends NotificationListenerService {
             } else if (isKeyOK(KEY_NEW_ALARM, data)) {
                 PebbleKit.sendAckToPebble(context, transactionId);
                 Log.i(TAG, "New alarm...");
-                Intent setAlarm = new Intent(AlarmClock.ACTION_SET_ALARM);
                 final int hour = data.getInteger(KEY_HOUR).intValue();
-                setAlarm.putExtra(AlarmClock.EXTRA_HOUR, hour);
                 final int min = data.getInteger(KEY_MINUTE).intValue();
-                setAlarm.putExtra(AlarmClock.EXTRA_MINUTES, min);
                 final short recursion = data.getInteger(KEY_RECURSION).shortValue();
-                Log.i(TAG, hour + ":" + min + " rep " + recursion);
-                if (recursion != RECURSION_NONE) {
-                    final ArrayList<Integer> days = new ArrayList<>(7);
-                    if (recursion == RECURSION_EVERYDAY) {
-                        for (int i = 1; i < 8; i++) {
-                            //Calendar Saturday = 7
-                            days.add(i);
-                        }
-                    } else {
-                        Calendar now = Calendar.getInstance();
-                        now.setTime(new Date());
-                        final boolean tomorrow = now.get(Calendar.HOUR_OF_DAY) > hour || (now.get(Calendar.HOUR_OF_DAY) == hour && now.get(Calendar.MINUTE) > min);
-                        if (tomorrow)
-                            now.add(Calendar.DAY_OF_WEEK, 1);
-                        if (recursion == RECURSION_WEEKLY) {
-                            days.add(now.get(Calendar.DAY_OF_WEEK));
-                        } else if (recursion == RECURSION_WEEKDAYS) {
-                            if (now.get(Calendar.DAY_OF_WEEK) == Calendar.SUNDAY || now.get(Calendar.DAY_OF_WEEK) == Calendar.SATURDAY) {
-                                //Weekend
-                                days.add(Calendar.SUNDAY);
-                                days.add(Calendar.SATURDAY);
-                            } else {
-                                //Weekdays
-                                days.add(Calendar.MONDAY);
-                                days.add(Calendar.TUESDAY);
-                                days.add(Calendar.WEDNESDAY);
-                                days.add(Calendar.THURSDAY);
-                                days.add(Calendar.FRIDAY);
-                            }
-                        }
-                    }
-                    setAlarm.putExtra(AlarmClock.EXTRA_DAYS, days);
-                }
-                setAlarm.putExtra(AlarmClock.EXTRA_MESSAGE, "Alarmist: " + getString(R.string.alarm_alert_wake_up));
-                setAlarm.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                startActivity(setAlarm);
+                setAlarm(hour, min, recursion);
             }
         }
     };
+
+    public void setAlarm(int hour, int min, short recursion) {
+        Intent setAlarm = new Intent(AlarmClock.ACTION_SET_ALARM);
+        setAlarm.putExtra(AlarmClock.EXTRA_HOUR, hour);
+        setAlarm.putExtra(AlarmClock.EXTRA_MINUTES, min);
+        Log.i(TAG, hour + ":" + min + " rep " + recursion);
+        if (recursion != RECURSION_NONE) {
+            final ArrayList<Integer> days = new ArrayList<>(7);
+            if (recursion == RECURSION_EVERYDAY) {
+                for (int i = 1; i < 8; i++) {
+                    //Calendar Saturday = 7
+                    days.add(i);
+                }
+            } else {
+                Calendar now = Calendar.getInstance();
+                now.setTime(new Date());
+                final boolean tomorrow = now.get(Calendar.HOUR_OF_DAY) > hour || (now.get(Calendar.HOUR_OF_DAY) == hour && now.get(Calendar.MINUTE) > min);
+                if (tomorrow)
+                    now.add(Calendar.DAY_OF_WEEK, 1);
+                if (recursion == RECURSION_WEEKLY) {
+                    days.add(now.get(Calendar.DAY_OF_WEEK));
+                } else if (recursion == RECURSION_WEEKDAYS) {
+                    if (now.get(Calendar.DAY_OF_WEEK) == Calendar.SUNDAY || now.get(Calendar.DAY_OF_WEEK) == Calendar.SATURDAY) {
+                        //Weekend
+                        days.add(Calendar.SUNDAY);
+                        days.add(Calendar.SATURDAY);
+                    } else {
+                        //Weekdays
+                        days.add(Calendar.MONDAY);
+                        days.add(Calendar.TUESDAY);
+                        days.add(Calendar.WEDNESDAY);
+                        days.add(Calendar.THURSDAY);
+                        days.add(Calendar.FRIDAY);
+                    }
+                }
+            }
+            setAlarm.putExtra(AlarmClock.EXTRA_DAYS, days);
+        }
+        setAlarm.putExtra(AlarmClock.EXTRA_MESSAGE, "Alarmist: " + getString(R.string.alarm_alert_wake_up));
+        setAlarm.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(setAlarm);
+    }
+
     final SharedPreferences.OnSharedPreferenceChangeListener preferenceChangeListener = new SharedPreferences.OnSharedPreferenceChangeListener() {
         @Override
         public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
             Log.d(TAG, "Pref changed: " + key);
-            always_notify = sharedPreferences.getBoolean(getString(R.string.pref_notif_always), false);
+            always_notify = sharedPreferences.getBoolean(getString(R.string.pref_key_notif_always), false);
         }
     };
     private SharedPreferences sharedPreferences;
@@ -202,7 +209,7 @@ public class AlarmClockWatcher extends NotificationListenerService {
         else
             Log.i(TAG, "No next alarm");
 
-        sendAlarmUpdateToPebble(this);
+        sendUpcomingAlarmUpdateToPebble(this);
     }
 
     public void checkAlarmManager() {
@@ -256,7 +263,7 @@ public class AlarmClockWatcher extends NotificationListenerService {
         return null;
     }
 
-    private void sendAlarmUpdateToPebble(Context context) {
+    private void sendUpcomingAlarmUpdateToPebble(Context context) {
         if (!sendingLocked && PebbleKit.isWatchConnected(context)) {
             tId.increment();
             if (nextAlarm != null) {
@@ -285,14 +292,24 @@ public class AlarmClockWatcher extends NotificationListenerService {
         super.onCreate();
     }
 
+    private final IBinder settingsBinder = new SettingsBinder();
+    public class SettingsBinder extends Binder {
+        AlarmClockWatcher getService() {
+            // Return this instance of LocalService so clients can call public methods
+            return AlarmClockWatcher.this;
+        }
+    }
     @Override
     public IBinder onBind(Intent intent) {
         Log.v(TAG, "Alarmist bound");
+        if(intent.hasExtra(EXTRA_SETTINGS_BIND))
+            return settingsBinder;
         return super.onBind(intent);
     }
 
     @Override
     public void onDestroy() {
+        Log.d(TAG, "Alarmist destroyed");
         try {
             unregisterReceiver(alarmManagerReceiver);
         } catch (IllegalArgumentException ignored) {
@@ -460,7 +477,7 @@ public class AlarmClockWatcher extends NotificationListenerService {
             }
         }
         sendingLocked = false;
-        sendAlarmUpdateToPebble(this);
+        sendUpcomingAlarmUpdateToPebble(this);
     }
 
     public enum AlarmState {
