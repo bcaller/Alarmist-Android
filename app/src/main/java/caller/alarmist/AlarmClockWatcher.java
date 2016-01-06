@@ -46,7 +46,8 @@ public class AlarmClockWatcher extends NotificationListenerService {
     static final short RECURSION_WEEKDAYS = 2;
     static final short RECURSION_EVERYDAY = 3;
     static final int KEY_NEW_ALARM = 2;
-    static final String DESK_CLOCK = "com.google.android.deskclock";
+    static final String DESK_CLOCK_GOOGLE = "com.google.android.deskclock";
+    static final String DESK_CLOCK = "com.android.deskclock";
     public static final String EXTRA_SETTINGS_BIND = "BINDING_FROM_SETTINGS";
     private static final String TAG = "AlarmistNLS";
     private static final int KEY_VIBRATION = 0;
@@ -185,7 +186,7 @@ public class AlarmClockWatcher extends NotificationListenerService {
         AlarmManager.AlarmClockInfo nextClock = alarmManager.getNextAlarmClock();
         if (nextClock != null) {
             final String creatorPackage = nextClock.getShowIntent().getCreatorPackage();
-            if (creatorPackage != null && creatorPackage.equals(DESK_CLOCK)) {
+            if (creatorPackage != null && (creatorPackage.equals(DESK_CLOCK) || creatorPackage.equals(DESK_CLOCK_GOOGLE))) {
                 final long triggerTime = nextClock.getTriggerTime();
 
                 if(alarmByTrigger.containsKey(triggerTime)) {
@@ -346,7 +347,7 @@ public class AlarmClockWatcher extends NotificationListenerService {
 
         if(!hasRetrievedExistingNotifications) sendingLocked = true;
 
-        if (packageName.equals(DESK_CLOCK)) {
+        if (packageName.equals(DESK_CLOCK) || packageName.equals(DESK_CLOCK_GOOGLE)) {
             final Notification notification = sbn.getNotification();
             final CharSequence title = notification.extras.getCharSequence(Notification.EXTRA_TITLE);
             final CharSequence message = notification.extras.getCharSequence(Notification.EXTRA_TEXT);
@@ -426,7 +427,7 @@ public class AlarmClockWatcher extends NotificationListenerService {
         final CharSequence message = n.extras.getCharSequence(Notification.EXTRA_TEXT);
         Log.i(TAG, "ID :" + sbn.getId() + "\t" + message + "\t" + sbn.getPackageName());
 
-        if (packageName.equals(DESK_CLOCK)) {
+        if (packageName.equals(DESK_CLOCK) || packageName.equals(DESK_CLOCK_GOOGLE)) {
             AlarmState type = alarmType(n);
             if (type == AlarmState.RINGING) {
                 // dismiss Pebble notification if alarm is dismissed

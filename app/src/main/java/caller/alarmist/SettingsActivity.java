@@ -154,10 +154,15 @@ public class SettingsActivity extends Activity {
             findPreference(getString(R.string.pref_key_test_open_app)).setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
                 @Override
                 public boolean onPreferenceClick(Preference preference) {
-                    Intent intent = new Intent(Intent.ACTION_MAIN).addCategory(Intent.CATEGORY_LAUNCHER);
-                    final ComponentName component = new ComponentName(AlarmClockWatcher.DESK_CLOCK, DESK_CLOCK_ACTIVITY_CLASS);
-                    intent.setComponent(component);
-                    getActivity().startActivity(intent);
+                    try {
+                        Intent intent = new Intent(Intent.ACTION_MAIN).addCategory(Intent.CATEGORY_LAUNCHER);
+                        final ComponentName component = new ComponentName(deskClockPackageName(), DESK_CLOCK_ACTIVITY_CLASS);
+                        intent.setComponent(component);
+                        getActivity().startActivity(intent);
+                        findPreference(getText(R.string.pref_key_test_open_app)).setSummary(R.string.stock_alarm_exists);
+                    } catch (PackageManager.NameNotFoundException ignored) {
+                        Toast.makeText(getActivity(), R.string.stock_alarm_nonexist, Toast.LENGTH_LONG).show();
+                    }
                     return true;
                 }
             });
@@ -209,24 +214,40 @@ public class SettingsActivity extends Activity {
             Log.d(context.getLocalClassName(), "start");
             findPreference(getString(R.string.pref_key_notif_access_perm)).setSummary(context.getText(R.string.notif_access_summary));
 
-            if(mService != null) {
-                try {
-                    mService.getActiveNotifications();
-                    findPreference(getString(R.string.pref_key_notif_access_perm)).setSummary(R.string.notification_access_already_ok);
-                } catch (SecurityException ignored) { Log.d(getActivity().getLocalClassName(), "Denied Notification Access"); }
-            }
             Intent intent = new Intent(context, AlarmClockWatcher.class);
             intent.putExtra(AlarmClockWatcher.EXTRA_SETTINGS_BIND, true);
             context.bindService(intent, mConnection, 0);
 
-            final ComponentName component = new ComponentName(AlarmClockWatcher.DESK_CLOCK, DESK_CLOCK_ACTIVITY_CLASS);
             try {
-                ActivityInfo aInfo = context.getPackageManager().getActivityInfo(component, PackageManager.GET_META_DATA);
+                deskClockPackageName();
                 findPreference(getText(R.string.pref_key_test_open_app)).setSummary(R.string.stock_alarm_exists);
             } catch (PackageManager.NameNotFoundException e) {
                 Log.e(context.getLocalClassName(), "No stock alarm clock");
                 findPreference(getText(R.string.pref_key_test_open_app)).setSummary(getText(R.string.stock_alarm_nonexist));
                 Toast.makeText(context, R.string.stock_alarm_nonexist, Toast.LENGTH_LONG).show();
+            }
+        }
+
+        private String deskClockPackageName() throws PackageManager.NameNotFoundException {
+            //Either DESK_CLOCK_GOOGLE or DESK_CLOCK
+            Activity context = getActivity();
+            ComponentName component = new ComponentName(AlarmClockWatcher.DESK_CLOCK_GOOGLE, DESK_CLOCK_ACTIVITY_CLASS);
+            try {
+                ActivityInfo aInfo = context.getPackageManager().getActivityInfo(component, PackageManager.GET_META_DATA);
+                Log.d(context.getLocalClassName(), AlarmClockWatcher.DESK_CLOCK_GOOGLE);
+                return AlarmClockWatcher.DESK_CLOCK_GOOGLE;
+            } catch (PackageManager.NameNotFoundException no_google) {
+                component = new ComponentName(AlarmClockWatcher.DESK_CLOCK, DESK_CLOCK_ACTIVITY_CLASS);
+                try {
+                    ActivityInfo aInfo = context.getPackageManager().getActivityInfo(component, PackageManager.GET_META_DATA);
+                    Log.d(context.getLocalClassName(), AlarmClockWatcher.DESK_CLOCK);
+                    return AlarmClockWatcher.DESK_CLOCK;
+                } catch (PackageManager.NameNotFoundException e) {
+                    Log.e(context.getLocalClassName(), "No stock alarm clock");
+                    findPreference(getText(R.string.pref_key_test_open_app)).setSummary(getText(R.string.stock_alarm_nonexist));
+                    Toast.makeText(context, R.string.stock_alarm_nonexist, Toast.LENGTH_LONG).show();
+                    throw e;
+                }
             }
         }
 
@@ -239,6 +260,12 @@ public class SettingsActivity extends Activity {
                     ? R.string.pref_test_notif_summ : R.string.pref_pebble_not_connected);
             PebbleKit.registerPebbleConnectedReceiver(context, pebbleConnectedReceiver);
             PebbleKit.registerPebbleDisconnectedReceiver(context, pebbleDisconnectedReceiver);
+            if(mService != null) {
+                try {
+                    mService.getActiveNotifications();
+                    findPreference(getString(R.string.pref_key_notif_access_perm)).setSummary(R.string.notification_access_already_ok);
+                } catch (SecurityException ignored) { Log.d(getActivity().getLocalClassName(), "Denied Notification Access"); }
+            }
             super.onResume();
         }
 
@@ -268,10 +295,12 @@ public class SettingsActivity extends Activity {
                 // We've bound to LocalService, cast the IBinder and get LocalService instance
                 AlarmClockWatcher.SettingsBinder binder = (AlarmClockWatcher.SettingsBinder) service;
                 mService = binder.getService();
-                mService.getActiveNotifications();
-                Log.i(getActivity().getLocalClassName(), "Connected service");
-                findPreference(getString(R.string.pref_key_notif_access_perm)).setSummary(R.string.notification_access_already_ok);
-                mBound = true;
+                try {
+                    mService.getActiveNotifications();
+                    Log.i(getActivity().getLocalClassName(), "Connected service");
+                    findPreference(getString(R.string.pref_key_notif_access_perm)).setSummary(R.string.notification_access_already_ok);
+                    mBound = true;
+                } catch (SecurityException ignored) { Log.d(getActivity().getLocalClassName(), "Denied Notification Access"); }
             }
 
             @Override
