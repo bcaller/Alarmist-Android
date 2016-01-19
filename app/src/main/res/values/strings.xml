@@ -61,5 +61,6 @@
     <string name="pref_test_notif_summ" tools:ignore="MissingTranslation">A Pebble notification should appear. Turn your phone screen off immediately after selecting this option.</string>
     <string name="pref_test_notif" tools:ignore="MissingTranslation">Test notifications</string>
     <string name="pref_troubleshooting" tools:ignore="MissingTranslation"><![CDATA[Troubleshooting & Testing]]></string>
+    <string name="alarm_ringing_pebble_msg" tools:ignore="MissingTranslation">Alarm \'<xliff:g id="title">%s</xliff:g>\' is ringing on your phone: <xliff:g id="message">%s</xliff:g></string>
 </resources>
 
