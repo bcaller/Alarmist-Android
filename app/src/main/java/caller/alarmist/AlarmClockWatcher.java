@@ -30,7 +30,6 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.UUID;
@@ -51,6 +50,9 @@ public class AlarmClockWatcher extends NotificationListenerService {
     static final String DESK_CLOCK = "com.android.deskclock";
     public static final String EXTRA_SETTINGS_BIND = "BINDING_FROM_SETTINGS";
     private static final String TAG = "AlarmistNLS";
+    private static final String SNOOZE_INTENT_ACTION = "caller.alarmist.SNOOZE_PEBBLE_ACTION";
+    private static final String SNOOZE_INTENT_EXTRA = "SNOOZE_PENDING";
+    private static final String DISMISS_INTENT_EXTRA = "DISMISS_PENDING";
     private static final int KEY_VIBRATION = 0;
     private static final byte VIBRATION_CANCEL = 0;
     private static final byte VIBRATION_START = 1;
@@ -67,7 +69,7 @@ public class AlarmClockWatcher extends NotificationListenerService {
             if(LOGGING)Log.e(TAG, "Nacked " + transactionId);
         }
     };
-    private List<PendingIntent> dismissAlarm;
+    private Map<String, RingingAlarm> dismissAlarm;
     private Alarm nextAlarm;
     private Alarm unconfirmedNotificationAlarm;
     public boolean hasRetrievedExistingNotifications = false;
@@ -78,6 +80,19 @@ public class AlarmClockWatcher extends NotificationListenerService {
         public void onReceive(Context context, Intent intent) {
             checkAlarmManager();
             if(LOGGING)Log.i(TAG, nextAlarm == null ? "no alarm" : nextAlarm.toString());
+        }
+    };
+    private final BroadcastReceiver snoozeReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            if(LOGGING) {
+                Log.v(TAG, "We have a snooze command");
+            }
+            String key = intent.getStringExtra(SNOOZE_INTENT_EXTRA);
+            if(dismissAlarm.containsKey(key)) {
+                dismissAlarm.get(key).snooze();
+            }
+            cancelPebbleVibration();
         }
     };
     private Map<Integer, Long> sbnIdToTriggerTime = new HashMap<>(8);
@@ -287,10 +302,10 @@ public class AlarmClockWatcher extends NotificationListenerService {
 
     @Override
     public void onCreate() {
-        if(LOGGING)Log.d(TAG, "Alarmist running");
-        dismissAlarm = new ArrayList<>(5);
-        IntentFilter filter = new IntentFilter("android.app.action.NEXT_ALARM_CLOCK_CHANGED");
-        this.registerReceiver(alarmManagerReceiver, filter);
+        if(LOGGING)Log.d(TAG, "Alarmist created");
+        dismissAlarm = new HashMap<>();
+        this.registerReceiver(alarmManagerReceiver, new IntentFilter("android.app.action.NEXT_ALARM_CLOCK_CHANGED"));
+        this.registerReceiver(snoozeReceiver, new IntentFilter(SNOOZE_INTENT_ACTION));
         PebbleKit.registerReceivedDataHandler(this, pebbleDataReceiver);
         PebbleKit.registerReceivedNackHandler(this, pebbleNackReceiver);
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
@@ -323,6 +338,7 @@ public class AlarmClockWatcher extends NotificationListenerService {
     public void onDestroy() {
         if(LOGGING)Log.d(TAG, "Alarmist destroyed");
         tryUnregister(alarmManagerReceiver);
+        tryUnregister(snoozeReceiver);
         tryUnregister(pebbleDataReceiver);
         tryUnregister(pebbleNackReceiver);
         try {
@@ -369,18 +385,6 @@ public class AlarmClockWatcher extends NotificationListenerService {
     }
 
     private void onRingingAlarmNotification(Notification notification, CharSequence title, CharSequence message) {
-        NotificationManager notify = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-        final Notification.WearableExtender wearableExtender = new Notification.WearableExtender()
-                .addAction(new Notification.Action(R.drawable.stat_notify_alarm,
-                        notification.actions[0].title,
-                        notification.actions[0].actionIntent));
-        notify.notify(dismissAlarm.size(), new Notification.Builder(this)
-                .setContentTitle(title)
-                .setContentText(getString(R.string.alarm_ringing_pebble_msg, title, message))
-                .setPriority(Notification.PRIORITY_MIN)
-                .extend(wearableExtender)
-                .setSmallIcon(R.drawable.stat_notify_alarm).build());
-        dismissAlarm.add(notification.actions[1].actionIntent);
         if (always_notify || isLocked()) {
             if(LOGGING)Log.i(TAG, "Starting Pebble app");
             PebbleKit.startAppOnPebble(this, WATCHAPP_UUID);
@@ -390,6 +394,28 @@ public class AlarmClockWatcher extends NotificationListenerService {
         } else {
             if(LOGGING)Log.i(TAG, "Not starting Pebble app (just sending notification)");
         }
+
+        NotificationManager notify = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+        Intent snoozeIntent = new Intent(SNOOZE_INTENT_ACTION);
+        final int requestCode = (int) System.currentTimeMillis();
+        final String key = notification.extras.getCharSequence(Notification.EXTRA_TEXT).toString() + notification.extras.getCharSequence(Notification.EXTRA_TITLE).toString();
+        snoozeIntent.putExtra(SNOOZE_INTENT_EXTRA, key);
+        PendingIntent snoozePending = PendingIntent.getBroadcast(getApplicationContext(), requestCode,
+                snoozeIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+        final Notification.WearableExtender wearableExtender = new Notification.WearableExtender()
+                .addAction(new Notification.Action(R.drawable.stat_notify_alarm,
+                        notification.actions[0].title, //Snooze
+                        snoozePending)); //Snooze Intent
+        final Notification newNotification = new Notification.Builder(this)
+                .setContentTitle(title)
+                .setContentText(getString(R.string.alarm_ringing_pebble_msg, title, message))
+                .setPriority(Notification.PRIORITY_MIN)
+                .extend(wearableExtender)
+                .setSmallIcon(R.drawable.stat_notify_alarm).build();
+        RingingAlarm ringingAlarm = new RingingAlarm(requestCode, notification.actions[0].actionIntent, notification.actions[1].actionIntent);
+        dismissAlarm.put(key, ringingAlarm);
+        dismissAlarm.put(newNotification.when + "", ringingAlarm);
+        notify.notify(requestCode, newNotification);
         updateAlarm(null);
     }
 
@@ -443,30 +469,35 @@ public class AlarmClockWatcher extends NotificationListenerService {
 
         if (packageName.equals(DESK_CLOCK) || packageName.equals(DESK_CLOCK_GOOGLE)) {
             AlarmState type = alarmType(n);
+            if(LOGGING)Log.v(TAG, "********** oNR " + type.toString());
             if (type == AlarmState.RINGING) {
                 // dismiss Pebble notification if alarm is dismissed
-                if (dismissAlarm.size() == 1) {
-                    dismissAlarm.clear();
-                    NotificationManager notify = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-                    notify.cancel(0);
-                    cancelPebbleVibration();
+                final String key = n.extras.getCharSequence(Notification.EXTRA_TEXT).toString() +
+                        n.extras.getCharSequence(Notification.EXTRA_TITLE).toString();
+                if(dismissAlarm.containsKey(key)) {
+                    if(LOGGING)Log.v(TAG, "********** oNR dismissAlarm");
+                    final RingingAlarm ringingAlarm = dismissAlarm.get(key);
+                    ringingAlarm.dismiss();
+                    NotificationManager notify = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+                    notify.cancel(ringingAlarm.getId());
+                    dismissAlarm.remove(key);
                 }
+                cancelPebbleVibration();
             } else if(type == AlarmState.SNOOZED || type == AlarmState.UPCOMING) {
                 if(sbnIdToTriggerTime.containsKey(sbn.getId()))
                     sbnIdToTriggerTime.remove(sbn.getId());
             }
         } else if (packageName.equals(this.getPackageName())) {
             // dismiss alarm if Pebble notification dismissed
-            if (dismissAlarm.size() > sbn.getId()) {
-                try {
-                    dismissAlarm.remove(sbn.getId()).send();
-                    cancelPebbleVibration();
-                    final CharSequence title = n.extras.getCharSequence(Notification.EXTRA_TITLE);
-                    toast(getString(R.string.alarm_is_dismissed, title == null ? "" : title) + " from Pebble");
-                } catch (PendingIntent.CanceledException e) {
-                    e.printStackTrace();
-                }
+            final String key = n.when + "";
+            if(dismissAlarm.containsKey(key)) {
+                if(LOGGING)Log.i(TAG, "DISMISSING ALARM VIA P.INTENT");
+                dismissAlarm.get(key).dismiss();
+                dismissAlarm.remove(key);
+                final CharSequence title = n.extras.getCharSequence(Notification.EXTRA_TITLE);
+                toast(getString(R.string.alarm_is_dismissed, title == null ? "" : title) + " from Pebble");
             }
+            cancelPebbleVibration();
         }
 
         refreshNotifications(null);
