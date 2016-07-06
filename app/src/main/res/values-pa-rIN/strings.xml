@@ -8,4 +8,17 @@
   <string name="alarm_alert_predismiss_title">ਅਪਕਮਿੰਗ ਅਲਾਰਮ</string>
   <string name="settings">ਸੈਟਿੰਗਾਂ</string>
   <string name="set_alarm">ਅਲਾਰਮ ਸੈਟ ਕਰੋ</string>
+  <string name="timer_plus_one">1 ਮਿੰਟ ਜੋੜੋ</string>
+  <string name="timer_plus_1_min">1 ਮਿੰਟ ਜੋੜੋ</string>
+  <string name="timer_stop">ਰੋਕੋ</string>
+  <string name="timer_stop_all">ਸਾਰੇ ਟਾਈਮਰ ਬੰਦ ਕਰੋ</string>
+  <string name="timer_notification_label">ਟਾਈਮਰ</string>
+  <string-array name="timer_notifications">
+    <item>ਇੱਕ ਮਿੰਟ ਤੋਂ ਘੱਟ ਬਾਕੀ।</item>
+    <item><xliff:g id="HOURS">%1$s</xliff:g>" ਬਾਕੀ"</item>
+    <item><xliff:g id="MINUTES">%2$s</xliff:g>" ਬਾਕੀ"</item>
+    <item><xliff:g id="HOURS">%1$s</xliff:g>" "<xliff:g id="MINUTES">%2$s</xliff:g>" ਬਾਕੀ"</item>
+  </string-array>
+  <string name="timer_pause">ਰੋਕੋ</string>
+  <string name="alarm_ringing_pebble_msg"><xliff:g id="ALARM_TIME">%s</xliff:g>" - "<xliff:g id="ALARM_LABEL">%s</xliff:g></string>
 </resources>

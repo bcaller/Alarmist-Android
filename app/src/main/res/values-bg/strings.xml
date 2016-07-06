@@ -8,4 +8,17 @@
   <string name="alarm_alert_predismiss_title">Предстоящ будилник</string>
   <string name="settings">Настройки</string>
   <string name="set_alarm">Навиване на будилника</string>
+  <string name="timer_plus_one">Добавяне на 1 минута</string>
+  <string name="timer_plus_1_min">Добавяне на 1 мин</string>
+  <string name="timer_stop">Спиране</string>
+  <string name="timer_stop_all">Спиране на всички таймери</string>
+  <string name="timer_notification_label">Таймер</string>
+  <string-array name="timer_notifications">
+    <item>Остава по-малко от минута</item>
+    <item>"Остават "<xliff:g id="HOURS">%1$s</xliff:g></item>
+    <item>"Остават "<xliff:g id="MINUTES">%2$s</xliff:g></item>
+    <item>"Остават "<xliff:g id="HOURS">%1$s</xliff:g>" и "<xliff:g id="MINUTES">%2$s</xliff:g></item>
+  </string-array>
+  <string name="timer_pause">Пауза</string>
+  <string name="alarm_ringing_pebble_msg"><xliff:g id="ALARM_TIME">%s</xliff:g>" – "<xliff:g id="ALARM_LABEL">%s</xliff:g></string>
 </resources>

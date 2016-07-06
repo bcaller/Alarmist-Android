@@ -8,4 +8,17 @@
   <string name="alarm_alert_predismiss_title">Tulevane alarm</string>
   <string name="settings">Seaded</string>
   <string name="set_alarm">Määra äratus</string>
+  <string name="timer_plus_one">Lisa 1 minut</string>
+  <string name="timer_plus_1_min">Lisa 1 min</string>
+  <string name="timer_stop">Peata</string>
+  <string name="timer_stop_all">Kõigi taimerite peatamine</string>
+  <string name="timer_notification_label">Taimer</string>
+  <string-array name="timer_notifications">
+    <item>Jäänud vähem kui minut</item>
+    <item>"Jäänud "<xliff:g id="HOURS">%1$s</xliff:g></item>
+    <item>"Jäänud "<xliff:g id="MINUTES">%2$s</xliff:g></item>
+    <item>"Jäänud "<xliff:g id="HOURS">%1$s</xliff:g>" "<xliff:g id="MINUTES">%2$s</xliff:g></item>
+  </string-array>
+  <string name="timer_pause">Peatamine</string>
+  <string name="alarm_ringing_pebble_msg"><xliff:g id="ALARM_TIME">%s</xliff:g>" – "<xliff:g id="ALARM_LABEL">%s</xliff:g></string>
 </resources>

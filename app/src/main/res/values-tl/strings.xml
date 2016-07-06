@@ -8,4 +8,17 @@
   <string name="alarm_alert_predismiss_title">Paparating na alarm</string>
   <string name="settings">Mga Setting</string>
   <string name="set_alarm">Magtakda ng alarm</string>
+  <string name="timer_plus_one">Magdagdag ng 1 minuto</string>
+  <string name="timer_plus_1_min">Magdagdag ng 1 min</string>
+  <string name="timer_stop">Ihinto</string>
+  <string name="timer_stop_all">Ihinto ang lahat ng timer</string>
+  <string name="timer_notification_label">Timer</string>
+  <string-array name="timer_notifications">
+    <item>Wala nang isang minuto ang natitira</item>
+    <item><xliff:g id="HOURS">%1$s</xliff:g>" ang natitira"</item>
+    <item><xliff:g id="MINUTES">%2$s</xliff:g>" ang natitira"</item>
+    <item><xliff:g id="HOURS">%1$s</xliff:g>" "<xliff:g id="MINUTES">%2$s</xliff:g>" ang natitira"</item>
+  </string-array>
+  <string name="timer_pause">I-pause</string>
+  <string name="alarm_ringing_pebble_msg"><xliff:g id="ALARM_TIME">%s</xliff:g>" - "<xliff:g id="ALARM_LABEL">%s</xliff:g></string>
 </resources>

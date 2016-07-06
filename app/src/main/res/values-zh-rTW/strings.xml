@@ -8,4 +8,17 @@
   <string name="alarm_alert_predismiss_title">預定的鬧鐘</string>
   <string name="settings">設定</string>
   <string name="set_alarm">設定鬧鐘</string>
+  <string name="timer_plus_one">增加 1 分鐘</string>
+  <string name="timer_plus_1_min">增加 1 分鐘</string>
+  <string name="timer_stop">停止</string>
+  <string name="timer_stop_all">停止所有計時器</string>
+  <string name="timer_notification_label">計時器</string>
+  <string-array name="timer_notifications">
+    <item>還剩下不到 1 分鐘</item>
+    <item>"還剩下 "<xliff:g id="HOURS">%1$s</xliff:g></item>
+    <item>"還剩下 "<xliff:g id="MINUTES">%2$s</xliff:g></item>
+    <item>"還剩下 "<xliff:g id="HOURS">%1$s</xliff:g>" "<xliff:g id="MINUTES">%2$s</xliff:g></item>
+  </string-array>
+  <string name="timer_pause">暫停</string>
+  <string name="alarm_ringing_pebble_msg"><xliff:g id="ALARM_TIME">%s</xliff:g>" - "<xliff:g id="ALARM_LABEL">%s</xliff:g></string>
 </resources>

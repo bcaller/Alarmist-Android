@@ -8,4 +8,17 @@
   <string name="alarm_alert_predismiss_title">Удахгүй болох сэрүүлэг</string>
   <string name="settings">Тохиргоо</string>
   <string name="set_alarm">Сэрүүлэг тавих</string>
+  <string name="timer_plus_one">1 Минут нэмэх</string>
+  <string name="timer_plus_1_min">1 мин нэмэх</string>
+  <string name="timer_stop">Зогсоох</string>
+  <string name="timer_stop_all">Бүх цаг хэмжигчийг зогсоо</string>
+  <string name="timer_notification_label">Цаг хэмжигч</string>
+  <string-array name="timer_notifications">
+    <item>Минут хүрэхгүй хугацаа үлдлээ</item>
+    <item><xliff:g id="HOURS">%1$s</xliff:g>" үлдсэн"</item>
+    <item><xliff:g id="MINUTES">%2$s</xliff:g>" үлдсэн"</item>
+    <item><xliff:g id="HOURS">%1$s</xliff:g>" "<xliff:g id="MINUTES">%2$s</xliff:g>" үлдсэн"</item>
+  </string-array>
+  <string name="timer_pause">Түр зогсоох</string>
+  <string name="alarm_ringing_pebble_msg"><xliff:g id="ALARM_TIME">%s</xliff:g>" - "<xliff:g id="ALARM_LABEL">%s</xliff:g></string>
 </resources>

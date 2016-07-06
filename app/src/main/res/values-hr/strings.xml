@@ -8,4 +8,17 @@
   <string name="alarm_alert_predismiss_title">Predstojeći alarm</string>
   <string name="settings">Postavke</string>
   <string name="set_alarm">Postavi alarm</string>
+  <string name="timer_plus_one">Dodaj 1 minutu</string>
+  <string name="timer_plus_1_min">Dodaj 1 min</string>
+  <string name="timer_stop">Zaustavi</string>
+  <string name="timer_stop_all">Zaustavi sve tajmere</string>
+  <string name="timer_notification_label">Mjerač vremena</string>
+  <string-array name="timer_notifications">
+    <item>Preostalo manje od minute</item>
+    <item>"Preostalo "<xliff:g id="HOURS">%1$s</xliff:g></item>
+    <item>"Preostalo "<xliff:g id="MINUTES">%2$s</xliff:g></item>
+    <item>"Preostalo "<xliff:g id="HOURS">%1$s</xliff:g>" "<xliff:g id="MINUTES">%2$s</xliff:g></item>
+  </string-array>
+  <string name="timer_pause">Pauziraj</string>
+  <string name="alarm_ringing_pebble_msg"><xliff:g id="ALARM_TIME">%s</xliff:g>" – "<xliff:g id="ALARM_LABEL">%s</xliff:g></string>
 </resources>

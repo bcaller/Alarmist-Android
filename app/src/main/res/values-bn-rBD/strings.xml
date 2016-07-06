@@ -8,4 +8,17 @@
   <string name="alarm_alert_predismiss_title">আসন্ন এলার্ম</string>
   <string name="settings">সেটিংস</string>
   <string name="set_alarm">অ্যালার্ম সেট করুন</string>
+  <string name="timer_plus_one">1 মিনিট যোগ করুন</string>
+  <string name="timer_plus_1_min">1 মিনিট যোগ করুন</string>
+  <string name="timer_stop">থামান</string>
+  <string name="timer_stop_all">সব টাইমার বন্ধ করুন</string>
+  <string name="timer_notification_label">টাইমার</string>
+  <string-array name="timer_notifications">
+    <item>এক মিনিটেরও কম সময় বাকি আছে</item>
+    <item><xliff:g id="HOURS">%1$s</xliff:g>" বাকি"</item>
+    <item><xliff:g id="MINUTES">%2$s</xliff:g>" বাকি"</item>
+    <item><xliff:g id="HOURS">%1$s</xliff:g>" "<xliff:g id="MINUTES">%2$s</xliff:g>" বাকি"</item>
+  </string-array>
+  <string name="timer_pause">বিরাম দিন</string>
+  <string name="alarm_ringing_pebble_msg"><xliff:g id="ALARM_TIME">%s</xliff:g>" - "<xliff:g id="ALARM_LABEL">%s</xliff:g></string>
 </resources>

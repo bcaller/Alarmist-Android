@@ -8,4 +8,17 @@
   <string name="alarm_alert_predismiss_title">அடுத்த அலாரம்</string>
   <string name="settings">அமைப்பு</string>
   <string name="set_alarm">அலாரத்தை அமை</string>
+  <string name="timer_plus_one">1 நிமிடத்தைச் சேர்</string>
+  <string name="timer_plus_1_min">1 நிமிடம் சேர்</string>
+  <string name="timer_stop">நிறுத்து</string>
+  <string name="timer_stop_all">எல்லா டைமர்களையும் நிறுத்து</string>
+  <string name="timer_notification_label">டைமர்</string>
+  <string-array name="timer_notifications">
+    <item>ஒரு நிமிடத்திற்கும் குறைவான நேரமே மீதமுள்ளது</item>
+    <item><xliff:g id="HOURS">%1$s</xliff:g>" மணிநேரம் மீதமுள்ளது"</item>
+    <item><xliff:g id="MINUTES">%2$s</xliff:g>" நிமிடங்கள் மீதமுள்ளன"</item>
+    <item><xliff:g id="HOURS">%1$s</xliff:g>" மணிநேரம் "<xliff:g id="MINUTES">%2$s</xliff:g>" நிமிடங்கள் மீதமுள்ளன"</item>
+  </string-array>
+  <string name="timer_pause">இடைநிறுத்து</string>
+  <string name="alarm_ringing_pebble_msg"><xliff:g id="ALARM_TIME">%s</xliff:g>" - "<xliff:g id="ALARM_LABEL">%s</xliff:g></string>
 </resources>

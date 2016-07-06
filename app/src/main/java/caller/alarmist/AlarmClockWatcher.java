@@ -243,12 +243,22 @@ public class AlarmClockWatcher extends NotificationListenerService {
         if (title != null) {
             if (title.equals(getString(R.string.alarm_alert_predismiss_title))) {
                 return AlarmState.UPCOMING;
-            } else if (notification.actions.length == 2
-                    && notification.actions[0].title.equals(getString(R.string.alarm_alert_snooze_text))
-                    && notification.actions[1].title.equals(getString(R.string.alarm_alert_dismiss_text))) {
-                return AlarmState.RINGING;
-            } else if (notification.actions.length == 1 && notification.actions[0].title.equals(getString(R.string.alarm_alert_dismiss_text))) {
-                return AlarmState.SNOOZED;
+            } else if (title.equals(getString(R.string.timer_notification_label))) {
+                if(notification.actions != null && notification.actions.length > 0) {
+                    if(notification.actions[0].title.equals(getString(R.string.timer_stop)) ||
+                            notification.actions[0].title.equals(getString(R.string.timer_stop_all)))
+                        return AlarmState.TIMER_END;
+                    else
+                        return AlarmState.UNKNOWN;
+                }
+            } else if (notification.actions != null && notification.actions.length > 0) {
+                if (notification.actions.length == 2
+                        && notification.actions[0].title.equals(getString(R.string.alarm_alert_snooze_text))
+                        && notification.actions[1].title.equals(getString(R.string.alarm_alert_dismiss_text))) {
+                    return AlarmState.RINGING;
+                } else if (notification.actions.length == 1 && notification.actions[0].title.equals(getString(R.string.alarm_alert_dismiss_text))) {
+                    return AlarmState.SNOOZED;
+                }
             }
         }
         return AlarmState.UNKNOWN;
@@ -378,6 +388,8 @@ public class AlarmClockWatcher extends NotificationListenerService {
                 onSnoozedAlarmNotification(sbn, notification, title, message);
             } else if (type == AlarmState.RINGING) {
                 onRingingAlarmNotification(notification, title, message);
+            } else if (type == AlarmState.TIMER_END) {
+                onTimerEndNotification(notification, title, message);
             }
         }
 
@@ -416,6 +428,47 @@ public class AlarmClockWatcher extends NotificationListenerService {
         dismissAlarm.put(key, ringingAlarm);
         dismissAlarm.put(newNotification.when + "", ringingAlarm);
         notify.notify(requestCode, newNotification);
+        updateAlarm(null);
+    }
+
+    private void onTimerEndNotification(Notification notification, CharSequence title, CharSequence message) {
+        if (always_notify || isLocked()) {
+            if(LOGGING)Log.i(TAG, "Starting Pebble app");
+            PebbleKit.startAppOnPebble(this, WATCHAPP_UUID);
+            PebbleDictionary data = new PebbleDictionary();
+            data.addInt8(KEY_VIBRATION, VIBRATION_START);
+            PebbleKit.sendDataToPebbleWithTransactionId(this, WATCHAPP_UUID, data, tId.increment());
+        } else {
+            if(LOGGING)Log.i(TAG, "Not starting Pebble app (just sending notification)");
+        }
+
+        NotificationManager notify = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+        Intent snoozeIntent = new Intent(SNOOZE_INTENT_ACTION);
+        final int requestCode = (int) System.currentTimeMillis();
+        final String key = notification.extras.getCharSequence(Notification.EXTRA_TEXT).toString() + notification.extras.getCharSequence(Notification.EXTRA_TITLE).toString();
+        snoozeIntent.putExtra(SNOOZE_INTENT_EXTRA, key);
+        PendingIntent snoozePending = PendingIntent.getBroadcast(getApplicationContext(), requestCode,
+                snoozeIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+        final Notification.WearableExtender wearableExtender = notification.actions.length == 2
+                ? new Notification.WearableExtender()
+                    .addAction(new Notification.Action(R.drawable.stat_notify_alarm,
+                            notification.actions[0].title, //Add 1 min
+                            snoozePending)) //Snooze Intent
+                : new Notification.WearableExtender();
+        final Notification newNotification = new Notification.Builder(this)
+                .setContentTitle(title)
+                .setContentText(message)
+                .setPriority(Notification.PRIORITY_MIN)
+                .extend(wearableExtender)
+                .setSmallIcon(R.drawable.stat_notify_alarm).build();
+        RingingAlarm ringingAlarm = notification.actions.length == 2
+            ? new RingingAlarm(requestCode, notification.actions[1].actionIntent, notification.actions[0].actionIntent)
+            : new RingingAlarm(requestCode, null, notification.actions[0].actionIntent);
+        if(!dismissAlarm.containsKey(key)) {
+            dismissAlarm.put(key, ringingAlarm);
+            dismissAlarm.put(newNotification.when + "", ringingAlarm);
+            notify.notify(requestCode, newNotification);
+        }
         updateAlarm(null);
     }
 
@@ -483,6 +536,18 @@ public class AlarmClockWatcher extends NotificationListenerService {
                     dismissAlarm.remove(key);
                 }
                 cancelPebbleVibration();
+            } else if(type == AlarmState.TIMER_END) {
+                final String key = n.extras.getCharSequence(Notification.EXTRA_TEXT).toString() +
+                        n.extras.getCharSequence(Notification.EXTRA_TITLE).toString();
+                if(dismissAlarm.containsKey(key)) {
+                    if(LOGGING)Log.v(TAG, "********** oNR dismissTimer");
+                    final RingingAlarm ringingAlarm = dismissAlarm.get(key);
+                    ringingAlarm.dismiss();
+                    NotificationManager notify = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+                    notify.cancel(ringingAlarm.getId());
+                    dismissAlarm.remove(key);
+                }
+                cancelPebbleVibration();
             } else if(type == AlarmState.SNOOZED || type == AlarmState.UPCOMING) {
                 if(sbnIdToTriggerTime.containsKey(sbn.getId()))
                     sbnIdToTriggerTime.remove(sbn.getId());
@@ -530,7 +595,8 @@ public class AlarmClockWatcher extends NotificationListenerService {
         UNKNOWN,
         UPCOMING,
         SNOOZED,
-        RINGING
+        RINGING,
+        TIMER_END
     }
 
 }

@@ -8,4 +8,17 @@
   <string name="alarm_alert_predismiss_title">ໂມງປຸກຖັດໄປ</string>
   <string name="settings">ຕັ້ງຄ່າ</string>
   <string name="set_alarm">ຕັ້ງໂມງປຸກ</string>
+  <string name="timer_plus_one">ເພີ່ມ 1 ນາທີ</string>
+  <string name="timer_plus_1_min">ເພີ່ມ 1 ນາທີ</string>
+  <string name="timer_stop">ຢຸດ</string>
+  <string name="timer_stop_all">ຢຸດ​ທຸກ​ເວ​ລາ</string>
+  <string name="timer_notification_label">ໂມງນັບຖອຍຫລັງ</string>
+  <string-array name="timer_notifications">
+    <item>ເຫຼືອໜ້ອຍກວ່າ 1 ນາທີ</item>
+    <item>"ຍັງເຫຼືອ "<xliff:g id="HOURS">%1$s</xliff:g></item>
+    <item>"ຍັງເຫຼືອ "<xliff:g id="MINUTES">%2$s</xliff:g></item>
+    <item>"ຍັງເຫຼືອ "<xliff:g id="HOURS">%1$s</xliff:g>" "<xliff:g id="MINUTES">%2$s</xliff:g></item>
+  </string-array>
+  <string name="timer_pause">ຢຸດຊົ່ວຄາວ</string>
+  <string name="alarm_ringing_pebble_msg"><xliff:g id="ALARM_TIME">%s</xliff:g>" - "<xliff:g id="ALARM_LABEL">%s</xliff:g></string>
 </resources>

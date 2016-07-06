@@ -8,4 +8,17 @@
   <string name="alarm_alert_predismiss_title">በቅርብ ጊዜ የሚሆን ማንቂያ</string>
   <string name="settings">ቅንብሮች</string>
   <string name="set_alarm">የማንቂያ ደወልአዘጋጅ</string>
+  <string name="timer_plus_one">1 ደቂቃ አክል</string>
+  <string name="timer_plus_1_min">1 ደቂቃ ያክሉ</string>
+  <string name="timer_stop">አቁም</string>
+  <string name="timer_stop_all">ሁሉንም ሰዓት ቆጣሪዎች አቁም</string>
+  <string name="timer_notification_label">የሰዓት ቆጣሪ</string>
+  <string-array name="timer_notifications">
+    <item>ከአንድ ደቂቃ በታች ይቀራል</item>
+    <item><xliff:g id="HOURS">%1$s</xliff:g>" ይቀራል"</item>
+    <item><xliff:g id="MINUTES">%2$s</xliff:g>" ይቀራል"</item>
+    <item><xliff:g id="HOURS">%1$s</xliff:g>" "<xliff:g id="MINUTES">%2$s</xliff:g>" ይቀራል"</item>
+  </string-array>
+  <string name="timer_pause">ለአፍታ አቁም</string>
+  <string name="alarm_ringing_pebble_msg"><xliff:g id="ALARM_TIME">%s</xliff:g>" - "<xliff:g id="ALARM_LABEL">%s</xliff:g></string>
 </resources>

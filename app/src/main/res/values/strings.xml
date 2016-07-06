@@ -43,6 +43,23 @@
     <!-- Label for the Settings activity displayed on-screen when that activity must be represented to the user. -->
     <string name="set_alarm">Set alarm</string>
 
+    <!-- Describes the purpose of the button increase the remaining time on a timer by one minute. -->
+    <string name="timer_plus_one">Add 1 minute</string>
+    <!-- Like "timer_plus_one", but with 'minute' abbreviated for the notification. -->
+    <string name="timer_plus_1_min">Add 1 min</string>
+    <!-- Describes the purpose of the button to stop the timer. -->
+    <string name="timer_stop">Stop</string>
+    <string name="timer_stop_all">Stop all timers</string>
+    <string name="timer_notification_label">Timer</string>
+    <!-- Timer notification: how long from now until timer goes off. -->
+    <string-array name="timer_notifications">
+        <item>Less than a minute remaining</item>
+        <item><xliff:g id="HOURS" example="2 hours">%1$s</xliff:g> remaining</item>
+        <item><xliff:g id="MINUTES" example="2 minutes">%2$s</xliff:g> remaining</item>
+        <item><xliff:g id="HOURS" example="2 hours">%1$s</xliff:g> <xliff:g id="MINUTES" example="2 minutes">%2$s</xliff:g> remaining</item>
+    </string-array>
+    <string name="timer_pause">Pause</string>
+
     <string name="pref_settings_title" tools:ignore="MissingTranslation">p_settitle</string>
     <string name="pref_key_peb_appstore" tools:ignore="MissingTranslation">p_appst</string>
     <string name="pref_key_show_icon" tools:ignore="MissingTranslation">p_showic</string>

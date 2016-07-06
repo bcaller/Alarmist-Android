@@ -8,4 +8,17 @@
   <string name="alarm_alert_predismiss_title">आउने आलार्म</string>
   <string name="settings">सेटिङहरू</string>
   <string name="set_alarm">अलार्म सेट गर्नुहोस्</string>
+  <string name="timer_plus_one">१ मिनेट थप्नुहोस्</string>
+  <string name="timer_plus_1_min">१ मिनट थप्नुहोस्</string>
+  <string name="timer_stop">रोक्नुहोस्</string>
+  <string name="timer_stop_all">सबै टाइमरहरू रोक्नुहोस्</string>
+  <string name="timer_notification_label">घडी</string>
+  <string-array name="timer_notifications">
+    <item>एक मिनेटभन्दा कम बाँकी</item>
+    <item><xliff:g id="HOURS">%1$s</xliff:g>" बाँकी"</item>
+    <item><xliff:g id="MINUTES">%2$s</xliff:g>" बाँकी"</item>
+    <item><xliff:g id="HOURS">%1$s</xliff:g>" "<xliff:g id="MINUTES">%2$s</xliff:g>" बाँकी"</item>
+  </string-array>
+  <string name="timer_pause">रोक्नुहोस्</string>
+  <string name="alarm_ringing_pebble_msg"><xliff:g id="ALARM_TIME">%s</xliff:g>" - "<xliff:g id="ALARM_LABEL">%s</xliff:g></string>
 </resources>

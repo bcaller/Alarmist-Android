@@ -8,4 +8,17 @@
   <string name="alarm_alert_predismiss_title">Nadchádzajúci budík</string>
   <string name="settings">Nastavenia</string>
   <string name="set_alarm">Nastaviť budík</string>
+  <string name="timer_plus_one">Pridať 1 minútu</string>
+  <string name="timer_plus_1_min">Pridať 1 min.</string>
+  <string name="timer_stop">Zastaviť</string>
+  <string name="timer_stop_all">Zastaviť všetky časovače</string>
+  <string name="timer_notification_label">Časovač</string>
+  <string-array name="timer_notifications">
+    <item>Beží posledná minúta</item>
+    <item>"Ešte "<xliff:g id="HOURS">%1$s</xliff:g></item>
+    <item>"Ešte "<xliff:g id="MINUTES">%2$s</xliff:g></item>
+    <item>"Ešte "<xliff:g id="HOURS">%1$s</xliff:g>" "<xliff:g id="MINUTES">%2$s</xliff:g></item>
+  </string-array>
+  <string name="timer_pause">Pozastaviť</string>
+  <string name="alarm_ringing_pebble_msg"><xliff:g id="ALARM_TIME">%s</xliff:g>" – "<xliff:g id="ALARM_LABEL">%s</xliff:g></string>
 </resources>

@@ -8,4 +8,17 @@
   <string name="alarm_alert_predismiss_title">Alarmi i ardhshëm</string>
   <string name="settings">Cilësimet</string>
   <string name="set_alarm">Cakto alarm</string>
+  <string name="timer_plus_one">Shto 1 minutë</string>
+  <string name="timer_plus_1_min">Shto 1 minutë</string>
+  <string name="timer_stop">Ndalo</string>
+  <string name="timer_stop_all">Ndalo të gjithë kohëmatësit</string>
+  <string name="timer_notification_label">Kohëmatësi</string>
+  <string-array name="timer_notifications">
+    <item>Ka mbetur më pak se një minutë</item>
+    <item>"Kanë mbetur edhe "<xliff:g id="HOURS">%1$s</xliff:g></item>
+    <item>"Kanë mbetur edhe "<xliff:g id="MINUTES">%2$s</xliff:g></item>
+    <item>"Kanë mbetur edhe "<xliff:g id="HOURS">%1$s</xliff:g>" e "<xliff:g id="MINUTES">%2$s</xliff:g></item>
+  </string-array>
+  <string name="timer_pause">Pauzë</string>
+  <string name="alarm_ringing_pebble_msg"><xliff:g id="ALARM_TIME">%s</xliff:g>" - "<xliff:g id="ALARM_LABEL">%s</xliff:g></string>
 </resources>

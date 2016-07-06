@@ -8,4 +8,17 @@
   <string name="alarm_alert_predismiss_title">I-Alamu ezayo</string>
   <string name="settings">Izilungiselelo</string>
   <string name="set_alarm">Setha i-alamu</string>
+  <string name="timer_plus_one">Engeza 1 imininithi</string>
+  <string name="timer_plus_1_min">Engeza iminithi elingu-1</string>
+  <string name="timer_stop">Misa</string>
+  <string name="timer_stop_all">Misa zonke izibali-sikhathi</string>
+  <string name="timer_notification_label">Isikali sesikhathi</string>
+  <string-array name="timer_notifications">
+    <item>Ngaphansi kweminithi okusele</item>
+    <item><xliff:g id="HOURS">%1$s</xliff:g>" asele"</item>
+    <item><xliff:g id="MINUTES">%2$s</xliff:g>" asele"</item>
+    <item><xliff:g id="HOURS">%1$s</xliff:g>" "<xliff:g id="MINUTES">%2$s</xliff:g>" asele"</item>
+  </string-array>
+  <string name="timer_pause">Misa isikhashana</string>
+  <string name="alarm_ringing_pebble_msg"><xliff:g id="ALARM_TIME">%s</xliff:g>" - "<xliff:g id="ALARM_LABEL">%s</xliff:g></string>
 </resources>

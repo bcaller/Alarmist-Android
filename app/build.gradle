@@ -8,8 +8,8 @@ android {
         applicationId "caller.alarmist"
         minSdkVersion 21
         targetSdkVersion 22
-        versionCode 10
-        versionName "3.17"
+        versionCode 11
+        versionName "3.33"
     }
     buildTypes {
         release {

@@ -8,4 +8,17 @@
   <string name="alarm_alert_predismiss_title">هشدار بعدی</string>
   <string name="settings">تنظیمات</string>
   <string name="set_alarm">تنظیم زنگ ساعت</string>
+  <string name="timer_plus_one">افزودن ۱ دقیقه</string>
+  <string name="timer_plus_1_min">افزودن ۱ دقیقه</string>
+  <string name="timer_stop">توقف</string>
+  <string name="timer_stop_all">توقف همه تایمرها</string>
+  <string name="timer_notification_label">تایمر</string>
+  <string-array name="timer_notifications">
+    <item>کمتر از یک دقیقه باقیمانده است</item>
+    <item><xliff:g id="HOURS">%1$s</xliff:g>" باقیمانده"</item>
+    <item><xliff:g id="MINUTES">%2$s</xliff:g>" باقیمانده"</item>
+    <item><xliff:g id="HOURS">%1$s</xliff:g>" "<xliff:g id="MINUTES">%2$s</xliff:g>" باقیمانده"</item>
+  </string-array>
+  <string name="timer_pause">توقف موقت</string>
+  <string name="alarm_ringing_pebble_msg"><xliff:g id="ALARM_TIME">%s</xliff:g>" - "<xliff:g id="ALARM_LABEL">%s</xliff:g></string>
 </resources>

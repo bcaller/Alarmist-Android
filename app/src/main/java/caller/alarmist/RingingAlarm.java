@@ -34,7 +34,8 @@ public class RingingAlarm {
     public void snooze() {
         if(!active) return;
         try {
-            snoozeIntent.send();
+            if(snoozeIntent != null)
+                snoozeIntent.send();
             if(LOGGING) Log.v("RA", "We have a snooze command");
         } catch (PendingIntent.CanceledException e) {
             e.printStackTrace();

@@ -8,4 +8,17 @@
   <string name="alarm_alert_predismiss_title">ඉදිරියට එන සීනුව</string>
   <string name="settings">සැකසුම්</string>
   <string name="set_alarm">ඇඟවීම සකසන්න</string>
+  <string name="timer_plus_one">මිනිත්තු 1 ක් එක් කරන්න</string>
+  <string name="timer_plus_1_min">1 මිනි එකතු කරන්න</string>
+  <string name="timer_stop">නතර කරන්න</string>
+  <string name="timer_stop_all">සියලු ටයිමර නවත්වන්න</string>
+  <string name="timer_notification_label">කාල ගණනය</string>
+  <string-array name="timer_notifications">
+    <item>තවත් මිනිත්තුවකට අඩුවෙන් ඉතිරිව ඇත</item>
+    <item><xliff:g id="HOURS">%1$s</xliff:g>" ක් ඉතිරිව ඇත"</item>
+    <item><xliff:g id="MINUTES">%2$s</xliff:g>" ක් ඉතිරිව ඇත"</item>
+    <item><xliff:g id="HOURS">%1$s</xliff:g>" "<xliff:g id="MINUTES">%2$s</xliff:g>" ක් ඉතිරිව ඇත"</item>
+  </string-array>
+  <string name="timer_pause">විරාමය</string>
+  <string name="alarm_ringing_pebble_msg"><xliff:g id="ALARM_TIME">%s</xliff:g>" - "<xliff:g id="ALARM_LABEL">%s</xliff:g></string>
 </resources>

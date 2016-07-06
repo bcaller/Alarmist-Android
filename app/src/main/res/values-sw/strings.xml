@@ -8,4 +8,17 @@
   <string name="alarm_alert_predismiss_title">Kengele ijayo</string>
   <string name="settings">Mipangilio</string>
   <string name="set_alarm">Weka kengele</string>
+  <string name="timer_plus_one">Ongeza Dakika 1</string>
+  <string name="timer_plus_1_min">Ongeza dakika 1</string>
+  <string name="timer_stop">Simama</string>
+  <string name="timer_stop_all">Komesha vipima muda vyote</string>
+  <string name="timer_notification_label">Kipima wakati</string>
+  <string-array name="timer_notifications">
+    <item>Imesalia chini ya dakika moja</item>
+    <item>"Zimesalia "<xliff:g id="HOURS">%1$s</xliff:g></item>
+    <item>"Zimesalia "<xliff:g id="MINUTES">%2$s</xliff:g></item>
+    <item>"Zimesalia "<xliff:g id="HOURS">%1$s</xliff:g>" "<xliff:g id="MINUTES">%2$s</xliff:g></item>
+  </string-array>
+  <string name="timer_pause">Sitisha</string>
+  <string name="alarm_ringing_pebble_msg"><xliff:g id="ALARM_TIME">%s</xliff:g>" - "<xliff:g id="ALARM_LABEL">%s</xliff:g></string>
 </resources>

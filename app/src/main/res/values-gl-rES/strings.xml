@@ -8,4 +8,17 @@
   <string name="alarm_alert_predismiss_title">Próxima alarma</string>
   <string name="settings">Configuración</string>
   <string name="set_alarm">Definir alarma</string>
+  <string name="timer_plus_one">Engadir 1 minuto</string>
+  <string name="timer_plus_1_min">Engadir 1 minuto</string>
+  <string name="timer_stop">Deter</string>
+  <string name="timer_stop_all">Deter temporizadores</string>
+  <string name="timer_notification_label">Temporizador</string>
+  <string-array name="timer_notifications">
+    <item>Queda menos dun minuto</item>
+    <item><xliff:g id="HOURS">%1$s</xliff:g>" restantes"</item>
+    <item><xliff:g id="MINUTES">%2$s</xliff:g>" restantes"</item>
+    <item><xliff:g id="HOURS">%1$s</xliff:g>" "<xliff:g id="MINUTES">%2$s</xliff:g>" restantes"</item>
+  </string-array>
+  <string name="timer_pause">Pausa</string>
+  <string name="alarm_ringing_pebble_msg"><xliff:g id="ALARM_TIME">%s</xliff:g>" - "<xliff:g id="ALARM_LABEL">%s</xliff:g></string>
 </resources>

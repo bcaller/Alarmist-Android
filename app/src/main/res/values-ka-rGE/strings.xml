@@ -8,4 +8,17 @@
   <string name="alarm_alert_predismiss_title">მომავალი მაღვიძარა</string>
   <string name="settings">პარამეტრები</string>
   <string name="set_alarm">მაღვიძარას დაყენება</string>
+  <string name="timer_plus_one">1 წუთის დამატება</string>
+  <string name="timer_plus_1_min">1 წუთის დამატება</string>
+  <string name="timer_stop">შეჩერება</string>
+  <string name="timer_stop_all">ყველა ტაიმერის შეჩერება</string>
+  <string name="timer_notification_label">ტაიმერი</string>
+  <string-array name="timer_notifications">
+    <item>დარჩენილია ერთ წუთზე ნაკლები</item>
+    <item>"დარჩენილია "<xliff:g id="HOURS">%1$s</xliff:g></item>
+    <item>"დარჩენილია "<xliff:g id="MINUTES">%2$s</xliff:g></item>
+    <item>"დარჩენილია "<xliff:g id="HOURS">%1$s</xliff:g>" "<xliff:g id="MINUTES">%2$s</xliff:g></item>
+  </string-array>
+  <string name="timer_pause">პაუზა</string>
+  <string name="alarm_ringing_pebble_msg"><xliff:g id="ALARM_TIME">%s</xliff:g>" - "<xliff:g id="ALARM_LABEL">%s</xliff:g></string>
 </resources>

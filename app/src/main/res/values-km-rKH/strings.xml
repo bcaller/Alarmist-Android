@@ -8,4 +8,17 @@
   <string name="alarm_alert_predismiss_title">ការ​ជូនដំណឹង​ដែល​នឹង​កើត​ឡើង</string>
   <string name="settings">ការ​កំណត់</string>
   <string name="set_alarm">កំណត់​សំឡេង​រោទ៍</string>
+  <string name="timer_plus_one">បន្ថែម ១ នាទី</string>
+  <string name="timer_plus_1_min">បន្ថែម ១​នាទី</string>
+  <string name="timer_stop">ឈប់</string>
+  <string name="timer_stop_all">បញ្ឈប់កម្មវិធីកំណត់ពេលទាំងអស់</string>
+  <string name="timer_notification_label">កម្មវិធី​កំណត់​ពេល</string>
+  <string-array name="timer_notifications">
+    <item>នៅសល់​តិច​ជាង​មួយ​នាទី</item>
+    <item>"នៅសល់ "<xliff:g id="HOURS">%1$s</xliff:g></item>
+    <item>"នៅសល់ "<xliff:g id="MINUTES">%2$s</xliff:g></item>
+    <item>"នៅសល់ "<xliff:g id="HOURS">%1$s</xliff:g>" "<xliff:g id="MINUTES">%2$s</xliff:g></item>
+  </string-array>
+  <string name="timer_pause">ផ្អាក</string>
+  <string name="alarm_ringing_pebble_msg"><xliff:g id="ALARM_TIME">%s</xliff:g>" - "<xliff:g id="ALARM_LABEL">%s</xliff:g></string>
 </resources>

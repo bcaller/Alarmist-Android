@@ -8,4 +8,17 @@
   <string name="alarm_alert_predismiss_title">Penggera akan datang</string>
   <string name="settings">Tetapan</string>
   <string name="set_alarm">Tetapkan penggera</string>
+  <string name="timer_plus_one">Tambah 1 Minit</string>
+  <string name="timer_plus_1_min">Tambah 1 min</string>
+  <string name="timer_stop">Berhenti</string>
+  <string name="timer_stop_all">Hentikan semua pemasa</string>
+  <string name="timer_notification_label">Pemasa</string>
+  <string-array name="timer_notifications">
+    <item>Tinggal kurang satu minit</item>
+    <item><xliff:g id="HOURS">%1$s</xliff:g>" lagi"</item>
+    <item><xliff:g id="MINUTES">%2$s</xliff:g>" lagi"</item>
+    <item><xliff:g id="HOURS">%1$s</xliff:g>" "<xliff:g id="MINUTES">%2$s</xliff:g>" lagi"</item>
+  </string-array>
+  <string name="timer_pause">Jeda</string>
+  <string name="alarm_ringing_pebble_msg"><xliff:g id="ALARM_TIME">%s</xliff:g>" - "<xliff:g id="ALARM_LABEL">%s</xliff:g></string>
 </resources>

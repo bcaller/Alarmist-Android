@@ -8,4 +8,17 @@
   <string name="alarm_alert_predismiss_title">Alarme imminente</string>
   <string name="settings">Paramètres</string>
   <string name="set_alarm">Régler l\'alarme</string>
+  <string name="timer_plus_one">Ajouter 1 minute</string>
+  <string name="timer_plus_1_min">Ajouter 1 min</string>
+  <string name="timer_stop">Arrêter</string>
+  <string name="timer_stop_all">Arrêter tous les minuteurs</string>
+  <string name="timer_notification_label">Minuteur</string>
+  <string-array name="timer_notifications">
+    <item>Dans moins d\'une minute</item>
+    <item>"Dans "<xliff:g id="HOURS">%1$s</xliff:g></item>
+    <item>"Dans "<xliff:g id="MINUTES">%2$s</xliff:g></item>
+    <item>"Dans "<xliff:g id="HOURS">%1$s</xliff:g>" et "<xliff:g id="MINUTES">%2$s</xliff:g></item>
+  </string-array>
+  <string name="timer_pause">Interrompre</string>
+  <string name="alarm_ringing_pebble_msg"><xliff:g id="ALARM_TIME">%s</xliff:g>" – "<xliff:g id="ALARM_LABEL">%s</xliff:g></string>
 </resources>

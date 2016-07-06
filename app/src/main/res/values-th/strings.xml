@@ -8,4 +8,17 @@
   <string name="alarm_alert_predismiss_title">ตั้งปลุกครั้งต่อไป</string>
   <string name="settings">การตั้งค่า</string>
   <string name="set_alarm">ตั้งปลุก</string>
+  <string name="timer_plus_one">เพิ่ม 1 นาที</string>
+  <string name="timer_plus_1_min">เพิ่ม 1 นาที</string>
+  <string name="timer_stop">หยุด</string>
+  <string name="timer_stop_all">หยุดใช้ตัวจับเวลาทั้งหมด</string>
+  <string name="timer_notification_label">ตัวจับเวลา</string>
+  <string-array name="timer_notifications">
+    <item>เหลืออีกไม่ถึงหนึ่งนาที</item>
+    <item>"เหลืออีก "<xliff:g id="HOURS">%1$s</xliff:g></item>
+    <item>"เหลืออีก "<xliff:g id="MINUTES">%2$s</xliff:g></item>
+    <item>"เหลืออีก "<xliff:g id="HOURS">%1$s</xliff:g>" "<xliff:g id="MINUTES">%2$s</xliff:g></item>
+  </string-array>
+  <string name="timer_pause">หยุดชั่วคราว</string>
+  <string name="alarm_ringing_pebble_msg"><xliff:g id="ALARM_TIME">%s</xliff:g>" - "<xliff:g id="ALARM_LABEL">%s</xliff:g></string>
 </resources>

@@ -8,4 +8,17 @@
   <string name="alarm_alert_predismiss_title">Prossima sveglia</string>
   <string name="settings">Impostazioni</string>
   <string name="set_alarm">Imposta sveglia</string>
+  <string name="timer_plus_one">Aggiungi un minuto</string>
+  <string name="timer_plus_1_min">Aggiungi 1 min</string>
+  <string name="timer_stop">Interrompi</string>
+  <string name="timer_stop_all">Interrompi tutti i timer</string>
+  <string name="timer_notification_label">Timer</string>
+  <string-array name="timer_notifications">
+    <item>Resta meno di un minuto</item>
+    <item><xliff:g id="HOURS">%1$s</xliff:g>" rimanenti"</item>
+    <item><xliff:g id="MINUTES">%2$s</xliff:g>" rimanenti"</item>
+    <item><xliff:g id="HOURS">%1$s</xliff:g>" e "<xliff:g id="MINUTES">%2$s</xliff:g>" rimanenti"</item>
+  </string-array>
+  <string name="timer_pause">Pausa</string>
+  <string name="alarm_ringing_pebble_msg"><xliff:g id="ALARM_TIME">%s</xliff:g>" - "<xliff:g id="ALARM_LABEL">%s</xliff:g></string>
 </resources>

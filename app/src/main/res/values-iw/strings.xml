@@ -8,4 +8,17 @@
   <string name="alarm_alert_predismiss_title">התראה קרובה</string>
   <string name="settings">הגדרות</string>
   <string name="set_alarm">הגדר צלצול</string>
+  <string name="timer_plus_one">הוסף דקה</string>
+  <string name="timer_plus_1_min">הוסף דקה</string>
+  <string name="timer_stop">עצור</string>
+  <string name="timer_stop_all">הפסק את כל הטיימרים</string>
+  <string name="timer_notification_label">טיימר</string>
+  <string-array name="timer_notifications">
+    <item>נותרה פחות מדקה</item>
+    <item>"נותרו "<xliff:g id="HOURS">%1$s</xliff:g></item>
+    <item>"נותרו "<xliff:g id="MINUTES">%2$s</xliff:g></item>
+    <item>"נותרו "<xliff:g id="HOURS">%1$s</xliff:g>" "<xliff:g id="MINUTES">%2$s</xliff:g></item>
+  </string-array>
+  <string name="timer_pause">השהה</string>
+  <string name="alarm_ringing_pebble_msg"><xliff:g id="ALARM_TIME">%s</xliff:g>" ‏- "<xliff:g id="ALARM_LABEL">%s</xliff:g></string>
 </resources>

@@ -8,4 +8,17 @@
   <string name="alarm_alert_predismiss_title">Gaidāms signāls</string>
   <string name="settings">Iestatījumi</string>
   <string name="set_alarm">Iestatīt signālu</string>
+  <string name="timer_plus_one">Pievienot 1 minūti</string>
+  <string name="timer_plus_1_min">Pievienot 1 minūti</string>
+  <string name="timer_stop">Apturēt</string>
+  <string name="timer_stop_all">Apturēt visus taimerus</string>
+  <string name="timer_notification_label">Taimeris</string>
+  <string-array name="timer_notifications">
+    <item>Atlikušais laiks: mazāk par minūti</item>
+    <item>"Atlikušais laiks: "<xliff:g id="HOURS">%1$s</xliff:g></item>
+    <item>"Atlikušais laiks: "<xliff:g id="MINUTES">%2$s</xliff:g></item>
+    <item>"Atlikušais laiks: "<xliff:g id="HOURS">%1$s</xliff:g>" "<xliff:g id="MINUTES">%2$s</xliff:g></item>
+  </string-array>
+  <string name="timer_pause">Apturēt</string>
+  <string name="alarm_ringing_pebble_msg"><xliff:g id="ALARM_TIME">%s</xliff:g>" — "<xliff:g id="ALARM_LABEL">%s</xliff:g></string>
 </resources>

@@ -8,4 +8,17 @@
   <string name="alarm_alert_predismiss_title">Επόμενο ξυπνητήρι</string>
   <string name="settings">Ρυθμίσεις</string>
   <string name="set_alarm">Ορισμός ξυπνητηριού</string>
+  <string name="timer_plus_one">Προσθήκη 1 λεπτού</string>
+  <string name="timer_plus_1_min">Προσθήκη 1 λεπτού</string>
+  <string name="timer_stop">Διακοπή</string>
+  <string name="timer_stop_all">Διακοπή των χρονομέτρων</string>
+  <string name="timer_notification_label">Χρονόμετρο</string>
+  <string-array name="timer_notifications">
+    <item>Απομένει λιγότερο από ένα λεπτό</item>
+    <item>"Απομένουν "<xliff:g id="HOURS">%1$s</xliff:g></item>
+    <item>"Απομένουν "<xliff:g id="MINUTES">%2$s</xliff:g></item>
+    <item>"Απομένουν "<xliff:g id="HOURS">%1$s</xliff:g>" "<xliff:g id="MINUTES">%2$s</xliff:g></item>
+  </string-array>
+  <string name="timer_pause">Παύση</string>
+  <string name="alarm_ringing_pebble_msg"><xliff:g id="ALARM_TIME">%s</xliff:g>" - "<xliff:g id="ALARM_LABEL">%s</xliff:g></string>
 </resources>

@@ -8,4 +8,17 @@
   <string name="alarm_alert_predismiss_title">Келээрки ойготкуч</string>
   <string name="settings">Жөндөөлөр</string>
   <string name="set_alarm">Ойготкуч коюу</string>
+  <string name="timer_plus_one">1 мүнөт кошуу</string>
+  <string name="timer_plus_1_min">1 мүн кошуу</string>
+  <string name="timer_stop">Токтотуу</string>
+  <string name="timer_stop_all">Бардык таймрлрди токтотуу</string>
+  <string name="timer_notification_label">Таймер</string>
+  <string-array name="timer_notifications">
+    <item>Бир мүнөткө жетпеген убакыт калды</item>
+    <item><xliff:g id="HOURS">%1$s</xliff:g>" саат калды"</item>
+    <item><xliff:g id="MINUTES">%2$s</xliff:g>" мүнөт калды"</item>
+    <item><xliff:g id="HOURS">%1$s</xliff:g>" саат "<xliff:g id="MINUTES">%2$s</xliff:g>" мүнөт калды"</item>
+  </string-array>
+  <string name="timer_pause">Тындыруу</string>
+  <string name="alarm_ringing_pebble_msg"><xliff:g id="ALARM_TIME">%s</xliff:g>" – "<xliff:g id="ALARM_LABEL">%s</xliff:g></string>
 </resources>

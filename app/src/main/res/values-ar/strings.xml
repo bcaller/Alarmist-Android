@@ -8,4 +8,17 @@
   <string name="alarm_alert_predismiss_title">التنبيه القادم</string>
   <string name="settings">الإعدادات</string>
   <string name="set_alarm">ضبط المنبه</string>
+  <string name="timer_plus_one">إضافة دقيقة واحدة</string>
+  <string name="timer_plus_1_min">إضافة دقيقة واحدة</string>
+  <string name="timer_stop">إيقاف</string>
+  <string name="timer_stop_all">إيقاف كل الموقِّتات</string>
+  <string name="timer_notification_label">مؤقت</string>
+  <string-array name="timer_notifications">
+    <item>يتبقى أقل من دقيقة</item>
+    <item>"تتبقى "<xliff:g id="HOURS">%1$s</xliff:g></item>
+    <item>"تتبقى "<xliff:g id="MINUTES">%2$s</xliff:g></item>
+    <item>"تتبقى "<xliff:g id="HOURS">%1$s</xliff:g>" "<xliff:g id="MINUTES">%2$s</xliff:g></item>
+  </string-array>
+  <string name="timer_pause">إيقاف مؤقت</string>
+  <string name="alarm_ringing_pebble_msg"><xliff:g id="ALARM_TIME">%s</xliff:g>" - "<xliff:g id="ALARM_LABEL">%s</xliff:g></string>
 </resources>

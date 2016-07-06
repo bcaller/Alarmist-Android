@@ -8,4 +8,17 @@
   <string name="alarm_alert_predismiss_title">Próximo alarme</string>
   <string name="settings">Definições</string>
   <string name="set_alarm">Definir alarme</string>
+  <string name="timer_plus_one">Adicionar 1 Minuto</string>
+  <string name="timer_plus_1_min">Adicionar 1 min</string>
+  <string name="timer_stop">Parar</string>
+  <string name="timer_stop_all">Parar todos os temporiz.</string>
+  <string name="timer_notification_label">Temporizador</string>
+  <string-array name="timer_notifications">
+    <item>Falta menos de um minuto</item>
+    <item>"Faltam "<xliff:g id="HOURS">%1$s</xliff:g></item>
+    <item>"Faltam "<xliff:g id="MINUTES">%2$s</xliff:g></item>
+    <item>"Faltam "<xliff:g id="HOURS">%1$s</xliff:g>" "<xliff:g id="MINUTES">%2$s</xliff:g></item>
+  </string-array>
+  <string name="timer_pause">Interromper</string>
+  <string name="alarm_ringing_pebble_msg"><xliff:g id="ALARM_TIME">%s</xliff:g>" - "<xliff:g id="ALARM_LABEL">%s</xliff:g></string>
 </resources>

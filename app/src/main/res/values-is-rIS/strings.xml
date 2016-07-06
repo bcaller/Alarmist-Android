@@ -8,4 +8,17 @@
   <string name="alarm_alert_predismiss_title">Næsti vekjari</string>
   <string name="settings">Stillingar</string>
   <string name="set_alarm">Stilla vekjara</string>
+  <string name="timer_plus_one">Bæta 1 mínútu við</string>
+  <string name="timer_plus_1_min">Bæta 1 mín. við</string>
+  <string name="timer_stop">Stöðva</string>
+  <string name="timer_stop_all">Stöðva alla teljara</string>
+  <string name="timer_notification_label">Teljari</string>
+  <string-array name="timer_notifications">
+    <item>Innan við mínúta eftir</item>
+    <item><xliff:g id="HOURS">%1$s</xliff:g>" eftir"</item>
+    <item><xliff:g id="MINUTES">%2$s</xliff:g>" eftir"</item>
+    <item><xliff:g id="HOURS">%1$s</xliff:g>" og "<xliff:g id="MINUTES">%2$s</xliff:g>" eftir"</item>
+  </string-array>
+  <string name="timer_pause">Gera hlé</string>
+  <string name="alarm_ringing_pebble_msg"><xliff:g id="ALARM_TIME">%s</xliff:g>" – "<xliff:g id="ALARM_LABEL">%s</xliff:g></string>
 </resources>

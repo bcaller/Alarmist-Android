@@ -8,4 +8,17 @@
   <string name="alarm_alert_predismiss_title">Келе жатқан дабыл</string>
   <string name="settings">Параметрлер</string>
   <string name="set_alarm">Дабыл орнату</string>
+  <string name="timer_plus_one">1 минут қосу</string>
+  <string name="timer_plus_1_min">1 мин. қосу</string>
+  <string name="timer_stop">Тоқтату</string>
+  <string name="timer_stop_all">Барлық таймерлерді тоқтату</string>
+  <string name="timer_notification_label">Таймер</string>
+  <string-array name="timer_notifications">
+    <item>Бір минуттан азырақ қалды</item>
+    <item><xliff:g id="HOURS">%1$s</xliff:g>" қалды"</item>
+    <item><xliff:g id="MINUTES">%2$s</xliff:g>" қалды"</item>
+    <item><xliff:g id="HOURS">%1$s</xliff:g>" "<xliff:g id="MINUTES">%2$s</xliff:g>" қалды"</item>
+  </string-array>
+  <string name="timer_pause">Кідірту</string>
+  <string name="alarm_ringing_pebble_msg"><xliff:g id="ALARM_TIME">%s</xliff:g>" – "<xliff:g id="ALARM_LABEL">%s</xliff:g></string>
 </resources>

@@ -8,4 +8,17 @@
   <string name="alarm_alert_predismiss_title">అలారం సమయం ఆసన్నం కాబోతోంది</string>
   <string name="settings">సెట్టింగ్‌లు</string>
   <string name="set_alarm">అలారం సెట్ చేయి</string>
+  <string name="timer_plus_one">1 నిమిషాన్ని జోడించండి</string>
+  <string name="timer_plus_1_min">1 నిమి జోడించండి</string>
+  <string name="timer_stop">ఆపివేయి</string>
+  <string name="timer_stop_all">అన్ని టైమర్‌లు ఆపుతుంది</string>
+  <string name="timer_notification_label">టైమర్</string>
+  <string-array name="timer_notifications">
+    <item>నిమిషం కంటే తక్కువ సమయం ఉంది</item>
+    <item><xliff:g id="HOURS">%1$s</xliff:g>" మిగిలి ఉంది"</item>
+    <item><xliff:g id="MINUTES">%2$s</xliff:g>" మిగిలి ఉంది"</item>
+    <item><xliff:g id="HOURS">%1$s</xliff:g>" "<xliff:g id="MINUTES">%2$s</xliff:g>" మిగిలి ఉంది"</item>
+  </string-array>
+  <string name="timer_pause">పాజ్ చేస్తుంది</string>
+  <string name="alarm_ringing_pebble_msg"><xliff:g id="ALARM_TIME">%s</xliff:g>" - "<xliff:g id="ALARM_LABEL">%s</xliff:g></string>
 </resources>

@@ -8,4 +8,17 @@
   <string name="alarm_alert_predismiss_title">Következő ébresztés</string>
   <string name="settings">Beállítások</string>
   <string name="set_alarm">Ébresztés beállítása</string>
+  <string name="timer_plus_one">1 perc hozzáadása</string>
+  <string name="timer_plus_1_min">1 perc hozzáadása</string>
+  <string name="timer_stop">Leállítás</string>
+  <string name="timer_stop_all">Az összes időzítő leállítása</string>
+  <string name="timer_notification_label">Időzítő</string>
+  <string-array name="timer_notifications">
+    <item>Kevesebb mint 1 perc van hátra</item>
+    <item><xliff:g id="HOURS">%1$s</xliff:g>" van hátra"</item>
+    <item><xliff:g id="MINUTES">%2$s</xliff:g>" van hátra"</item>
+    <item><xliff:g id="HOURS">%1$s</xliff:g>" "<xliff:g id="MINUTES">%2$s</xliff:g>" van hátra"</item>
+  </string-array>
+  <string name="timer_pause">Szüneteltetés</string>
+  <string name="alarm_ringing_pebble_msg"><xliff:g id="ALARM_TIME">%s</xliff:g>" – "<xliff:g id="ALARM_LABEL">%s</xliff:g></string>
 </resources>
