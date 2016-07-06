@@ -452,7 +452,7 @@ public class AlarmClockWatcher extends NotificationListenerService {
         final Notification.WearableExtender wearableExtender = notification.actions.length == 2
                 ? new Notification.WearableExtender()
                     .addAction(new Notification.Action(R.drawable.stat_notify_alarm,
-                            notification.actions[0].title, //Add 1 min
+                            notification.actions[1].title, //Add 1 min
                             snoozePending)) //Snooze Intent
                 : new Notification.WearableExtender();
         final Notification newNotification = new Notification.Builder(this)
@@ -464,11 +464,9 @@ public class AlarmClockWatcher extends NotificationListenerService {
         RingingAlarm ringingAlarm = notification.actions.length == 2
             ? new RingingAlarm(requestCode, notification.actions[1].actionIntent, notification.actions[0].actionIntent)
             : new RingingAlarm(requestCode, null, notification.actions[0].actionIntent);
-        if(!dismissAlarm.containsKey(key)) {
-            dismissAlarm.put(key, ringingAlarm);
-            dismissAlarm.put(newNotification.when + "", ringingAlarm);
-            notify.notify(requestCode, newNotification);
-        }
+        dismissAlarm.put(key, ringingAlarm);
+        dismissAlarm.put(newNotification.when + "", ringingAlarm);
+        notify.notify(requestCode, newNotification);
         updateAlarm(null);
     }
 
