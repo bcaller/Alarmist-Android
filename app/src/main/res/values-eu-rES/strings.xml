@@ -20,5 +20,6 @@
     <item><xliff:g id="HOURS">%1$s</xliff:g>" ordu eta "<xliff:g id="MINUTES">%2$s</xliff:g>" minutu geratzen dira"</item>
   </string-array>
   <string name="timer_pause">Pausatu</string>
+  <string name="timer_times_up">Denbora agortu da</string>
   <string name="alarm_ringing_pebble_msg"><xliff:g id="ALARM_TIME">%s</xliff:g>" - "<xliff:g id="ALARM_LABEL">%s</xliff:g></string>
 </resources>

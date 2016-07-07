@@ -20,5 +20,6 @@
     <item><xliff:g id="HOURS">%1$s</xliff:g>" "<xliff:g id="MINUTES">%2$s</xliff:g>" ശേഷിക്കുന്നു"</item>
   </string-array>
   <string name="timer_pause">തൽക്കാലം നിർത്തൂ</string>
+  <string name="timer_times_up">സമയം കഴിഞ്ഞു</string>
   <string name="alarm_ringing_pebble_msg"><xliff:g id="ALARM_TIME">%s</xliff:g>" - "<xliff:g id="ALARM_LABEL">%s</xliff:g></string>
 </resources>

@@ -20,5 +20,6 @@
     <item>"Še "<xliff:g id="HOURS">%1$s</xliff:g>" "<xliff:g id="MINUTES">%2$s</xliff:g></item>
   </string-array>
   <string name="timer_pause">Zaustavitev</string>
+  <string name="timer_times_up">Čas je potekel</string>
   <string name="alarm_ringing_pebble_msg"><xliff:g id="ALARM_TIME">%s</xliff:g>" – "<xliff:g id="ALARM_LABEL">%s</xliff:g></string>
 </resources>

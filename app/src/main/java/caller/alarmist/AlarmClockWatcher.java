@@ -243,7 +243,7 @@ public class AlarmClockWatcher extends NotificationListenerService {
         if (title != null) {
             if (title.equals(getString(R.string.alarm_alert_predismiss_title))) {
                 return AlarmState.UPCOMING;
-            } else if (title.equals(getString(R.string.timer_notification_label))) {
+            } else if (message.equals(getString(R.string.timer_times_up))) {
                 if(notification.actions != null && notification.actions.length > 0) {
                     if(notification.actions[0].title.equals(getString(R.string.timer_stop)) ||
                             notification.actions[0].title.equals(getString(R.string.timer_stop_all)))

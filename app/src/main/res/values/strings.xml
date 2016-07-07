@@ -59,6 +59,7 @@
         <item><xliff:g id="HOURS" example="2 hours">%1$s</xliff:g> <xliff:g id="MINUTES" example="2 minutes">%2$s</xliff:g> remaining</item>
     </string-array>
     <string name="timer_pause">Pause</string>
+    <string name="timer_times_up">Time\'s up</string>
 
     <string name="pref_settings_title" tools:ignore="MissingTranslation">p_settitle</string>
     <string name="pref_key_peb_appstore" tools:ignore="MissingTranslation">p_appst</string>
