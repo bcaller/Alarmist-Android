@@ -216,8 +216,8 @@ public class SettingsActivity extends Activity {
             summaryFormat = alwaysIsChecked
                     ? R.string.pref_set_test_alarm_summary_ignore_screen
                     : R.string.pref_set_test_alarm_summary;
-            findPreference(getString(R.string.pref_key_test_set_alarm)).setSummary(getString(summaryFormat,
-                    SimpleDateFormat.getTimeInstance(DateFormat.SHORT).format(calendar.getTime())));
+            final String timeString = SimpleDateFormat.getTimeInstance(DateFormat.SHORT).format(calendar.getTime());
+            findPreference(getString(R.string.pref_key_test_set_alarm)).setSummary(getString(summaryFormat, timeString));
         }
 
         private final BroadcastReceiver tickReceiver = new BroadcastReceiver() {
