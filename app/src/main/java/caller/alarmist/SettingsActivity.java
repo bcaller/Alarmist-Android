@@ -90,17 +90,18 @@ public class SettingsActivity extends Activity {
                     params.screenBrightness = 0;
                     getActivity().getWindow().setAttributes(params);
                     Handler handler = new Handler(Looper.getMainLooper());
+                    final Context ctx = getActivity().getBaseContext();
                     handler.postDelayed(new Runnable() {
                         @Override
                         public void run() {
-                            NotificationManager notify = (NotificationManager) getActivity().getSystemService(Context.NOTIFICATION_SERVICE);
-                            notify.notify(3, new Notification.Builder(getActivity())
+                            NotificationManager notify = (NotificationManager) ctx.getSystemService(Context.NOTIFICATION_SERVICE);
+                            notify.notify(3, new Notification.Builder(ctx)
                                     .setContentTitle("Alarmist test")
                                     .setContentText("Alarmist can send notifications to your Pebble")
                                     .setPriority(Notification.PRIORITY_MAX)
                                     .setSmallIcon(R.drawable.stat_notify_alarm).build());
                         }
-                    }, 1500);
+                    }, 3500);
                     return true;
                 }
             });
