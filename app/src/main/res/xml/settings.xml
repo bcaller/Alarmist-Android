@@ -18,11 +18,6 @@
             android:key="@string/pref_key_notif_always"
             android:summary="@string/notify_always_summary"
             android:title="@string/always_notify_title" />
-        <SwitchPreference
-            android:defaultValue="true"
-            android:key="@string/pref_key_show_icon"
-            android:summary="@string/show_app_drawer"
-            android:title="App drawer icon" />
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/pref_troubleshooting">
         <Preference
