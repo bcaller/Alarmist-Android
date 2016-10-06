@@ -38,6 +38,7 @@ import java.util.Map;
  * Created by Ben on 22/12/2015.
  */
 public class SettingsActivity extends Activity {
+    private static final String TAG = "AlarmistSettings";
 
     private static final Preference.OnPreferenceChangeListener sBindPreferenceSummaryToValueListener = new Preference.OnPreferenceChangeListener() {
         @Override
@@ -181,15 +182,49 @@ public class SettingsActivity extends Activity {
                 }
             });
 
+            findPreference(getString(R.string.pref_key_test_set_timer)).setOnPreferenceClickListener(new Preference.OnPreferenceClickListener() {
+                @Override
+                public boolean onPreferenceClick(Preference preference) {
+                    if (mBound) {
+                        mService.setTimer(5);
+                    } else {
+                        Toast.makeText(getActivity(), R.string.notif_access_summary, Toast.LENGTH_LONG).show();
+                    }
+                    return true;
+                }
+            });
+
+            SwitchPreference always = (SwitchPreference)findPreference(getString(R.string.pref_key_notif_always));
+            always.setOnPreferenceChangeListener(new Preference.OnPreferenceChangeListener() {
+                @Override
+                public boolean onPreferenceChange(Preference preference, Object newValue) {
+                    updateSummaryForSetTimer((boolean) newValue);
+                    return true;
+                }
+            });
+            updateSummaryForSetTimer(always.isChecked());
+        }
+
+        private void updateSummaryForSetTimer(boolean alwaysIsChecked) {
+            int summaryFormat = alwaysIsChecked
+                    ? R.string.pref_set_test_timer_summary_ignore_screen
+                    : R.string.pref_set_test_timer_summary;
+            findPreference(getString(R.string.pref_key_test_set_timer)).setSummary(getString(summaryFormat));
+
+            Calendar calendar = Calendar.getInstance();
+            calendar.set(Calendar.MINUTE, calendar.get(Calendar.MINUTE) + 1);
+            summaryFormat = alwaysIsChecked
+                    ? R.string.pref_set_test_alarm_summary_ignore_screen
+                    : R.string.pref_set_test_alarm_summary;
+            findPreference(getString(R.string.pref_key_test_set_alarm)).setSummary(getString(summaryFormat,
+                    SimpleDateFormat.getTimeInstance(DateFormat.SHORT).format(calendar.getTime())));
         }
 
         private final BroadcastReceiver tickReceiver = new BroadcastReceiver() {
             @Override
             public void onReceive(Context context, Intent intent) {
-                Calendar calendar = Calendar.getInstance();
-                calendar.set(Calendar.MINUTE, calendar.get(Calendar.MINUTE)+1);
-                findPreference(getString(R.string.pref_key_test_set_alarm)).setSummary(getString(R.string.pref_set_test_alarm_summary,
-                        SimpleDateFormat.getTimeInstance(DateFormat.SHORT).format(calendar.getTime())));
+                SwitchPreference always = (SwitchPreference)findPreference(getString(R.string.pref_key_notif_always));
+                updateSummaryForSetTimer(always.isChecked());
             }
         };
 
@@ -211,7 +246,7 @@ public class SettingsActivity extends Activity {
         public void onStart() {
             super.onStart();
             final Activity context = getActivity();
-            Log.d(context.getLocalClassName(), "start");
+            Log.d(TAG, "start");
             findPreference(getString(R.string.pref_key_notif_access_perm)).setSummary(context.getText(R.string.notif_access_summary));
 
             Intent intent = new Intent(context, AlarmClockWatcher.class);
@@ -222,7 +257,7 @@ public class SettingsActivity extends Activity {
                 deskClockPackageName();
                 findPreference(getText(R.string.pref_key_test_open_app)).setSummary(R.string.stock_alarm_exists);
             } catch (PackageManager.NameNotFoundException e) {
-                Log.e(context.getLocalClassName(), "No stock alarm clock");
+                Log.e(TAG, "No stock alarm clock");
                 findPreference(getText(R.string.pref_key_test_open_app)).setSummary(getText(R.string.stock_alarm_nonexist));
                 Toast.makeText(context, R.string.stock_alarm_nonexist, Toast.LENGTH_LONG).show();
             }
@@ -234,19 +269,19 @@ public class SettingsActivity extends Activity {
             ComponentName component = new ComponentName(AlarmClockWatcher.DESK_CLOCK_GOOGLE, DESK_CLOCK_ACTIVITY_CLASS);
             try {
                 ActivityInfo aInfo = context.getPackageManager().getActivityInfo(component, PackageManager.GET_META_DATA);
-                Log.d(context.getLocalClassName(), AlarmClockWatcher.DESK_CLOCK_GOOGLE);
+                Log.d(TAG, AlarmClockWatcher.DESK_CLOCK_GOOGLE);
                 return AlarmClockWatcher.DESK_CLOCK_GOOGLE;
             } catch (PackageManager.NameNotFoundException no_google) {
                 component = new ComponentName(AlarmClockWatcher.DESK_CLOCK, DESK_CLOCK_ACTIVITY_CLASS);
                 try {
                     ActivityInfo aInfo = context.getPackageManager().getActivityInfo(component, PackageManager.GET_META_DATA);
-                    Log.d(context.getLocalClassName(), AlarmClockWatcher.DESK_CLOCK);
+                    Log.d(TAG, AlarmClockWatcher.DESK_CLOCK);
                     return AlarmClockWatcher.DESK_CLOCK;
                 } catch (PackageManager.NameNotFoundException e) {
-                    Log.e(context.getLocalClassName(), "No stock alarm clock");
+                    Log.e(TAG, "No stock alarm clock");
                     findPreference(getText(R.string.pref_key_test_open_app)).setSummary(getText(R.string.stock_alarm_nonexist));
                     Toast.makeText(context, R.string.stock_alarm_nonexist, Toast.LENGTH_LONG).show();
-                    throw e;
+                    throw e; // unnecessary
                 }
             }
         }
@@ -264,14 +299,17 @@ public class SettingsActivity extends Activity {
                 try {
                     mService.getActiveNotifications();
                     findPreference(getString(R.string.pref_key_notif_access_perm)).setSummary(R.string.notification_access_already_ok);
-                } catch (SecurityException ignored) { Log.d(getActivity().getLocalClassName(), "Denied Notification Access"); }
+                } catch (SecurityException ignored) { Log.d(TAG, "Denied Notification Access"); }
             }
             super.onResume();
         }
 
         @Override
         public void onPause() {
-            getActivity().unregisterReceiver(tickReceiver);
+            final Activity activity = getActivity();
+            ReceiverHelper.tryUnregister(activity, tickReceiver);
+            ReceiverHelper.tryUnregister(activity, pebbleConnectedReceiver);
+            ReceiverHelper.tryUnregister(activity, pebbleDisconnectedReceiver);
             super.onPause();
         }
 
@@ -283,7 +321,7 @@ public class SettingsActivity extends Activity {
                 getActivity().unbindService(mConnection);
                 mBound = false;
             }
-            Log.d(getActivity().getLocalClassName(), "stop");
+            Log.d(TAG, "stop");
         }
 
         private AlarmClockWatcher mService;
@@ -297,16 +335,16 @@ public class SettingsActivity extends Activity {
                 mService = binder.getService();
                 try {
                     mService.getActiveNotifications();
-                    Log.i(getActivity().getLocalClassName(), "Connected service");
+                    Log.i(TAG, "Connected service");
                     findPreference(getString(R.string.pref_key_notif_access_perm)).setSummary(R.string.notification_access_already_ok);
                     mBound = true;
-                } catch (SecurityException ignored) { Log.d(getActivity().getLocalClassName(), "Denied Notification Access"); }
+                } catch (SecurityException ignored) { Log.d(TAG, "Denied Notification Access"); }
             }
 
             @Override
             public void onServiceDisconnected(ComponentName arg0) {
                 mBound = false;
-                Log.i(getActivity().getLocalClassName(), "Disconnected service");
+                Log.i(TAG, "Disconnected service");
                 findPreference(getString(R.string.pref_key_notif_access_perm)).setSummary(getActivity().getText(R.string.notif_access_summary));
             }
         };

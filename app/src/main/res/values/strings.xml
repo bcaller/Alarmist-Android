@@ -74,11 +74,17 @@
     <string name="notification_access_already_ok" tools:ignore="MissingTranslation">You have allowed Notification access</string>
     <string name="open_alarm_app" tools:ignore="MissingTranslation">Try to open Android Clock</string>
     <string name="pref_key_test_set_alarm" tools:ignore="MissingTranslation">p_test_set_al</string>
+    <string name="pref_key_test_set_timer" tools:ignore="MissingTranslation">p_test_set_tim</string>
     <string name="pref_set_test_alarm_summary" tools:ignore="MissingTranslation">The alarm will be set for <xliff:g id="time">%s</xliff:g>. Turn your screen off before the alarm sounds. Your Pebble should receive the alarm.</string>
+    <string name="pref_set_test_alarm_summary_ignore_screen" tools:ignore="MissingTranslation">The alarm will be set for <xliff:g id="time">%s</xliff:g>. Your Pebble should receive the alarm.</string>
+    <string name="pref_set_test_timer_summary" tools:ignore="MissingTranslation">The Clock app\'s timer will be set for 5 seconds. Turn your screen off before the timer sounds. Your Pebble should receive a notification.</string>
+    <string name="pref_set_test_timer_summary_ignore_screen" tools:ignore="MissingTranslation">The Clock app\'s timer will be set for 5 seconds. Your Pebble should receive a notification.</string>
     <string name="pref_pebble_not_connected" tools:ignore="MissingTranslation">Your Pebble is not connected!</string>
     <string name="pref_test_notif_summ" tools:ignore="MissingTranslation">A Pebble notification should appear. Turn your phone screen off immediately after selecting this option.</string>
     <string name="pref_test_notif" tools:ignore="MissingTranslation">Test notifications</string>
     <string name="pref_troubleshooting" tools:ignore="MissingTranslation"><![CDATA[Troubleshooting & Testing]]></string>
     <string name="alarm_ringing_pebble_msg" tools:ignore="MissingTranslation">Alarm \'<xliff:g id="title">%s</xliff:g>\' is ringing on your phone: <xliff:g id="message">%s</xliff:g></string>
+    <string name="from_pebble" tools:ignore="MissingTranslation">%s from Pebble</string>
+    <string name="set_timer" tools:ignore="MissingTranslation">Set Timer</string>
 </resources>
 

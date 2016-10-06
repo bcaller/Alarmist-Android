@@ -33,6 +33,9 @@
             android:key="@string/pref_key_test_set_alarm"
             android:title="@string/set_alarm" />
         <Preference
+            android:key="@string/pref_key_test_set_timer"
+            android:title="@string/set_timer" />
+        <Preference
             android:key="@string/pref_key_test_open_app"
             android:title="@string/open_alarm_app" />
     </PreferenceCategory>
