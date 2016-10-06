@@ -40,7 +40,7 @@ import static java.util.Calendar.DAY_OF_WEEK;
 //See https://android.googlesource.com/platform/packages/apps/DeskClock/+/master/src/com/android/deskclock/alarms/AlarmNotifications.java
 
 public class AlarmClockWatcher extends NotificationListenerService {
-    private static final boolean LOGGING = true;
+    private static final boolean LOGGING = false;
     public static final UUID WATCHAPP_UUID = UUID.fromString("5cfa8e91-5c31-4287-9b57-e0f14ae72b34");
     static final short RECURSION_WEEKDAYS = 2;
     static final short RECURSION_EVERYDAY = 3;
