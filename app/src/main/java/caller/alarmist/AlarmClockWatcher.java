@@ -91,6 +91,7 @@ public class AlarmClockWatcher extends NotificationListenerService {
     };
     private Map<Integer, Long> sbnIdToTriggerTime = new HashMap<>(8);
     private boolean always_notify = false;
+    private boolean wait_for_watch_app = true;
     private final PebbleKit.PebbleDataReceiver pebbleDataReceiver = new PebbleKit.PebbleDataReceiver(WATCHAPP_UUID) {
         private boolean isKeyOK(int key, PebbleDictionary data) {
             try {
@@ -204,6 +205,7 @@ public class AlarmClockWatcher extends NotificationListenerService {
         public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
             if(LOGGING)Log.d(TAG, String.format("Pref changed: %s", key));
             always_notify = sharedPreferences.getBoolean(getString(R.string.pref_key_notif_always), false);
+            wait_for_watch_app = sharedPreferences.getBoolean(getString(R.string.pref_key_wait_for_watch_app), true);
         }
     };
     private SharedPreferences sharedPreferences;
@@ -413,23 +415,28 @@ public class AlarmClockWatcher extends NotificationListenerService {
     }
 
     private void onRingingAlarmNotification(Notification notification) {
-        if (always_notify || isLocked()) {
-            RingingAlarm ringingAlarm = new RingingAlarm(
-                    (int) (System.currentTimeMillis() + 1), RingingAlarm.AlarmType.ALARM, notification, tId);
-            ringingAlarm.launchApp(this);
-            dismissAlarm.put(ringingAlarm.getAlarmKeyBeforeNotificationSent(), ringingAlarm);
-            updateAlarm(null);
-        } else if (LOGGING) Log.i(TAG, "oRAN: Not starting Pebble app (just sending notification)");
+        onSomethingRinging(notification, RingingAlarm.AlarmType.ALARM);
+
     }
 
     private void onTimerEndNotification(Notification notification) {
+        onSomethingRinging(notification, RingingAlarm.AlarmType.TIMER);
+    }
+
+    private void onSomethingRinging(Notification notification, RingingAlarm.AlarmType type) {
         if (always_notify || isLocked()) {
             RingingAlarm ringingAlarm = new RingingAlarm(
-                    (int) (System.currentTimeMillis() + 1), RingingAlarm.AlarmType.TIMER, notification, tId);
-            ringingAlarm.launchApp(this);
+                    (int) (System.currentTimeMillis() + 1), type, notification, tId);
+            if(wait_for_watch_app)
+                ringingAlarm.launchApp(this);
+            else {
+                if (LOGGING) Log.i(TAG, "oSR: Not starting Pebble app (just sending notification)");
+                String newNotificationKey = ringingAlarm.showNotification(this);
+                dismissAlarm.put(newNotificationKey, ringingAlarm);
+            }
             dismissAlarm.put(ringingAlarm.getAlarmKeyBeforeNotificationSent(), ringingAlarm);
             updateAlarm(null);
-        } else if (LOGGING) Log.i(TAG, "oTEN: Not starting Pebble app (just sending notification)");
+        }
     }
 
     private void onSnoozedAlarmNotification(StatusBarNotification sbn, Notification notification, CharSequence title, CharSequence message) {

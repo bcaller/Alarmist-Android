@@ -14,6 +14,10 @@
             android:summary="@string/download_full"
             android:title="@string/download" />
         <SwitchPreference
+            android:defaultValue="true"
+            android:key="@string/pref_key_wait_for_watch_app"
+            android:title="@string/wait_for_watch_app_title" />
+        <SwitchPreference
             android:defaultValue="false"
             android:key="@string/pref_key_notif_always"
             android:summary="@string/notify_always_summary"

@@ -23,6 +23,7 @@
     <string name="notif_access_title" tools:ignore="MissingTranslation">Install Alarmist</string>
     <string name="notify_always_summary" tools:ignore="MissingTranslation">In the Pebble Android app settings, are notifications sent to Pebble even when phone\'s screen is on?</string>
     <string name="always_notify_title" tools:ignore="MissingTranslation">Always Send Notifications</string>
+    <string name="wait_for_watch_app_title" tools:ignore="MissingTranslation">Vibrate watch</string>
     <string name="appstore_deeplink" translatable="false">pebble://appstore/5684387eb35693ab43000032</string>
     <!-- The text shown above the clock when alarm is alerting [CHAR LIMIT=10] -->
     <string name="alarm_alert_wake_up">Wake up\u0021</string>
@@ -64,6 +65,7 @@
     <string name="pref_key_notif_access_perm" tools:ignore="MissingTranslation">p_notifac</string>
     <string name="pref_key_don" tools:ignore="MissingTranslation">p_don_plz</string>
     <string name="pref_key_notif_always" tools:ignore="MissingTranslation">p_always</string>
+    <string name="pref_key_wait_for_watch_app" tools:ignore="MissingTranslation">p_wait_for_app</string>
     <string name="pref_key_test_notif" tools:ignore="MissingTranslation">p_test_not</string>
     <string name="pref_key_test_open_app" tools:ignore="MissingTranslation">p_test_open</string>
     <string name="stock_alarm_nonexist" tools:ignore="MissingTranslation">The stock Andoid alarm clock has not been found on your phone! Sorry.</string>
