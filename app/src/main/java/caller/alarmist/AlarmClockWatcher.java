@@ -4,6 +4,8 @@ import android.app.AlarmManager;
 import android.app.KeyguardManager;
 import android.app.Notification;
 import android.app.PendingIntent;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -35,6 +37,8 @@ import java.util.UUID;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import static android.app.NotificationManager.IMPORTANCE_DEFAULT;
+import static android.app.NotificationManager.IMPORTANCE_MIN;
 import static java.util.Calendar.DAY_OF_WEEK;
 
 //See https://android.googlesource.com/platform/packages/apps/DeskClock/+/master/src/com/android/deskclock/alarms/AlarmNotifications.java
@@ -55,8 +59,13 @@ public class AlarmClockWatcher extends NotificationListenerService {
     private static final int KEY_HOUR = 21;
     private static final int KEY_MINUTE = 22;
     private static final int KEY_RECURSION = 23;
+    private static final int NOTIFICATION_SERVICE_ID = 1;
     static final short RECURSION_NONE = 0;
     static final short RECURSION_WEEKLY = 1;
+    static final String ALARMIST_DEFAULT_CHANNEL = "Alarmist Default";
+    static final String ALARMIST_SERVICE_CHANNEL = "Alarmist Service";
+    private NotificationChannel notify_channel = new NotificationChannel (ALARMIST_DEFAULT_CHANNEL, "Alarmist", IMPORTANCE_DEFAULT);
+    private NotificationChannel service_notify_channel = new NotificationChannel (ALARMIST_SERVICE_CHANNEL, "Alarmist Service", IMPORTANCE_MIN);
     private final FinalInt tId = new FinalInt();
     private final PebbleKit.PebbleNackReceiver pebbleNackReceiver = new PebbleKit.PebbleNackReceiver(WATCHAPP_UUID) {
         @Override
@@ -351,6 +360,19 @@ public class AlarmClockWatcher extends NotificationListenerService {
         PebbleKit.registerReceivedNackHandler(this, pebbleNackReceiver);
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         sharedPreferences.registerOnSharedPreferenceChangeListener(preferenceChangeListener);
+
+        final Context ctx = this;
+
+        NotificationManager notify = (NotificationManager) ctx.getSystemService(Context.NOTIFICATION_SERVICE);
+
+        service_notify_channel.enableLights(false);
+        service_notify_channel.enableVibration(false);
+        service_notify_channel.setBypassDnd(false);
+        service_notify_channel.setShowBadge(true);
+        service_notify_channel.setImportance(IMPORTANCE_MIN);
+        notify.createNotificationChannel(notify_channel);
+        notify.createNotificationChannel(service_notify_channel);
+
         super.onCreate();
     }
 
