@@ -106,7 +106,7 @@ public class RingingAlarm {
             final CharSequence contentText = type == AlarmType.ALARM
                     ? ctx.getString(R.string.alarm_ringing_pebble_msg, title, message)
                     : message;
-            final Notification newNotification = new Notification.Builder(ctx)
+            final Notification newNotification = new Notification.Builder(ctx, AlarmClockWatcher.ALARMIST_DEFAULT_CHANNEL)
                     .setContentTitle(title)
                     .setContentText(contentText)
                     .setPriority(Notification.PRIORITY_MIN)
