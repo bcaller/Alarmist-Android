@@ -47,6 +47,7 @@ public class AlarmClockWatcher extends NotificationListenerService {
     static final int KEY_NEW_ALARM = 2;
     static final String DESK_CLOCK_GOOGLE = "com.google.android.deskclock";
     static final String DESK_CLOCK = "com.android.deskclock";
+    static final String BETTER_ALARM = "com.better.alarm";
     public static final String EXTRA_SETTINGS_BIND = "BINDING_FROM_SETTINGS";
     private static final String TAG = "AlarmistNLS";
     private static final int KEY_WATCH_APP_HAS_STARTED = 7;
@@ -221,7 +222,7 @@ public class AlarmClockWatcher extends NotificationListenerService {
             final String creatorPackage = alarmIntent != null
                     ? alarmIntent.getCreatorPackage()
                     : null;
-            if (creatorPackage != null && (creatorPackage.equals(DESK_CLOCK) || creatorPackage.equals(DESK_CLOCK_GOOGLE))) {
+            if (creatorPackage != null && (creatorPackage.equals(DESK_CLOCK) || creatorPackage.equals(DESK_CLOCK_GOOGLE) || creatorPackage.equals(BETTER_ALARM))) {
                 final long triggerTime = nextClock.getTriggerTime();
 
                 if(alarmByTrigger.containsKey(triggerTime)) {
@@ -268,9 +269,15 @@ public class AlarmClockWatcher extends NotificationListenerService {
                         return AlarmState.UNKNOWN;
                 }
             } else if (notification.actions != null && notification.actions.length > 0) {
+                // Google DeskClock, SNOOZE / DISMISS.
                 if (notification.actions.length == 2
                         && notification.actions[0].title.equals(getString(R.string.alarm_alert_snooze_text))
                         && notification.actions[1].title.equals(getString(R.string.alarm_alert_dismiss_text))) {
+                    return AlarmState.RINGING;
+                // SimpleAlarmClock (com.better.alarm), SNOOZE / RESCHEDULE / DISMISS
+                } else if (notification.actions.length == 3
+                        && notification.actions[0].title.equals(getString(R.string.alarm_alert_snooze_text))
+                        && notification.actions[2].title.equals(getString(R.string.alarm_alert_dismiss_text))) {
                     return AlarmState.RINGING;
                 } else if (notification.actions.length == 1 && notification.actions[0].title.equals(getString(R.string.alarm_alert_dismiss_text))) {
                     return AlarmState.SNOOZED;
@@ -384,7 +391,7 @@ public class AlarmClockWatcher extends NotificationListenerService {
 
         if(!hasRetrievedExistingNotifications) sendingLocked = true;
 
-        if (packageName.equals(DESK_CLOCK) || packageName.equals(DESK_CLOCK_GOOGLE)) {
+        if (packageName.equals(DESK_CLOCK) || packageName.equals(DESK_CLOCK_GOOGLE) || packageName.equals(BETTER_ALARM)) {
             final Notification notification = sbn.getNotification();
             final CharSequence title = notification.extras.getCharSequence(Notification.EXTRA_TITLE);
             final CharSequence message = notification.extras.getCharSequence(Notification.EXTRA_TEXT);
@@ -497,7 +504,7 @@ public class AlarmClockWatcher extends NotificationListenerService {
         }
         if(message == null || title == null) return;
 
-        if (packageName.equals(DESK_CLOCK) || packageName.equals(DESK_CLOCK_GOOGLE)) {
+        if (packageName.equals(DESK_CLOCK) || packageName.equals(DESK_CLOCK_GOOGLE) || packageName.equals(BETTER_ALARM)) {
             AlarmState type = alarmType(notification);
             if(LOGGING)Log.v(TAG, "********** oNR " + type.toString());
             if (type == AlarmState.RINGING) {

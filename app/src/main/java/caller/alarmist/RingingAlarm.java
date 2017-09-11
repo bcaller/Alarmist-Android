@@ -154,8 +154,15 @@ public class RingingAlarm {
     }
 
     private PendingIntent getOriginalDismissIntent() {
-        if(type == AlarmType.ALARM)
-            return deskClockNotification.actions[1].actionIntent;
+        if (type == AlarmType.ALARM) {
+	    if (deskClockNotification.actions.length == 3) {
+		// Simple Alarm Clock, has SNOOZE, RESCHEDULE, and DISMISS.
+		return deskClockNotification.actions[2].actionIntent;
+	    } else {
+		// Google DeskClock, has SNOOZE and DISMISS.
+		return deskClockNotification.actions[1].actionIntent;
+	    }
+	}
         // TIMER
         return deskClockNotification.actions[0].actionIntent;
     }
