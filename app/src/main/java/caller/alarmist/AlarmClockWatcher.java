@@ -73,6 +73,11 @@ public class AlarmClockWatcher extends NotificationListenerService {
     private final BroadcastReceiver alarmManagerReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
+            if (LOGGING) {
+                String action = intent.getAction();
+                Log.i(TAG, "Received intent:" + action);
+            }
+
             checkAlarmManager();
             if(LOGGING)Log.i(TAG, nextAlarm == null ? "no alarm" : nextAlarm.toString());
         }
@@ -113,10 +118,11 @@ public class AlarmClockWatcher extends NotificationListenerService {
                 final String[] currentIds = dismissAlarm.keySet().toArray(new String[dismissAlarm.size()]);
                 for(String key : currentIds) {
                     final RingingAlarm ringingAlarm = dismissAlarm.get(key);
-                    if(LOGGING)Log.d(TAG, "Found notification to show");
+                    if(LOGGING)Log.d(TAG, "Found notification to show (" + key + ")");
                     String newNotificationKey = ringingAlarm.showNotification(context);
                     // If was waiting for app to start to show notification
                     if(newNotificationKey != null) {
+                        if (LOGGING) Log.d(TAG, "Adding " + newNotificationKey + " to dismissAlarm.");
                         dismissAlarm.put(newNotificationKey, ringingAlarm);
                     }
                 }
@@ -258,6 +264,7 @@ public class AlarmClockWatcher extends NotificationListenerService {
         final CharSequence title = notification.extras.getCharSequence(Notification.EXTRA_TITLE);
         final CharSequence message = notification.extras.getCharSequence(Notification.EXTRA_TEXT);
         if (title != null) {
+            if (LOGGING) Log.d(TAG, "Alarm title '" + title + "', message '" + message + "'");
             if (title.equals(getString(R.string.alarm_alert_predismiss_title))) {
                 return AlarmState.UPCOMING;
             } else if (message != null && message.equals(getString(R.string.timer_times_up))) {
@@ -336,6 +343,7 @@ public class AlarmClockWatcher extends NotificationListenerService {
     @Override
     public void onCreate() {
         if(LOGGING)Log.d(TAG, "Alarmist created");
+        Notification notification;
         dismissAlarm = new HashMap<>();
         this.registerReceiver(alarmManagerReceiver, new IntentFilter("android.app.action.NEXT_ALARM_CLOCK_CHANGED"));
         this.registerReceiver(snoozeReceiver, new IntentFilter(RingingAlarm.SNOOZE_INTENT_ACTION));
@@ -355,7 +363,15 @@ public class AlarmClockWatcher extends NotificationListenerService {
     }
     @Override
     public IBinder onBind(Intent intent) {
-        if(LOGGING)Log.v(TAG, "Alarmist bound");
+        if (LOGGING) {
+            String action = intent.getAction();
+            if (SERVICE_INTERFACE.equals(action)) {
+                Log.v(TAG, "Alarmist bound by system: " + action);
+            } else {
+                Log.v(TAG, "Alarmist bound by application: " + action);
+            }
+        }
+
         if(intent.hasExtra(EXTRA_SETTINGS_BIND))
             return settingsBinder;
         return super.onBind(intent);
@@ -408,13 +424,19 @@ public class AlarmClockWatcher extends NotificationListenerService {
 
             AlarmState type = alarmType(notification);
             if (type == AlarmState.UPCOMING) {// Upcoming alarm
+                if (LOGGING) Log.i(TAG, "Upcoming alarm.");
                 onUpcomingAlarmNotification(sbn, notification, message);
             } else if (type == AlarmState.SNOOZED) {
+                if (LOGGING) Log.i(TAG, "Snoozed alarm.");
                 onSnoozedAlarmNotification(sbn, notification, title, message);
             } else if (type == AlarmState.RINGING) {
+                if (LOGGING) Log.i(TAG, "Ringing alarm.");
                 onRingingAlarmNotification(notification);
             } else if (type == AlarmState.TIMER_END) {
+                if (LOGGING) Log.i(TAG, "Timer end alarm.");
                 onTimerEndNotification(notification);
+            } else {
+                if (LOGGING) Log.i(TAG, "Unknown alarm.");
             }
         }
 
@@ -431,16 +453,21 @@ public class AlarmClockWatcher extends NotificationListenerService {
     }
 
     private void onSomethingRinging(Notification notification, RingingAlarm.AlarmType type) {
+        Log.d(TAG, "onSomethingRinging: always_notify: " + always_notify + " isLocked(): " + isLocked());
         if (always_notify || isLocked()) {
+            if (LOGGING) Log.d(TAG, "onSomethingRinging");
             RingingAlarm ringingAlarm = new RingingAlarm(
                     (int) (System.currentTimeMillis() + 1), type, notification, tId);
-            if(wait_for_watch_app)
+            if(wait_for_watch_app) {
+                if (LOGGING) Log.d(TAG, "Launching watch app.");
                 ringingAlarm.launchApp(this);
-            else {
+            } else {
                 if (LOGGING) Log.i(TAG, "oSR: Not starting Pebble app (just sending notification)");
                 String newNotificationKey = ringingAlarm.showNotification(this);
+                if (LOGGING) Log.d(TAG, "Adding " + newNotificationKey + " to dismissAlarm.");
                 dismissAlarm.put(newNotificationKey, ringingAlarm);
             }
+            if (LOGGING) Log.d(TAG, "Adding " + ringingAlarm.getAlarmKeyBeforeNotificationSent() + " to dismissAlarm.");
             dismissAlarm.put(ringingAlarm.getAlarmKeyBeforeNotificationSent(), ringingAlarm);
             updateAlarm(null);
         }
@@ -548,7 +575,11 @@ public class AlarmClockWatcher extends NotificationListenerService {
     }
 
     private void refreshNotifications(StatusBarNotification except) {
-        if(hasRetrievedExistingNotifications) return;
+        if (hasRetrievedExistingNotifications) {
+            if (LOGGING) Log.v(TAG, "Skipping refreshNotifications.");
+            return;
+        }
+        if (LOGGING) Log.v(TAG, "Running refreshNotifications.");
         hasRetrievedExistingNotifications = true;
         sendingLocked = true;
         final StatusBarNotification[] activeNotifications = getActiveNotifications();
