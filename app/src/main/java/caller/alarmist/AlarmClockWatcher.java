@@ -223,6 +223,7 @@ public class AlarmClockWatcher extends NotificationListenerService {
             if(LOGGING)Log.d(TAG, String.format("Pref changed: %s", key));
             always_notify = sharedPreferences.getBoolean(getString(R.string.pref_key_notif_always), false);
             wait_for_watch_app = sharedPreferences.getBoolean(getString(R.string.pref_key_wait_for_watch_app), true);
+            if (LOGGING) Log.d(TAG, "onSharedPreferenceChanged: always_notify: " + always_notify + " isLocked(): " + isLocked());
         }
     };
     private SharedPreferences sharedPreferences;
@@ -388,6 +389,14 @@ public class AlarmClockWatcher extends NotificationListenerService {
 
         startForeground(NOTIFICATION_SERVICE_ID, notification);
         super.onCreate();
+    }
+
+    public void onListenerConnected() {
+        if (LOGGING) Log.d(TAG, "Alarmist listener connected.");
+    }
+
+    public void onListenerDisconnected() {
+        if (LOGGING) Log.d(TAG, "Alarmist listener disconnected.");
     }
 
     private final IBinder settingsBinder = new SettingsBinder();
