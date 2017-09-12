@@ -4,11 +4,14 @@ import android.app.AlarmManager;
 import android.app.KeyguardManager;
 import android.app.Notification;
 import android.app.PendingIntent;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
+import android.content.ComponentName;
 import android.os.Binder;
 import android.os.Handler;
 import android.os.IBinder;
@@ -35,6 +38,8 @@ import java.util.UUID;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import static android.app.NotificationManager.IMPORTANCE_DEFAULT;
+import static android.app.NotificationManager.IMPORTANCE_MIN;
 import static java.util.Calendar.DAY_OF_WEEK;
 
 //See https://android.googlesource.com/platform/packages/apps/DeskClock/+/master/src/com/android/deskclock/alarms/AlarmNotifications.java
@@ -47,6 +52,7 @@ public class AlarmClockWatcher extends NotificationListenerService {
     static final int KEY_NEW_ALARM = 2;
     static final String DESK_CLOCK_GOOGLE = "com.google.android.deskclock";
     static final String DESK_CLOCK = "com.android.deskclock";
+    static final String BETTER_ALARM = "com.better.alarm";
     public static final String EXTRA_SETTINGS_BIND = "BINDING_FROM_SETTINGS";
     private static final String TAG = "AlarmistNLS";
     private static final int KEY_WATCH_APP_HAS_STARTED = 7;
@@ -54,8 +60,13 @@ public class AlarmClockWatcher extends NotificationListenerService {
     private static final int KEY_HOUR = 21;
     private static final int KEY_MINUTE = 22;
     private static final int KEY_RECURSION = 23;
+    private static final int NOTIFICATION_SERVICE_ID = 1;
     static final short RECURSION_NONE = 0;
     static final short RECURSION_WEEKLY = 1;
+    static final String ALARMIST_DEFAULT_CHANNEL = "Alarmist Default";
+    static final String ALARMIST_SERVICE_CHANNEL = "Alarmist Service";
+    private NotificationChannel notify_channel = new NotificationChannel (ALARMIST_DEFAULT_CHANNEL, "Alarmist", IMPORTANCE_DEFAULT);
+    private NotificationChannel service_notify_channel = new NotificationChannel (ALARMIST_SERVICE_CHANNEL, "Alarmist Service", IMPORTANCE_MIN);
     private final FinalInt tId = new FinalInt();
     private final PebbleKit.PebbleNackReceiver pebbleNackReceiver = new PebbleKit.PebbleNackReceiver(WATCHAPP_UUID) {
         @Override
@@ -72,6 +83,11 @@ public class AlarmClockWatcher extends NotificationListenerService {
     private final BroadcastReceiver alarmManagerReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
+            if (LOGGING) {
+                String action = intent.getAction();
+                Log.i(TAG, "Received intent:" + action);
+            }
+
             checkAlarmManager();
             if(LOGGING)Log.i(TAG, nextAlarm == null ? "no alarm" : nextAlarm.toString());
         }
@@ -112,10 +128,11 @@ public class AlarmClockWatcher extends NotificationListenerService {
                 final String[] currentIds = dismissAlarm.keySet().toArray(new String[dismissAlarm.size()]);
                 for(String key : currentIds) {
                     final RingingAlarm ringingAlarm = dismissAlarm.get(key);
-                    if(LOGGING)Log.d(TAG, "Found notification to show");
+                    if(LOGGING)Log.d(TAG, "Found notification to show (" + key + ")");
                     String newNotificationKey = ringingAlarm.showNotification(context);
                     // If was waiting for app to start to show notification
                     if(newNotificationKey != null) {
+                        if (LOGGING) Log.d(TAG, "Adding " + newNotificationKey + " to dismissAlarm.");
                         dismissAlarm.put(newNotificationKey, ringingAlarm);
                     }
                 }
@@ -206,6 +223,7 @@ public class AlarmClockWatcher extends NotificationListenerService {
             if(LOGGING)Log.d(TAG, String.format("Pref changed: %s", key));
             always_notify = sharedPreferences.getBoolean(getString(R.string.pref_key_notif_always), false);
             wait_for_watch_app = sharedPreferences.getBoolean(getString(R.string.pref_key_wait_for_watch_app), true);
+            if (LOGGING) Log.d(TAG, "onSharedPreferenceChanged: always_notify: " + always_notify + " isLocked(): " + isLocked());
         }
     };
     private SharedPreferences sharedPreferences;
@@ -221,7 +239,7 @@ public class AlarmClockWatcher extends NotificationListenerService {
             final String creatorPackage = alarmIntent != null
                     ? alarmIntent.getCreatorPackage()
                     : null;
-            if (creatorPackage != null && (creatorPackage.equals(DESK_CLOCK) || creatorPackage.equals(DESK_CLOCK_GOOGLE))) {
+            if (creatorPackage != null && (creatorPackage.equals(DESK_CLOCK) || creatorPackage.equals(DESK_CLOCK_GOOGLE) || creatorPackage.equals(BETTER_ALARM))) {
                 final long triggerTime = nextClock.getTriggerTime();
 
                 if(alarmByTrigger.containsKey(triggerTime)) {
@@ -257,6 +275,7 @@ public class AlarmClockWatcher extends NotificationListenerService {
         final CharSequence title = notification.extras.getCharSequence(Notification.EXTRA_TITLE);
         final CharSequence message = notification.extras.getCharSequence(Notification.EXTRA_TEXT);
         if (title != null) {
+            if (LOGGING) Log.d(TAG, "Alarm title '" + title + "', message '" + message + "'");
             if (title.equals(getString(R.string.alarm_alert_predismiss_title))) {
                 return AlarmState.UPCOMING;
             } else if (message != null && message.equals(getString(R.string.timer_times_up))) {
@@ -268,9 +287,15 @@ public class AlarmClockWatcher extends NotificationListenerService {
                         return AlarmState.UNKNOWN;
                 }
             } else if (notification.actions != null && notification.actions.length > 0) {
+                // Google DeskClock, SNOOZE / DISMISS.
                 if (notification.actions.length == 2
                         && notification.actions[0].title.equals(getString(R.string.alarm_alert_snooze_text))
                         && notification.actions[1].title.equals(getString(R.string.alarm_alert_dismiss_text))) {
+                    return AlarmState.RINGING;
+                // SimpleAlarmClock (com.better.alarm), SNOOZE / RESCHEDULE / DISMISS
+                } else if (notification.actions.length == 3
+                        && notification.actions[0].title.equals(getString(R.string.alarm_alert_snooze_text))
+                        && notification.actions[2].title.equals(getString(R.string.alarm_alert_dismiss_text))) {
                     return AlarmState.RINGING;
                 } else if (notification.actions.length == 1 && notification.actions[0].title.equals(getString(R.string.alarm_alert_dismiss_text))) {
                     return AlarmState.SNOOZED;
@@ -329,6 +354,7 @@ public class AlarmClockWatcher extends NotificationListenerService {
     @Override
     public void onCreate() {
         if(LOGGING)Log.d(TAG, "Alarmist created");
+        Notification notification;
         dismissAlarm = new HashMap<>();
         this.registerReceiver(alarmManagerReceiver, new IntentFilter("android.app.action.NEXT_ALARM_CLOCK_CHANGED"));
         this.registerReceiver(snoozeReceiver, new IntentFilter(RingingAlarm.SNOOZE_INTENT_ACTION));
@@ -336,7 +362,41 @@ public class AlarmClockWatcher extends NotificationListenerService {
         PebbleKit.registerReceivedNackHandler(this, pebbleNackReceiver);
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         sharedPreferences.registerOnSharedPreferenceChangeListener(preferenceChangeListener);
+
+        always_notify = sharedPreferences.getBoolean(getString(R.string.pref_key_notif_always), false);
+        wait_for_watch_app = sharedPreferences.getBoolean(getString(R.string.pref_key_wait_for_watch_app), false);
+
+        if (LOGGING) Log.d(TAG, "onCreate: always_notify: " + always_notify + " isLocked(): " + isLocked());
+
+        final Context ctx = this;
+
+        NotificationManager notify = (NotificationManager) ctx.getSystemService(Context.NOTIFICATION_SERVICE);
+
+        service_notify_channel.enableLights(false);
+        service_notify_channel.enableVibration(false);
+        service_notify_channel.setBypassDnd(false);
+        service_notify_channel.setShowBadge(true);
+        service_notify_channel.setImportance(IMPORTANCE_MIN);
+        notify.createNotificationChannel(notify_channel);
+        notify.createNotificationChannel(service_notify_channel);
+
+        notification = new Notification.Builder(ctx, ALARMIST_SERVICE_CHANNEL)
+                .setContentTitle("Alarmist")
+                .setContentText("Alarmist notification service.")
+                .setTicker("Alarmist")
+                .setSmallIcon(R.drawable.stat_notify_alarm)
+                .build();
+
+        startForeground(NOTIFICATION_SERVICE_ID, notification);
         super.onCreate();
+    }
+
+    public void onListenerConnected() {
+        if (LOGGING) Log.d(TAG, "Alarmist listener connected.");
+    }
+
+    public void onListenerDisconnected() {
+        if (LOGGING) Log.d(TAG, "Alarmist listener disconnected.");
     }
 
     private final IBinder settingsBinder = new SettingsBinder();
@@ -348,7 +408,15 @@ public class AlarmClockWatcher extends NotificationListenerService {
     }
     @Override
     public IBinder onBind(Intent intent) {
-        if(LOGGING)Log.v(TAG, "Alarmist bound");
+        if (LOGGING) {
+            String action = intent.getAction();
+            if (SERVICE_INTERFACE.equals(action)) {
+                Log.v(TAG, "Alarmist bound by system: " + action);
+            } else {
+                Log.v(TAG, "Alarmist bound by application: " + action);
+            }
+        }
+
         if(intent.hasExtra(EXTRA_SETTINGS_BIND))
             return settingsBinder;
         return super.onBind(intent);
@@ -384,7 +452,7 @@ public class AlarmClockWatcher extends NotificationListenerService {
 
         if(!hasRetrievedExistingNotifications) sendingLocked = true;
 
-        if (packageName.equals(DESK_CLOCK) || packageName.equals(DESK_CLOCK_GOOGLE)) {
+        if (packageName.equals(DESK_CLOCK) || packageName.equals(DESK_CLOCK_GOOGLE) || packageName.equals(BETTER_ALARM)) {
             final Notification notification = sbn.getNotification();
             final CharSequence title = notification.extras.getCharSequence(Notification.EXTRA_TITLE);
             final CharSequence message = notification.extras.getCharSequence(Notification.EXTRA_TEXT);
@@ -401,13 +469,19 @@ public class AlarmClockWatcher extends NotificationListenerService {
 
             AlarmState type = alarmType(notification);
             if (type == AlarmState.UPCOMING) {// Upcoming alarm
+                if (LOGGING) Log.i(TAG, "Upcoming alarm.");
                 onUpcomingAlarmNotification(sbn, notification, message);
             } else if (type == AlarmState.SNOOZED) {
+                if (LOGGING) Log.i(TAG, "Snoozed alarm.");
                 onSnoozedAlarmNotification(sbn, notification, title, message);
             } else if (type == AlarmState.RINGING) {
+                if (LOGGING) Log.i(TAG, "Ringing alarm.");
                 onRingingAlarmNotification(notification);
             } else if (type == AlarmState.TIMER_END) {
+                if (LOGGING) Log.i(TAG, "Timer end alarm.");
                 onTimerEndNotification(notification);
+            } else {
+                if (LOGGING) Log.i(TAG, "Unknown alarm.");
             }
         }
 
@@ -424,16 +498,21 @@ public class AlarmClockWatcher extends NotificationListenerService {
     }
 
     private void onSomethingRinging(Notification notification, RingingAlarm.AlarmType type) {
+        Log.d(TAG, "onSomethingRinging: always_notify: " + always_notify + " isLocked(): " + isLocked());
         if (always_notify || isLocked()) {
+            if (LOGGING) Log.d(TAG, "onSomethingRinging");
             RingingAlarm ringingAlarm = new RingingAlarm(
                     (int) (System.currentTimeMillis() + 1), type, notification, tId);
-            if(wait_for_watch_app)
+            if(wait_for_watch_app) {
+                if (LOGGING) Log.d(TAG, "Launching watch app.");
                 ringingAlarm.launchApp(this);
-            else {
+            } else {
                 if (LOGGING) Log.i(TAG, "oSR: Not starting Pebble app (just sending notification)");
                 String newNotificationKey = ringingAlarm.showNotification(this);
+                if (LOGGING) Log.d(TAG, "Adding " + newNotificationKey + " to dismissAlarm.");
                 dismissAlarm.put(newNotificationKey, ringingAlarm);
             }
+            if (LOGGING) Log.d(TAG, "Adding " + ringingAlarm.getAlarmKeyBeforeNotificationSent() + " to dismissAlarm.");
             dismissAlarm.put(ringingAlarm.getAlarmKeyBeforeNotificationSent(), ringingAlarm);
             updateAlarm(null);
         }
@@ -497,7 +576,7 @@ public class AlarmClockWatcher extends NotificationListenerService {
         }
         if(message == null || title == null) return;
 
-        if (packageName.equals(DESK_CLOCK) || packageName.equals(DESK_CLOCK_GOOGLE)) {
+        if (packageName.equals(DESK_CLOCK) || packageName.equals(DESK_CLOCK_GOOGLE) || packageName.equals(BETTER_ALARM)) {
             AlarmState type = alarmType(notification);
             if(LOGGING)Log.v(TAG, "********** oNR " + type.toString());
             if (type == AlarmState.RINGING) {
@@ -541,7 +620,11 @@ public class AlarmClockWatcher extends NotificationListenerService {
     }
 
     private void refreshNotifications(StatusBarNotification except) {
-        if(hasRetrievedExistingNotifications) return;
+        if (hasRetrievedExistingNotifications) {
+            if (LOGGING) Log.v(TAG, "Skipping refreshNotifications.");
+            return;
+        }
+        if (LOGGING) Log.v(TAG, "Running refreshNotifications.");
         hasRetrievedExistingNotifications = true;
         sendingLocked = true;
         final StatusBarNotification[] activeNotifications = getActiveNotifications();

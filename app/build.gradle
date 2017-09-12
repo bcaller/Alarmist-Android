@@ -1,13 +1,13 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 22
-    buildToolsVersion "23.0.2"
+    compileSdkVersion 26
+    buildToolsVersion "26"
 
     defaultConfig {
         applicationId "caller.alarmist"
         minSdkVersion 21
-        targetSdkVersion 22
+        targetSdkVersion 26
         versionCode 15
         versionName "4.02"
     }

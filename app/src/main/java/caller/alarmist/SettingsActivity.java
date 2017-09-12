@@ -95,7 +95,7 @@ public class SettingsActivity extends Activity {
                         @Override
                         public void run() {
                             NotificationManager notify = (NotificationManager) ctx.getSystemService(Context.NOTIFICATION_SERVICE);
-                            notify.notify(3, new Notification.Builder(ctx)
+                            notify.notify(3, new Notification.Builder(ctx, AlarmClockWatcher.ALARMIST_DEFAULT_CHANNEL)
                                     .setContentTitle("Alarmist test")
                                     .setContentText("Alarmist can send notifications to your Pebble")
                                     .setPriority(Notification.PRIORITY_MAX)
