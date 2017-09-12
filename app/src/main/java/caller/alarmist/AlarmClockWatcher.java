@@ -362,6 +362,11 @@ public class AlarmClockWatcher extends NotificationListenerService {
         sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
         sharedPreferences.registerOnSharedPreferenceChangeListener(preferenceChangeListener);
 
+        always_notify = sharedPreferences.getBoolean(getString(R.string.pref_key_notif_always), false);
+        wait_for_watch_app = sharedPreferences.getBoolean(getString(R.string.pref_key_wait_for_watch_app), false);
+
+        if (LOGGING) Log.d(TAG, "onCreate: always_notify: " + always_notify + " isLocked(): " + isLocked());
+
         final Context ctx = this;
 
         NotificationManager notify = (NotificationManager) ctx.getSystemService(Context.NOTIFICATION_SERVICE);
