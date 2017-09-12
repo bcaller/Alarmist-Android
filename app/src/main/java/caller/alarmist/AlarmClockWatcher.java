@@ -11,6 +11,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
+import android.content.ComponentName;
 import android.os.Binder;
 import android.os.Handler;
 import android.os.IBinder;
@@ -373,6 +374,14 @@ public class AlarmClockWatcher extends NotificationListenerService {
         notify.createNotificationChannel(notify_channel);
         notify.createNotificationChannel(service_notify_channel);
 
+        notification = new Notification.Builder(ctx, ALARMIST_SERVICE_CHANNEL)
+                .setContentTitle("Alarmist")
+                .setContentText("Alarmist notification service.")
+                .setTicker("Alarmist")
+                .setSmallIcon(R.drawable.stat_notify_alarm)
+                .build();
+
+        startForeground(NOTIFICATION_SERVICE_ID, notification);
         super.onCreate();
     }
 
